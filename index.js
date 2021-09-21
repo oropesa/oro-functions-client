@@ -554,8 +554,8 @@ class Ofn {
         Ofn.isNumber( key ) && ( key += '' );
         if( ! Ofn.isString( key ) ) { return {}; }
 
-        return strict ? arr.reduce( ( a, b ) => { return b[ key ] !== undefined ? ({ ...a, [ b[ key ] ]: b }) : { ...a } }, {} )
-                      : arr.reduce( ( a, b ) => ({ ...a, [ b[ key ] ]: b }), {} );
+        return strict ? arr.reduce( ( a, b ) => { return ! Ofn.isNully( b ) && b[ key ] !== undefined ? ({ ...a, [ b[ key ] ]: b }) : { ...a } }, {} )
+                      : arr.reduce( ( a, b ) => { return ! Ofn.isNully( b ) ? ({ ...a, [ b[ key ] ]: b }) : { ...a } }, {} )
     }
 
     // Ofn.arrayValuesByKey( [ { id: 'alpha', name: 'Alpha' }, { id: 'bravo', name: 'Bravo' } ], 'id' );
@@ -565,7 +565,7 @@ class Ofn {
         Ofn.isNumber( key ) && ( key += '' );
         if( ! Ofn.isString( key ) ) { return []; }
 
-        let values = arr.map( obj => obj[ key ] );
+        let values = arr.map( obj => ! Ofn.isNully( obj ) ? obj[ key ] : undefined );
         return ! strict ? values : values.filter( el => el !== undefined );
     }
 
@@ -577,8 +577,8 @@ class Ofn {
         if( ! Ofn.isString( key ) ) { return {}; }
 
         //return strict ? arr.reduce( ( a, b ) => { return b[ key ] !== undefined ? ({ ...a, [ b[ key ] ]: b }) : { ...a } }, {} )
-        return strict ? arr.reduce( ( prev, curr ) => { curr[ key ] && (prev[ curr[ key ] ] = ++prev[ curr[ key ] ] || 1); return prev }, {} )
-                      : arr.reduce( ( prev, curr ) => (prev[ curr[ key ] ] = ++prev[ curr[ key ] ] || 1, prev), {} );
+        return strict ? arr.reduce( ( prev, curr ) => { curr && curr[ key ] && (prev[ curr[ key ] ] = ++prev[ curr[ key ] ] || 1); return prev }, {} )
+                      : arr.reduce( ( prev, curr ) => { curr && (prev[ curr[ key ] ] = ++prev[ curr[ key ] ] || 1); return prev }, {} )
     }
 
     // Ofn.arrayGroupByKey( [ { id: 'alpha', category: 'male' }, { id: 'bravo', category: 'female' } ], 'category' );
@@ -588,8 +588,8 @@ class Ofn {
         Ofn.isNumber( key ) && ( key += '' );
         if( ! Ofn.isString( key ) ) { return {}; }
 
-        return strict ? arr.reduce( ( acc, item ) => { item[ key ] && (acc[ item[ key ] ] = [ ...(acc[ item[ key ] ] || []), item ]); return acc }, {} )
-                      : arr.reduce( ( acc, item ) => ((acc[ item[ key ] ] = [ ...(acc[ item[ key ] ] || []), item ]), acc), {} );
+        return strict ? arr.reduce( ( acc, item ) => { item && item[ key ] && (acc[ item[ key ] ] = [ ...(acc[ item[ key ] ] || []), item ]); return acc }, {} )
+                      : arr.reduce( ( acc, item ) => { item && (acc[ item[ key ] ] = [ ...(acc[ item[ key ] ] || []), item ]); return acc }, {} )
     }
 
     // Ofn.arraySortByKey( [ { id: 'alpha', category: 'male' }, { id: 'bravo', category: 'female' } ], 'category' );
@@ -599,7 +599,8 @@ class Ofn {
         Ofn.isNumber( key ) && ( key += '' );
         if( ! Ofn.isString( key ) ) { return []; }
 
-        return arr.concat().sort( ( a, b ) => ( b[ key ] === undefined ) ? -1 : ( a[ key ] === undefined )? 1 : (a[ key ] > b[ key ]) ? 1 : ((a[ key ] < b[ key ]) ? -1 : 0) );
+        let values = arr.concat().sort( ( a, b ) => ( b[ key ] === undefined ) ? -1 : ( a[ key ] === undefined )? 1 : (a[ key ] > b[ key ]) ? 1 : ((a[ key ] < b[ key ]) ? -1 : 0) );
+        return values.filter( el => ! Ofn.isNully( el ) );
     }
 
     // Ofn.arrayGetUnique( [ 1, 1, 2, 1, 3 ] );

@@ -27,8 +27,18 @@ describe('fn: arrayToObjectByKey', () => {
         let obj = Ofn.arrayToObjectByKey( arr, 'chacho' );
         expect( obj ).toEqual( { true: { label: 'chacho', chacho: true }, undefined: { label: 'loco', loco: 'loco' } } );
     } );
+    test( 'fn: arrayToObjectByKey( arr w undef, key missed )', () => {
+        let arr = [ { label: 'chacho', chacho: true }, undefined, { label: 'loco', loco: 'loco' } ];
+        let obj = Ofn.arrayToObjectByKey( arr, 'chacho' );
+        expect( obj ).toEqual( { true: { label: 'chacho', chacho: true }, undefined: { label: 'loco', loco: 'loco' } } );
+    } );
     test( 'fn: arrayToObjectByKey( arr, key missed, strict )', () => {
         let arr = [ { label: 'chacho', chacho: true }, { label: 'loco', loco: 'loco' } ];
+        let obj = Ofn.arrayToObjectByKey( arr, 'chacho', true );
+        expect( obj ).toEqual( { true: { label: 'chacho', chacho: true } } );
+    } );
+    test( 'fn: arrayToObjectByKey( arr w undefin, key missed, strict )', () => {
+        let arr = [ { label: 'chacho', chacho: true }, undefined, { label: 'loco', loco: 'loco' } ];
         let obj = Ofn.arrayToObjectByKey( arr, 'chacho', true );
         expect( obj ).toEqual( { true: { label: 'chacho', chacho: true } } );
     } );
@@ -52,6 +62,11 @@ describe('fn: arrayValuesByKey', () => {
         let obj = Ofn.arrayValuesByKey( arr, 'chacho', true );
         expect( obj ).toEqual( [ true ] );
     } );
+    test( 'fn: arrayValuesByKey( arr bad, key missed, strict )', () => {
+        let arr = [ { label: 'chacho', chacho: true }, undefined ];
+        let obj = Ofn.arrayValuesByKey( arr, 'chacho', true );
+        expect( obj ).toEqual( [ true ] );
+    } );
 });
 
 describe('fn: arrayCountByKey', () => {
@@ -67,8 +82,18 @@ describe('fn: arrayCountByKey', () => {
         let obj = Ofn.arrayCountByKey( arr, 'chacho' );
         expect( obj ).toEqual( { chacho: 1, undefined: 1, tio: 1 } );
     } );
+    test( 'fn: arrayCountByKey( arr w undef, key missed )', () => {
+        let arr = [ { label: 'chacho', chacho: 'chacho' }, undefined, { label: 'loco', loco: 'loco' }, { label: 'chacho', chacho: 'tio' }, ];
+        let obj = Ofn.arrayCountByKey( arr, 'chacho' );
+        expect( obj ).toEqual( { chacho: 1, undefined: 1, tio: 1 } );
+    } );
     test( 'fn: arrayCountByKey( arr, key missed, strict )', () => {
         let arr = [ { label: 'chacho', chacho: 'chacho' }, { label: 'loco', loco: 'loco' }, { label: 'chacho', chacho: 'tio' }, ];
+        let obj = Ofn.arrayCountByKey( arr, 'chacho', true );
+        expect( obj ).toEqual( { chacho: 1, tio: 1 } );
+    } );
+    test( 'fn: arrayCountByKey( arr w undef, key missed, strict )', () => {
+        let arr = [ { label: 'chacho', chacho: 'chacho' }, undefined, { label: 'loco', loco: 'loco' }, { label: 'chacho', chacho: 'tio' }, ];
         let obj = Ofn.arrayCountByKey( arr, 'chacho', true );
         expect( obj ).toEqual( { chacho: 1, tio: 1 } );
     } );
@@ -87,8 +112,18 @@ describe('fn: arrayGroupByKey', () => {
         let obj = Ofn.arrayGroupByKey( arr, 'chacho' );
         expect( obj ).toEqual( { chacho: [ { label: 'chacho', chacho: 'chacho' } ], tio: [ { label: 'chacho', chacho: 'tio' } ], undefined: [ { label: 'loco', loco: 'loco' } ] } );
     } );
+    test( 'fn: arrayGroupByKey( arr w undef, key missed )', () => {
+        let arr = [ { label: 'chacho', chacho: 'chacho' }, undefined, { label: 'loco', loco: 'loco' }, { label: 'chacho', chacho: 'tio' }, ];
+        let obj = Ofn.arrayGroupByKey( arr, 'chacho' );
+        expect( obj ).toEqual( { chacho: [ { label: 'chacho', chacho: 'chacho' } ], tio: [ { label: 'chacho', chacho: 'tio' } ], undefined: [ { label: 'loco', loco: 'loco' } ] } );
+    } );
     test( 'fn: arrayGroupByKey( arr, key missed, strict )', () => {
         let arr = [ { label: 'chacho', chacho: 'chacho' }, { label: 'loco', loco: 'loco' }, { label: 'chacho', chacho: 'tio' }, ];
+        let obj = Ofn.arrayGroupByKey( arr, 'chacho', true );
+        expect( obj ).toEqual( { chacho: [ { label: 'chacho', chacho: 'chacho' } ], tio: [ { label: 'chacho', chacho: 'tio' } ] } );
+    } );
+    test( 'fn: arrayGroupByKey( arr w undef, key missed, strict )', () => {
+        let arr = [ { label: 'chacho', chacho: 'chacho' }, undefined, { label: 'loco', loco: 'loco' }, { label: 'chacho', chacho: 'tio' }, ];
         let obj = Ofn.arrayGroupByKey( arr, 'chacho', true );
         expect( obj ).toEqual( { chacho: [ { label: 'chacho', chacho: 'chacho' } ], tio: [ { label: 'chacho', chacho: 'tio' } ] } );
     } );
@@ -104,6 +139,11 @@ describe('fn: arraySortByKey', () => {
     } );
     test( 'fn: arraySortByKey( arr, key missed )', () => {
         let arr = [ { label: 'ccc', chacho: 'chacho' }, { label: 'aaa' }, { label: 'bbb', chacho: 'zoquete' } ];
+        let obj = Ofn.arraySortByKey( arr, 'chacho' );
+        expect( obj ).toEqual( [ { label: 'ccc', chacho: 'chacho' }, { label: 'bbb', chacho: 'zoquete' }, { label: 'aaa' } ] );
+    } );
+    test( 'fn: arraySortByKey( arr w undef, key missed )', () => {
+        let arr = [ { label: 'ccc', chacho: 'chacho' }, undefined, { label: 'aaa' }, { label: 'bbb', chacho: 'zoquete' } ];
         let obj = Ofn.arraySortByKey( arr, 'chacho' );
         expect( obj ).toEqual( [ { label: 'ccc', chacho: 'chacho' }, { label: 'bbb', chacho: 'zoquete' }, { label: 'aaa' } ] );
     } );
