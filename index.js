@@ -17,7 +17,10 @@ class Ofn {
 
     // Ofn.type( (new Date()) ); -> "date"
     static type( obj ) {
-        return ({}).toString.call( obj ).match( /\s([a-zA-Z]+)/ )[ 1 ].toLowerCase();
+        let type = ({}).toString.call( obj ).match( /\s([a-zA-Z]+)/ )[ 1 ].toLowerCase();
+        type === 'function' && obj.prototype
+            && Object.getOwnPropertyNames( obj.prototype ).some( m => m === 'constructor' ) && ( type = 'class' );
+        return type;
     }
 
     static isBoolean  ( obj ) { return Ofn.type( obj ) === 'boolean'  ; }
@@ -30,6 +33,7 @@ class Ofn {
     static isUndefined( obj ) { return Ofn.type( obj ) === 'undefined'; }
     static isNull     ( obj ) { return Ofn.type( obj ) === 'null'     ; }
     static isNully    ( obj ) { return [ 'undefined', 'null' ].includes( Ofn.type( obj ) ); }
+    static isClass    ( obj ) { return Ofn.type( obj ) === 'class' }
 
     //endregion
     //region Numbers
@@ -367,6 +371,24 @@ class Ofn {
         const firstCharacter = stack.indexOf( 'at ' ) + 3;
         const lastCharacter = findFirstOccurrence( stack, [ ' ', ':', '\n' ], firstCharacter );
         return stack.slice( firstCharacter, lastCharacter );
+    }
+
+    //endregion
+    //region Classes
+
+    static getClassName( classy ) {
+        if( ! Ofn.isClass( classy ) ) { return ''; }
+        return classy.name;
+    }
+
+    static getClassMethods( classy ) {
+        if( ! Ofn.isClass( classy ) ) { return []; }
+        return Object.getOwnPropertyNames( classy.prototype ).filter( prop => prop !== 'constructor' );
+    }
+
+    static getClassStaticMethods( classy ) {
+        if( ! Ofn.isClass( classy ) ) { return []; }
+        return Object.getOwnPropertyNames( classy ).filter( prop => typeof classy[ prop ] === 'function' );
     }
 
     //endregion

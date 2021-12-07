@@ -74,6 +74,7 @@ describe('fn: type', () => {
     test( 'fn: type( date )'     , () => { expect( Ofn.type( (new Date())      ) ).toBe( 'date'      ); } );
     test( 'fn: type( function )' , () => { expect( Ofn.type( (()=>{})          ) ).toBe( 'function'  ); } );
     test( 'fn: type( regexp )'   , () => { expect( Ofn.type( /([A-Z])\w+/ ) ).toBe( 'regexp'    ); } );
+    test( 'fn: type( class )'    , () => { expect( Ofn.type( Ofn               ) ).toBe( 'class'     ); } );
 });
 
 describe('fn: is(Type)', () => {
@@ -109,5 +110,11 @@ describe('fn: is(Type)', () => {
     test( 'fn: isNully()'      , () => { expect( Ofn.isNully() ).toBe( true ); } );
     test( 'fn: isNully( null )', () => { expect( Ofn.isNully( null ) ).toBe( true ); } );
     test( 'fn: isNully( obj )' , () => { expect( Ofn.isNully( {} ) ).toBe( false ); } );
+
+    test( 'fn: isClass()'        , () => { expect( Ofn.isClass() ).toBe( false ); } );
+    test( 'fn: isClass( null )'  , () => { expect( Ofn.isClass( null ) ).toBe( false ); } );
+    test( 'fn: isClass( obj )'   , () => { expect( Ofn.isClass( {} ) ).toBe( false ); } );
+    test( 'fn: isClass( fn )'    , () => { expect( Ofn.isClass( (()=>{}) ) ).toBe( false ); } );
+    test( 'fn: isClass( class )' , () => { expect( Ofn.isClass( Ofn ) ).toBe( true ); } );
 
 });

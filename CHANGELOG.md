@@ -1,3 +1,10 @@
+## 1.1.0 / 2021-12-07
+* Added _methods_:
+  * `isClass`
+  * `getClassName`
+  * `getClassMethods`
+  * `getClassStaticMethods`
+
 ## 1.0.1 / 2021-09-21
 * Fixed methods (param `array` could have undefined values and them has to been avoided).
   * `arrayToObjectByKey`

@@ -9,6 +9,7 @@ Class Ofn with helper static functions:
 * [Numbers](#numbers)
 * [String](#string)
 * [Functions](#functions)
+* [Classes](#objects)
 * [Objects](#objects)
 * [Arrays](#arrays)
 * [Dates](#dates)
@@ -37,6 +38,7 @@ Ofn.isNumber   ( obj )
 Ofn.isString   ( obj )
 Ofn.isArray    ( obj )
 Ofn.isObject   ( obj )
+Ofn.isClass    ( obj )
 Ofn.isRegexp   ( obj )
 Ofn.isDate     ( obj )
 Ofn.isUndefined( obj )
@@ -127,6 +129,16 @@ Ofn.strDecrypt( str, key = '', iv = '', methodMode = 'AES-256-CBC' )
 await Ofn.sleep( ms )
 
 Ofn.getFunctionName( func = null ) 
+```
+
+### Classes
+
+```js
+Ofn.getClassName( classy )
+
+Ofn.getClassMethods( classy )
+
+Ofn.getClassStaticMethods( classy )
 ```
 
 ### Objects
