@@ -1,3 +1,8 @@
+## 1.2.0 / 2021-12-14
+* Added _method_ `cryptoGenerateKeyPair`.
+* Updated lib `js-base64` to `v3.7.2`.
+* Updated lib `jest` to `v27.4.5`.
+  
 ## 1.1.0 / 2021-12-07
 * Added _methods_:
   * `isClass`

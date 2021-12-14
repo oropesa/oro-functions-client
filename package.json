@@ -1,6 +1,6 @@
 {
   "name": "oro-functions-client",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Class Ofn with helper static functions: General, Numbers, String, Functions, Objects, Arrays, Dates, URLs, Files, PHP Serialize, Response.",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,11 @@
   "homepage": "https://github.com/oropesa/oro-functions-client#readme",
   "dependencies": {
     "crypto-js": "^4.1.1",
-    "js-base64": "^3.6.1",
+    "js-base64": "^3.7.2",
     "oro-php-locutus": "^1.0.0",
     "oro-regexp": "^1.1.0"
   },
   "devDependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.4.5"
   }
 }

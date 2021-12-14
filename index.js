@@ -1,3 +1,4 @@
+const crypto = require( 'crypto' );
 const CryptoJS = require( 'crypto-js' );
 const { Base64 } = require( 'js-base64' );
 const { REGEXP } = require( 'oro-regexp' );
@@ -285,10 +286,6 @@ class Ofn {
         return str;
     }
 
-    static md5( str ) {
-        return Ofn.isNully( str ) ? '' : md5( str );
-    }
-
     // Ofn.splitStringNumber( 'chacho123' ); -> [ 'chacho', '123' ]
     // Ofn.splitStringNumber( '123.456' ); -> [ '123', '.', '456' ]
     // Ofn.splitStringNumber( '123.456', '.' ); -> [ '123', '456' ]
@@ -307,6 +304,13 @@ class Ofn {
 
         let regex = new RegExp( substr, 'g' );
         return (str.match( regex ) || []).length;
+    }
+
+    //endregion
+    //region Crypto
+
+    static md5( str ) {
+        return Ofn.isNully( str ) ? '' : md5( str );
     }
 
     static strEncrypt( str, key = '', iv = '', methodMode = 'AES-256-CBC' ) {
@@ -337,6 +341,37 @@ class Ofn {
         }
 
         return CryptoJS.AES.decrypt( Base64.decode( str + '' ), secretKey, { iv: secretIv, mode } ).toString( CryptoJS.enc.Utf8 );
+    }
+
+    static async cryptoGenerateKeyPair( passphrase = '', options = {} ) {
+        ! Ofn.isObject( options ) && ( options = {} );
+
+        const data = Object.assign( {
+            type: 'rsa', // 'rsa', 'rsa-pss', 'dsa', 'ec', 'ed25519', 'ed448', 'x25519', 'x448', 'dh'.
+            modulusLength: 4096,
+            publicKeyEncodingType: 'spki', // 'pkcs1' (RSA only) or 'spki'.
+            publicKeyEncodingFormat: 'pem', // 'pem', 'der', or 'jwk'.
+            privateKeyEncodingType: 'pkcs8', // 'pkcs1' (RSA only), 'pkcs8' or 'sec1' (EC only).
+            privateKeyEncodingFormat: 'pem', // 'pem', 'der', or 'jwk'.
+            privateKeyEncodingCipher: 'aes-256-cbc', // 'aes-256-cbc', 'des-cbc-sha', 'rc4-128-md5', ...
+        }, Ofn.cloneObject( options ) );
+
+        return new Promise( ( resolve, reject ) =>
+            crypto.generateKeyPair( data.type, {
+                modulusLength: data.modulusLength,
+                publicKeyEncoding: { type: data.publicKeyEncodingType, format: data.publicKeyEncodingFormat },
+                privateKeyEncoding: {
+                    type: data.privateKeyEncodingType,
+                    format: data.privateKeyEncodingFormat,
+                    cipher: data.privateKeyEncodingCipher,
+                    passphrase
+                }
+            }, ( err, publicKey, privateKey ) => {
+                if( err ) { reject( err ); return; }
+
+                return resolve( Ofn.setResponseOK( { publicKey, privateKey } ) );
+            } ) )
+            .catch( err => Ofn.setResponseKO( err.toString() , { err } ) );
     }
 
     //endregion

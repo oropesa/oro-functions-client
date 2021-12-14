@@ -8,6 +8,7 @@ Class Ofn with helper static functions:
 * [General](#general) 
 * [Numbers](#numbers)
 * [String](#string)
+* [Crypto](#crypto)
 * [Functions](#functions)
 * [Classes](#objects)
 * [Objects](#objects)
@@ -111,16 +112,31 @@ Ofn.chunkStringByCharSize( str, char, size, orientation = 'left' )
 
 Ofn.escAttr( str )
 
-Ofn.md5( str )
-
 // Ofn.splitStringNumber( '1.234.567', '.', ); -> [ '1', '234', '567' ]
 Ofn.splitStringNumber( str, sep = '|' )
 
 Ofn.substrCount( str, substr )
+```
+
+### Crypto
+
+```js
+Ofn.md5( str )
 
 Ofn.strEncrypt( str, key = '', iv = '', methodMode = 'AES-256-CBC' )
 
 Ofn.strDecrypt( str, key = '', iv = '', methodMode = 'AES-256-CBC' )
+
+//options = {
+//    type: 'rsa', // 'rsa', 'rsa-pss', 'dsa', 'ec', 'ed25519', 'ed448', 'x25519', 'x448', 'dh'.
+//    modulusLength: 4096,
+//    publicKeyEncodingType: 'spki', // 'pkcs1' (RSA only) or 'spki'.
+//    publicKeyEncodingFormat: 'pem', // 'pem', 'der', or 'jwk'.
+//    privateKeyEncodingType: 'pkcs8', // 'pkcs1' (RSA only), 'pkcs8' or 'sec1' (EC only).
+//    privateKeyEncodingFormat: 'pem', // 'pem', 'der', or 'jwk'.
+//    privateKeyEncodingCipher: 'aes-256-cbc', // 'aes-256-cbc', 'des-cbc-sha', 'rc4-128-md5', ...
+//}
+await Ofn.cryptoGenerateKeyPair( passphrase = '', options = {} )
 ```
 
 ### Functions
