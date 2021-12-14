@@ -349,9 +349,9 @@ class Ofn {
         const data = Object.assign( {
             type: 'rsa', // 'rsa', 'rsa-pss', 'dsa', 'ec', 'ed25519', 'ed448', 'x25519', 'x448', 'dh'.
             modulusLength: 4096,
-            publicKeyEncodingType: 'spki', // 'pkcs1' (RSA only) or 'spki'.
+            publicKeyEncodingType: 'pkcs1', // 'pkcs1' (RSA only) or 'spki'.
             publicKeyEncodingFormat: 'pem', // 'pem', 'der', or 'jwk'.
-            privateKeyEncodingType: 'pkcs8', // 'pkcs1' (RSA only), 'pkcs8' or 'sec1' (EC only).
+            privateKeyEncodingType: 'pkcs1', // 'pkcs1' (RSA only), 'pkcs8' or 'sec1' (EC only).
             privateKeyEncodingFormat: 'pem', // 'pem', 'der', or 'jwk'.
             privateKeyEncodingCipher: 'aes-256-cbc', // 'aes-256-cbc', 'des-cbc-sha', 'rc4-128-md5', ...
         }, Ofn.cloneObject( options ) );
@@ -369,7 +369,7 @@ class Ofn {
             }, ( err, publicKey, privateKey ) => {
                 if( err ) { reject( err ); return; }
 
-                return resolve( Ofn.setResponseOK( { publicKey, privateKey } ) );
+                return resolve( Ofn.setResponseOK( { passphrase, publicKey, privateKey } ) );
             } ) )
             .catch( err => Ofn.setResponseKO( err.toString() , { err } ) );
     }

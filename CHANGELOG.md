@@ -1,3 +1,6 @@
+## 1.2.1 / 2021-12-14
+* Updated _method_ `cryptoGenerateKeyPair`, giving as default `RSA PUBLIC KEY`, `RSA PRIVATE KEY`, and `response.passphrase`.
+
 ## 1.2.0 / 2021-12-14
 * Added _method_ `cryptoGenerateKeyPair`.
 * Updated lib `js-base64` to `v3.7.2`.

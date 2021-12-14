@@ -26,8 +26,9 @@ describe('fn: cryptoGenerateKeyPair', () => {
         let response = await Ofn.cryptoGenerateKeyPair();
 
         expect( response.status ).toBe( true );
-        expect( response.publicKey.split( `\n` )[ 0 ] ).toBe( '-----BEGIN PUBLIC KEY-----' );
-        expect( response.privateKey.split( `\n` )[ 0 ] ).toBe( '-----BEGIN ENCRYPTED PRIVATE KEY-----' );
+        expect( response.passphrase ).toBe( '' );
+        expect( response.publicKey.split( `\n` )[ 0 ] ).toBe( '-----BEGIN RSA PUBLIC KEY-----' );
+        expect( response.privateKey.split( `\n` )[ 0 ] ).toBe( '-----BEGIN RSA PRIVATE KEY-----' );
     } );
 
     test( 'fn: cryptoGenerateKeyPair( bad options )', async () => {
