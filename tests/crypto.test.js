@@ -20,22 +20,3 @@ describe('fn: strDecrypt', () => {
     test( 'fn: strDecrypt( str, key )'    , () => { expect( Ofn.strDecrypt( 'NlBSTGRnb3JZSWZlMFEwQUl2R1lwQT09', 'loco' ) ).toBe( 'chacho'); } );
     test( 'fn: strDecrypt( str, key, iv )', () => { expect( Ofn.strDecrypt( 'OUhyOFAyeGdQMWExdUFlY253ejczQT09', 'loco', 'tio' ) ).toBe( 'chacho'); } );
 });
-
-describe('fn: cryptoGenerateKeyPair', () => {
-    test( 'fn: cryptoGenerateKeyPair( undefined )', async () => {
-        let response = await Ofn.cryptoGenerateKeyPair();
-
-        expect( response.status ).toBe( true );
-        expect( response.passphrase ).toBe( '' );
-        expect( response.publicKey.split( `\n` )[ 0 ] ).toBe( '-----BEGIN RSA PUBLIC KEY-----' );
-        expect( response.privateKey.split( `\n` )[ 0 ] ).toBe( '-----BEGIN RSA PRIVATE KEY-----' );
-    } );
-
-    test( 'fn: cryptoGenerateKeyPair( bad options )', async () => {
-        let response = await Ofn.cryptoGenerateKeyPair( '', { publicKeyEncodingType: 'chacho' } );
-
-        expect( response.status ).toBe( false );
-        expect( response.error.msg ).toBe(
-            'TypeError [ERR_INVALID_OPT_VALUE]: The value "chacho" is invalid for option "publicKeyEncoding.type"' );
-    } );
-});

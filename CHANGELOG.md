@@ -1,3 +1,6 @@
+## 1.3.0 / 2021-12-17
+* Deleted _method_ `cryptoGenerateKeyPair` and moved to `oro-functions` because it breaks in _front frameworks_ like `Vue`.
+
 ## 1.2.1 / 2021-12-14
 * Updated _method_ `cryptoGenerateKeyPair`, giving as default `RSA PUBLIC KEY`, `RSA PRIVATE KEY`, and `response.passphrase`.
 
