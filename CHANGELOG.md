@@ -1,3 +1,6 @@
+## 1.3.1 / 2021-12-28
+* Updated _method_ `arraySortByKey` adding the third param `sortArray`.
+
 ## 1.3.0 / 2021-12-17
 * Deleted _method_ `cryptoGenerateKeyPair` and moved to `oro-functions` because it breaks in _front frameworks_ like `Vue`.
 

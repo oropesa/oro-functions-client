@@ -147,6 +147,21 @@ describe('fn: arraySortByKey', () => {
         let obj = Ofn.arraySortByKey( arr, 'chacho' );
         expect( obj ).toEqual( [ { label: 'ccc', chacho: 'chacho' }, { label: 'bbb', chacho: 'zoquete' }, { label: 'aaa' } ] );
     } );
+    test( 'fn: arraySortByKey( arr w undef, key missed, sortArray )', () => {
+        let arr = [ { label: 'ccc', chacho: 'chacho' }, undefined, { label: 'aaa' }, { label: 'bbb', chacho: 'zoquete' } ];
+        let obj = Ofn.arraySortByKey( arr, 'chacho', [ 'zoquete', 'chacho' ] );
+        expect( obj ).toEqual( [ { label: 'bbb', chacho: 'zoquete' }, { label: 'ccc', chacho: 'chacho' }, { label: 'aaa' } ] );
+    } );
+    test( 'fn: arraySortByKey( arr w undef, key missed, sortArray missed )', () => {
+        let arr = [ { label: 'ccc', chacho: 'chacho' }, undefined, { label: 'aaa' }, { label: 'bbb', chacho: 'zoquete' } ];
+        let obj = Ofn.arraySortByKey( arr, 'chacho', [ 'zoquete' ] );
+        expect( obj ).toEqual( [ { label: 'bbb', chacho: 'zoquete' }, { label: 'ccc', chacho: 'chacho' }, { label: 'aaa' } ] );
+    } );
+    test( 'fn: arraySortByKey( arr w undef, key missed, sortArray empty )', () => {
+        let arr = [ { label: 'ccc', chacho: 'chacho' }, undefined, { label: 'aaa' }, { label: 'bbb', chacho: 'zoquete' } ];
+        let obj = Ofn.arraySortByKey( arr, 'chacho', [] );
+        expect( obj ).toEqual( [ { label: 'ccc', chacho: 'chacho' }, { label: 'bbb', chacho: 'zoquete' }, { label: 'aaa' } ] );
+    } );
 });
 
 describe('fn: arrayGetUnique', () => {

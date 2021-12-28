@@ -213,7 +213,7 @@ Ofn.arrayGroupByKey( arr, key, strict = false )
 
 // Ofn.arraySortByKey( [ { id: 'alpha', category: 'male' }, { id: 'bravo', category: 'female' } ], 'category' );
 // -> [ { id: 'bravo', category: 'female' }, { id: 'alpha', category: 'male' } ]
-Ofn.arraySortByKey( arr, key )
+Ofn.arraySortByKey( arr, key, sortArray )
 
 // Ofn.arrayGetUnique( [ 1, 1, 2, 1, 3 ] ); -> [ 1, 2, 3 ]
 Ofn.arrayGetUnique( arr )
