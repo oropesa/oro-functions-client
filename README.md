@@ -234,8 +234,9 @@ Ofn.arraysDifferenceAll( arr1, arr2, ... )
 const date = new Date( '2021-08-13 10:57:34' );
 const dateObj = {
     iso: '2021-08-13T09:57:34.000Z',
-    // 'local' depends of the client is globally located
+    // 'local' and 'timezone' by default depends of where is the device globally located
     local: '2021-08-13T10:57:34.000Z', 
+    timezone: 'Atlantic/Canary',
     sep: '/',
     year: '2021',
     month: '08',
@@ -256,19 +257,21 @@ const dateObj = {
     weekday: 5,
     monthdays: 31,
     timestamp: 1628848654000,
-    jsdate: date,
+    jsdate: new Date( date )
 };
 ```
 ```js
-Ofn.dateObjByToday( sep = '/' )
+//opts = { sep: '/', timezone: 'DEFAULT USER LOCALE' }
 
-Ofn.dateObjByTimestamp( timestamp, sep = '/' )
+Ofn.dateObjByToday( opts = {} )
 
-Ofn.dateObjBySql( sqldate, sep = '/' )
+Ofn.dateObjByTimestamp( timestamp, opts = {} )
 
-Ofn.dateObjByHtml( html, sep = '/' )
+Ofn.dateObjBySql( sqldate, opts = {} )
 
-Ofn.dateObjByDate( date, sep = '/' )
+Ofn.dateObjByHtml( html, opts = {} )
+
+Ofn.dateObjByDate( date, opts = {} )
 
 Ofn.dateObjPlusDays( date, days )
 

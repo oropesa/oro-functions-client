@@ -1,3 +1,7 @@
+## 1.3.1 / 2021-12-10
+* Updated _methods_ `dateObjByToday`, `dateObjByTimestamp`, `dateObjBySql`, `dateObjByHtml`, `dateObjByDate` changing second params as `opts`, allowing `{ sep, timezone }`.
+* Updated _method_ `dateObjByDate` adding in `dateObj` the properties `timezone`, `sqldatetimeIso`. 
+
 ## 1.3.1 / 2021-12-28
 * Updated _method_ `arraySortByKey` adding the third param `sortArray`.
 
