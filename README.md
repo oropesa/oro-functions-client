@@ -261,7 +261,7 @@ const dateObj = {
 };
 ```
 ```js
-//opts = { sep: '/', timezone: 'DEFAULT USER LOCALE' }
+//opts = { sep: '/' }
 
 Ofn.dateObjByToday( opts = {} )
 

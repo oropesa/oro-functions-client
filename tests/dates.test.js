@@ -5,7 +5,6 @@ let date = new Date( '2021-08-13 10:57:34' );
 const dateObj = {
     iso: '2021-08-13T09:57:34.000Z',
     local: '2021-08-13T10:57:34.000Z', // this could change, depend of the tester is globally located
-    timezone: 'Atlantic/Canary', // this could change, depend of the tester is globally located
     sep: '/',
     year: '2021',
     month: '08',
@@ -33,7 +32,6 @@ const dateObj = {
 const dateObjSep = {
     iso: '2021-08-13T09:57:34.000Z',
     local: '2021-08-13T10:57:34.000Z', // this could change, depend of the tester is globally located
-    timezone: 'Atlantic/Canary', // this could change, depend of the tester is globally located
     sep: '-',
     year: '2021',
     month: '08',
@@ -58,99 +56,11 @@ const dateObjSep = {
     jsdate: date,
 }
 
-const dateObjUTC = {
-    iso: '2021-08-13T09:57:34.000Z',
-    local: '2021-08-13T09:57:34.000Z',
-    timezone: 'UTC',
-    sep: '/',
-    year: '2021',
-    month: '08',
-    day: '13',
-    hour: '09',
-    minute: '57',
-    second: '34',
-    time: '09:57',
-    times: '09:57:34',
-    date: '13/08/2021',
-    datetime: '13/08/2021 09:57',
-    datetimes: '13/08/2021 09:57:34',
-    sqldate: '2021-08-13',
-    sqldatetime: '2021-08-13 09:57:34',
-    sqldatetimeIso: '2021-08-13 09:57:34',
-    fulldate: '13/08/2021 09:57:34',
-    fulldateStart: '13/08/2021 00:00:00',
-    fulldateEnd: '13/08/2021 23:59:59',
-    weekday: 5,
-    monthdays: 31,
-    timestamp: 1628848654000,
-    jsdate: date,
-};
-
-const dateObjMadrid = {
-    iso: '2021-08-13T09:57:34.000Z',
-    local: '2021-08-13T11:57:34.000Z',
-    timezone: 'Europe/Madrid',
-    sep: '/',
-    year: '2021',
-    month: '08',
-    day: '13',
-    hour: '11',
-    minute: '57',
-    second: '34',
-    time: '11:57',
-    times: '11:57:34',
-    date: '13/08/2021',
-    datetime: '13/08/2021 11:57',
-    datetimes: '13/08/2021 11:57:34',
-    sqldate: '2021-08-13',
-    sqldatetime: '2021-08-13 11:57:34',
-    sqldatetimeIso: '2021-08-13 09:57:34',
-    fulldate: '13/08/2021 11:57:34',
-    fulldateStart: '13/08/2021 00:00:00',
-    fulldateEnd: '13/08/2021 23:59:59',
-    weekday: 5,
-    monthdays: 31,
-    timestamp: 1628848654000,
-    jsdate: date,
-};
-
-const dateObjHonolulu = {
-    iso: '2021-08-13T09:57:34.000Z',
-    local: '2021-08-12T23:57:34.000Z',
-    timezone: 'Pacific/Honolulu',
-    sep: '/',
-    year: '2021',
-    month: '08',
-    day: '12',
-    hour: '23',
-    minute: '57',
-    second: '34',
-    time: '23:57',
-    times: '23:57:34',
-    date: '12/08/2021',
-    datetime: '12/08/2021 23:57',
-    datetimes: '12/08/2021 23:57:34',
-    sqldate: '2021-08-12',
-    sqldatetime: '2021-08-12 23:57:34',
-    sqldatetimeIso: '2021-08-13 09:57:34',
-    fulldate: '12/08/2021 23:57:34',
-    fulldateStart: '12/08/2021 00:00:00',
-    fulldateEnd: '12/08/2021 23:59:59',
-    weekday: 5,
-    monthdays: 31,
-    timestamp: 1628848654000,
-    jsdate: date,
-};
-
 describe('fn: dateObjByDate', () => {
     test( 'fn: dateObjByDate( undefined )', () => { expect( Ofn.dateObjByDate() ).toBe( null ); } );
     test( 'fn: dateObjByDate( date )'     , () => { expect( Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ) ) ).toEqual( dateObj ); } );
     test( 'fn: dateObjByDate( date, sep )', () => { expect( Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ), '-' ) ).toEqual( dateObjSep ); } );
     test( 'fn: dateObjByDate( date, { sep } )', () => { expect( Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ), { sep: '-' } ) ).toEqual( dateObjSep ); } );
-    test( 'fn: dateObjByDate( date, { timezone bad } )', () => { expect( Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ), { timezone: 'chacho' } ) ).toEqual( null ); } );
-    test( 'fn: dateObjByDate( date, { timezone utc } )', () => { expect( Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ), { timezone: 'UTC' } ) ).toEqual( dateObjUTC ); } );
-    test( 'fn: dateObjByDate( date, { timezone madrid } )', () => { expect( Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ), { timezone: 'Europe/Madrid' } ) ).toEqual( dateObjMadrid ); } );
-    test( 'fn: dateObjByDate( date, { timezone honolulu } )', () => { expect( Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ), { timezone: 'Pacific/Honolulu' } ) ).toEqual( dateObjHonolulu ); } );
 });
 
 describe('fn: dateObjBySql', () => {
@@ -159,7 +69,6 @@ describe('fn: dateObjBySql', () => {
     test( 'fn: dateObjBySql( str )'      , () => { expect( Ofn.dateObjBySql( '2021-08-13 10:57:34' ) ).toEqual( dateObj ); } );
     test( 'fn: dateObjBySql( str, sep )' , () => { expect( Ofn.dateObjBySql( '2021-08-13 10:57:34', '-' ) ).toEqual( dateObjSep ); } );
     test( 'fn: dateObjBySql( str, { sep } )' , () => { expect( Ofn.dateObjBySql( '2021-08-13 10:57:34', { sep: '-' } ) ).toEqual( dateObjSep ); } );
-    test( 'fn: dateObjBySql( str, { timezone madrid } )' , () => { expect( Ofn.dateObjBySql( '2021-08-13 10:57:34', { timezone: 'Europe/Madrid' } ) ).toEqual( dateObjMadrid ); } );
 });
 
 describe('fn: dateObjByHtml', () => {
@@ -168,7 +77,6 @@ describe('fn: dateObjByHtml', () => {
     test( 'fn: dateObjByHtml( str )'      , () => { expect( Ofn.dateObjByHtml( '13/08/2021 10:57:34' ) ).toEqual( dateObj ); } );
     test( 'fn: dateObjByHtml( str, sep )' , () => { expect( Ofn.dateObjByHtml( '13-08-2021 10:57:34', '-' ) ).toEqual( dateObjSep ); } );
     test( 'fn: dateObjByHtml( str, { sep } )' , () => { expect( Ofn.dateObjByHtml( '13-08-2021 10:57:34', { sep: '-' } ) ).toEqual( dateObjSep ); } );
-    test( 'fn: dateObjByHtml( str, { timezone madrid } )' , () => { expect( Ofn.dateObjByHtml( '13/08/2021 10:57:34', { timezone: 'Europe/Madrid' } ) ).toEqual( dateObjMadrid ); } );
 });
 
 describe('fn: dateObjByTimestamp', () => {
@@ -177,7 +85,6 @@ describe('fn: dateObjByTimestamp', () => {
     test( 'fn: dateObjByTimestamp( int )'      , () => { expect( Ofn.dateObjByTimestamp( 1628848654000 ) ).toEqual( dateObj ); } );
     test( 'fn: dateObjByTimestamp( int, sep )' , () => { expect( Ofn.dateObjByTimestamp( 1628848654000, '-' ) ).toEqual( dateObjSep ); } );
     test( 'fn: dateObjByTimestamp( int, { sep } )' , () => { expect( Ofn.dateObjByTimestamp( 1628848654000, { sep: '-' } ) ).toEqual( dateObjSep ); } );
-    test( 'fn: dateObjByTimestamp( int, { timezone madrid } )' , () => { expect( Ofn.dateObjByTimestamp( 1628848654000, { timezone: 'Europe/Madrid' } ) ).toEqual( dateObjMadrid ); } );
 });
 
 describe('fn: dateObjByToday', () => {
@@ -205,16 +112,6 @@ describe('fn: dateObjByToday', () => {
         let dateBefore = Ofn.dateObjByDate( new Date(), { sep: '-' } );
         let dateObj = Ofn.dateObjByToday( { sep: '-' } );
         let dateAfter = Ofn.dateObjByDate( new Date(), { sep: '-' } );
-
-        expect( dateObj.date ).toBe( dateBefore.date );
-        expect( dateObj.date ).toBe( dateAfter.date );
-        expect( dateObj.timestamp ).toBeGreaterThanOrEqual( dateBefore.timestamp );
-        expect( dateObj.timestamp ).toBeLessThanOrEqual( dateAfter.timestamp );
-    } );
-    test( 'fn: dateObjByToday( { timezones } )', () => {
-        let dateBefore = Ofn.dateObjByDate( new Date(), { timezone: 'UTC' } );
-        let dateObj = Ofn.dateObjByToday( { timezone: 'Europe/Madrid' } );
-        let dateAfter = Ofn.dateObjByDate( new Date(), { sep: { timezone: 'Pacific/Honolulu' } } );
 
         expect( dateObj.date ).toBe( dateBefore.date );
         expect( dateObj.date ).toBe( dateAfter.date );

@@ -1,4 +1,7 @@
-## 1.3.1 / 2021-12-10
+## 1.3.3 / 2021-12-10
+* Fixed in _method_ `dateObjByDate` removing `dateObj.timezone` for bad implementation.
+
+## 1.3.2 / 2021-12-10
 * Updated _methods_ `dateObjByToday`, `dateObjByTimestamp`, `dateObjBySql`, `dateObjByHtml`, `dateObjByDate` changing second params as `opts`, allowing `{ sep, timezone }`.
 * Updated _method_ `dateObjByDate` adding in `dateObj` the properties `timezone`, `sqldatetimeIso`. 
 
