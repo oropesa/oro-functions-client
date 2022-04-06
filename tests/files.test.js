@@ -3,7 +3,7 @@ const Ofn = require( '../index' );
 describe('fn: getFilenameExtByName', () => {
     test( 'fn: getFilenameExtByName( undefined )'  , () => { expect( Ofn.getFilenameExtByName() ).toBe( '' ); } );
     test( 'fn: getFilenameExtByName( str )'        , () => { expect( Ofn.getFilenameExtByName( 'chacho.pdf' ) ).toBe( 'pdf' ); } );
-    test( 'fn: getFilenameExtByName( str w/o dot )', () => { expect( Ofn.getFilenameExtByName( 'chacho' ) ).toBe( 'chacho' ); } );
+    test( 'fn: getFilenameExtByName( str w/o dot )', () => { expect( Ofn.getFilenameExtByName( 'chacho' ) ).toBe( '' ); } );
     test( 'fn: getFilenameExtByName( path )'       , () => { expect( Ofn.getFilenameExtByName( 'C:/tmp/.htaccess' ) ).toBe( 'htaccess' ); } );
 });
 

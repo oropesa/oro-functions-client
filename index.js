@@ -1062,7 +1062,7 @@ class Ofn {
         if( ! Ofn.isString( filenameOrPath ) ) { return ''; }
 
         let filename = Ofn.getFilenameByPath( filenameOrPath );
-        return filename.split( '.' ).pop();
+        return filename.indexOf( '.' ) === -1 ? '' : filename.split( '.' ).pop();
     }
 
     static getFilenameWOutExtByName( filenameOrPath ) {

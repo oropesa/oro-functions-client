@@ -1,3 +1,6 @@
+## 1.3.4 / 2022-04-06
+* Fixed in _method_ `getFilenameExtByName` when `filename` hasn't dot `.`, return empty string `''` because there is no _extension_.
+
 ## 1.3.3 / 2021-12-10
 * Fixed in _method_ `dateObjByDate` removing `dateObj.timezone` for bad implementation.
 
