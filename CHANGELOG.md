@@ -1,10 +1,14 @@
+## 1.3.5 / 2022-05-25
+* Fixed _method_ `getFunctionName` getting name as _error message_ of `captureStackTrace`
+* Updated lib-dev `jest` to `v28.1.0`.
+
 ## 1.3.4 / 2022-04-06
 * Fixed in _method_ `getFilenameExtByName` when `filename` hasn't dot `.`, return empty string `''` because there is no _extension_.
 
-## 1.3.3 / 2021-12-10
+## 1.3.3 / 2022-03-10
 * Fixed in _method_ `dateObjByDate` removing `dateObj.timezone` for bad implementation.
 
-## 1.3.2 / 2021-12-10
+## 1.3.2 / 2022-03-10
 * Updated _methods_ `dateObjByToday`, `dateObjByTimestamp`, `dateObjBySql`, `dateObjByHtml`, `dateObjByDate` changing second params as `opts`, allowing `{ sep, timezone }`.
 * Updated _method_ `dateObjByDate` adding in `dateObj` the properties `timezone`, `sqldatetimeIso`. 
 

@@ -25,12 +25,16 @@ describe('fn: sleep', () => {
 });
 
 describe('fn: getFunctionName', () => {
-    function testGetFunctionName() { return Ofn.getFunctionName(); }
-    let chacho = testGetFunctionName;
+    class classFunctionName { static test() { return Ofn.getFunctionName(); } }
+    function testFunctionName() { return Ofn.getFunctionName(); }
+    let varFunctionName = function() { return Ofn.getFunctionName(); }
+    let chacho = testFunctionName;
 
-    test( 'fn: sleep()' , async () => {
-        expect( testGetFunctionName() ).toBe(   'testGetFunctionName' );
-        expect( Ofn.getFunctionName( chacho ) ).toBe(   'testGetFunctionName' );
+    test( 'fn: getFunctionName()' , async () => {
+        expect( classFunctionName.test() ).toBe(   'test' );
+        expect( testFunctionName() ).toBe(   'testFunctionName' );
+        expect( varFunctionName() ).toBe(   'varFunctionName' );
+        expect( Ofn.getFunctionName( chacho ) ).toBe(   'testFunctionName' );
         expect( Ofn.getFunctionName( 'chacho' ) ).toBe(   '' );
     } );
 });

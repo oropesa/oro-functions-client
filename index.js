@@ -371,9 +371,9 @@ class Ofn {
         const obj = {};
         Error.captureStackTrace( obj, Ofn.getFunctionName );
         const { stack } = obj;
-        const firstCharacter = stack.indexOf( 'at ' ) + 3;
+        const firstCharacter = stack.indexOf( 'at ', stack.indexOf( 'at ' ) + 1 ) + 3;
         const lastCharacter = findFirstOccurrence( stack, [ ' ', ':', '\n' ], firstCharacter );
-        return stack.slice( firstCharacter, lastCharacter );
+        return stack.slice( firstCharacter, lastCharacter ).replace( 'Object.', '' );
     }
 
     //endregion
