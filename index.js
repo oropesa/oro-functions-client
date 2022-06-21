@@ -27,7 +27,7 @@ class Ofn {
             type = 'class'
         }
 
-        if( strict && type === 'object' ) { type = obj.constructor.name }
+        if( strict && typeof obj === 'object' ) { type = obj.constructor.name }
 
         return type;
     }

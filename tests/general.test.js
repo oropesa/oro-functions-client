@@ -76,9 +76,15 @@ describe('fn: type', () => {
     test( 'fn: type( regexp )'   , () => { expect( Ofn.type( /([A-Z])\w+/ ) ).toBe( 'regexp'    ); } );
     test( 'fn: type( class )'    , () => { expect( Ofn.type( Ofn               ) ).toBe( 'class'     ); } );
 
-    test( 'fn: type( var function )'    , () => { let chacho = function() {}; expect( Ofn.type( chacho ) ).toBe( 'function' ); } );
-    test( 'fn: type( var class )'       , () => { let chacho = new Ofn(); expect( Ofn.type( chacho ) ).toBe( 'object' ); } );
-    test( 'fn: type( var class strict )', () => { let chacho = new Ofn(); expect( Ofn.type( chacho, true ) ).toBe( 'Ofn' ); } );
+    test( 'fn: type( class strict )'           , () => { expect( Ofn.type( Ofn, true ) ).toBe( 'class' ); } );
+    test( 'fn: type( var function )'           , () => { let chacho = function() {}; expect( Ofn.type( chacho ) ).toBe( 'function' ); } );
+    test( 'fn: type( var obj class )'          , () => { let chacho = new Ofn(); expect( Ofn.type( chacho ) ).toBe( 'object' ); } );
+    test( 'fn: type( var obj class strict )'   , () => { let chacho = new Ofn(); expect( Ofn.type( chacho, true ) ).toBe( 'Ofn' ); } );
+    test( 'fn: type( var function strict )'    , () => { let chacho = function() {}; expect( Ofn.type( chacho, true ) ).toBe( 'function' ); } );
+    test( 'fn: type( var number strict )'      , () => { let chacho = 5; expect( Ofn.type( chacho, true ) ).toBe( 'number' ); } );
+    test( 'fn: type( var obj number strict )'  , () => { let chacho = new Number( 5 ); expect( Ofn.type( chacho, true ) ).toBe( 'Number' ); } );
+    test( 'fn: type( var class extend strict )', () => { class Arr extends Array {} let chacho = new Arr(); expect( Ofn.type( chacho, true ) ).toBe( 'Arr' ); } );
+
 });
 
 describe('fn: is(Type)', () => {

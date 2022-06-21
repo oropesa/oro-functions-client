@@ -1,3 +1,6 @@
+## 1.3.7 / 2022-06-21
+* Fixed _method_ `type` when param `strict` is `true` and _test_ different cases.
+
 ## 1.3.6 / 2022-06-21
 * Fixed _method_ `type` improving when param `obj` is a `class` or a `function`.
 * Added in _method_ `type` the second param `strict` to return the `class name` of an `object`. 
