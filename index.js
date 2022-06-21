@@ -16,10 +16,19 @@ class Ofn {
     }
 
     // Ofn.type( (new Date()) ); -> "date"
-    static type( obj ) {
-        let type = ({}).toString.call( obj ).match( /\s([a-zA-Z]+)/ )[ 1 ].toLowerCase();
-        type === 'function' && obj.prototype
-            && Object.getOwnPropertyNames( obj.prototype ).some( m => m === 'constructor' ) && ( type = 'class' );
+    static type( obj, strict = false ) {
+        let type = ( {} ).toString.call( obj ).match( /\s([a-zA-Z]+)/ )[ 1 ].toLowerCase();
+
+        if( type === 'function'
+            && obj.prototype
+            && Object.getOwnPropertyNames( obj.prototype ).some( m => m === 'constructor' )
+            && /^\s*class/.test( obj.toString() )
+        ) {
+            type = 'class'
+        }
+
+        if( strict && type === 'object' ) { type = obj.constructor.name }
+
         return type;
     }
 
@@ -34,6 +43,7 @@ class Ofn {
     static isNull     ( obj ) { return Ofn.type( obj ) === 'null'     ; }
     static isNully    ( obj ) { return [ 'undefined', 'null' ].includes( Ofn.type( obj ) ); }
     static isClass    ( obj ) { return Ofn.type( obj ) === 'class' }
+    static isFunction ( obj ) { return Ofn.type( obj ) === 'function' }
 
     //endregion
     //region Numbers

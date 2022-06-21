@@ -75,6 +75,10 @@ describe('fn: type', () => {
     test( 'fn: type( function )' , () => { expect( Ofn.type( (()=>{})          ) ).toBe( 'function'  ); } );
     test( 'fn: type( regexp )'   , () => { expect( Ofn.type( /([A-Z])\w+/ ) ).toBe( 'regexp'    ); } );
     test( 'fn: type( class )'    , () => { expect( Ofn.type( Ofn               ) ).toBe( 'class'     ); } );
+
+    test( 'fn: type( var function )'    , () => { let chacho = function() {}; expect( Ofn.type( chacho ) ).toBe( 'function' ); } );
+    test( 'fn: type( var class )'       , () => { let chacho = new Ofn(); expect( Ofn.type( chacho ) ).toBe( 'object' ); } );
+    test( 'fn: type( var class strict )', () => { let chacho = new Ofn(); expect( Ofn.type( chacho, true ) ).toBe( 'Ofn' ); } );
 });
 
 describe('fn: is(Type)', () => {

@@ -1,5 +1,11 @@
+## 1.3.6 / 2022-06-21
+* Fixed _method_ `type` improving when param `obj` is a `class` or a `function`.
+* Added in _method_ `type` the second param `strict` to return the `class name` of an `object`. 
+* Added _method_ `isFunction`.
+* Updated lib-dev `jest` to `v28.1.1`.
+
 ## 1.3.5 / 2022-05-25
-* Fixed _method_ `getFunctionName` getting name as _error message_ of `captureStackTrace`
+* Fixed _method_ `getFunctionName` getting name as _error message_ of `captureStackTrace`.
 * Updated lib-dev `jest` to `v28.1.0`.
 
 ## 1.3.4 / 2022-04-06

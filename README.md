@@ -32,7 +32,12 @@ const Ofn = require( 'oro-functions-client' );
 ```js
 Ofn.issetGet( obj, key, valueDefault = null, allowFalsy = true )
 
-Ofn.type( obj )
+Ofn.type( obj, strict = false )
+
+// Note: when obj is a obj-class [let foo = new MyClass()]
+// - Ofn.type( MyClass ) > class
+// - Ofn.type( foo ) > object
+// - Ofn.type( foo, true ) > MyClass
 
 Ofn.isBoolean  ( obj )
 Ofn.isNumber   ( obj )
@@ -40,6 +45,7 @@ Ofn.isString   ( obj )
 Ofn.isArray    ( obj )
 Ofn.isObject   ( obj )
 Ofn.isClass    ( obj )
+Ofn.isFunction ( obj )
 Ofn.isRegexp   ( obj )
 Ofn.isDate     ( obj )
 Ofn.isUndefined( obj )
