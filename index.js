@@ -76,8 +76,8 @@ class Ofn {
     // Ofn.numberFixDecimals( '2,1478', 6 ); -> '2.147800'
     // Ofn.numberFixDecimals( '2.1478', 6, false ); -> '2.1478'
     // Ofn.numberFixDecimals( '2.1478', 6, false, 5 ); -> '2.14780'
-    static numberFixDecimals( num, decimalLength = 2, allowAllRightZeros = true, minRightZeros = 2 ) {
-        if( typeof num !== 'string' && typeof num !== 'number' ) { num = 0; }
+    static numberFixDecimals( num, decimalLength = 2, allowAllRightZeros = true, minRightZeros = true ) {
+        if( typeof num !== 'string' && typeof num !== 'number' ) { return num; }
         if( ! num ) { num = 0; }
 
         let tmp = num;
@@ -88,6 +88,8 @@ class Ofn {
         ( ! Ofn.isNumeric( decimalLength ) || decimalLength < 0 ) && ( decimalLength = 0 );
         num = +(Math.round( num + `e+${decimalLength}` ) + `e-${decimalLength}`) + '';
 
+        ( ( ! Ofn.isBoolean( minRightZeros ) && ! Ofn.isNumeric( minRightZeros ) ) || minRightZeros < 0 ) && ( minRightZeros = 0 );
+
         let parts = num.split( '.' );
         if( parts[ 1 ] === undefined ) { parts.push( '' ) }
 
@@ -96,6 +98,8 @@ class Ofn {
             decimals = decimals.replace( /0+$/g, '' );
             decimals.length < minRightZeros && ( decimals = Ofn.strPad( parts[ 1 ], minRightZeros, '0', 'right' ) );
         }
+
+        minRightZeros === false && ! +decimals && ( decimals = '' );
 
         decimals.length && ( decimals = `.${decimals}` );
         return `${parts[ 0 ]}${decimals}`;

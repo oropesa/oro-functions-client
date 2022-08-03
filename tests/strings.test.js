@@ -99,6 +99,7 @@ describe('fn: jsonParse', () => {
     test( 'fn: jsonParse( str bad )'         , () => { expect( Ofn.jsonParse( 'chacho' ) ).toBe( 'chacho' ); } );
     test( 'fn: jsonParse( str bad, strict )' , () => { expect( Ofn.jsonParse( 'chacho', true ) ).toBe( null ); } );
     test( 'fn: jsonParse( str obj )'         , () => { expect( Ofn.jsonParse( '{ "chacho": true }' ) ).toEqual( { chacho: true } ); } );
+    test( 'fn: jsonParse( str obj beauty )'  , () => { expect( Ofn.jsonParse( `{\n  "chacho": true\n}` ) ).toEqual( { chacho: true } ); } );
     test( 'fn: jsonParse( str arr )'         , () => { expect( Ofn.jsonParse( '[ 1, 2, 3 ]' ) ).toEqual( [ 1, 2, 3 ] ); } );
     test( 'fn: jsonParse( str arr(obj) )'    , () => { expect( Ofn.jsonParse( '{ "0": 1, "1": 2, "2": 3 }' ) ).toEqual( [ 1, 2, 3 ] ); } );
     test( 'fn: jsonParse( str arr, strict )' , () => { expect( Ofn.jsonParse( '{ "0": 1, "1": 2, "2": 3 }', true ) ).toEqual( { "0": 1, "1": 2, "2": 3 } ); } );
@@ -123,6 +124,8 @@ describe('fn: arrayize', () => {
     test( 'fn: arrayize( str arr(obj) )'    , () => { expect( Ofn.arrayize( '{ "0": 1, "1": 2, "2": 3 }' ) ).toEqual( [ 1, 2, 3 ] ); } );
     test( 'fn: arrayize( arr(obj) )'        , () => { expect( Ofn.arrayize( { "0": 1, "1": 2, "2": 3 } ) ).toEqual( [ 1, 2, 3 ] ); } );
     test( 'fn: arrayize( arr(obj) w param )', () => { let result = [ 1, undefined, 2 ]; result.chacho = true; expect( Ofn.arrayize( { "0": 1, "2": 2, "chacho": true } ) ).toEqual( result ); } );
+    test( 'fn: arrayize( obj )'             , () => { let result = []; result.chacho = true; expect( Ofn.arrayize( '{ "chacho": true }' ) ).toEqual( result ); } );
+
 });
 
 describe('fn: chunkStringByCharSize', () => {

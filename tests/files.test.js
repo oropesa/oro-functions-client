@@ -39,6 +39,7 @@ describe('fn: sanitizePath', () => {
     test( 'fn: sanitizePath( undefined )', () => { expect( Ofn.sanitizePath() ).toBe( '' ); } );
     test( 'fn: sanitizePath( path )'     , () => { expect( Ofn.sanitizePath( 'C:\\tmp\\chacho.pdf' ) ).toBe( 'C:/tmp/chacho.pdf' ); } );
     test( 'fn: sanitizePath( path2 )'    , () => { expect( Ofn.sanitizePath( '\\\\tmp\\chacho.pdf' ) ).toBe( '\\\\tmp/chacho.pdf' ); } );
+    test( 'fn: sanitizePath( path2 )'    , () => { expect( Ofn.sanitizePath( '\\\\tmp\\chacho.pdf' ) ).toBe( '\\\\tmp/chacho.pdf' ); } );
 });
 
 describe('fn: sanitizeFilename', () => {

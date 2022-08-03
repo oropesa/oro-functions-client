@@ -53,27 +53,42 @@ describe('fn: randomMinMax', () => {
 });
 
 describe('fn: numberFixDecimals', () => {
-    test( 'fn: numberFixDecimals()'                   , () => { expect( Ofn.numberFixDecimals() ).toBe( '0.00' ); } );
-    test( 'fn: numberFixDecimals( bool )'             , () => { expect( Ofn.numberFixDecimals( true ) ).toBe( '0.00' ); } );
-    test( 'fn: numberFixDecimals( str bad )'          , () => { expect( Ofn.numberFixDecimals( 'chacho' ) ).toBe( 'chacho' ); } );
-    test( 'fn: numberFixDecimals( str bad comma )'    , () => { expect( Ofn.numberFixDecimals( '1,2,3' ) ).toBe( '1,2,3' ); } );
-    test( 'fn: numberFixDecimals( str ok )'           , () => { expect( Ofn.numberFixDecimals( '12.5' ) ).toBe( '12.50' ); } );
-    test( 'fn: numberFixDecimals( str ok comma )'     , () => { expect( Ofn.numberFixDecimals( '12,5' ) ).toBe( '12.50' ); } );
-    test( 'fn: numberFixDecimals( float )'            , () => { expect( Ofn.numberFixDecimals( 12.5 ) ).toBe( '12.50' ); } );
-    test( 'fn: numberFixDecimals( float long )'       , () => { expect( Ofn.numberFixDecimals( 12.4996 ) ).toBe( '12.50' ); } );
-    test( 'fn: numberFixDecimals( float, 0 )'         , () => { expect( Ofn.numberFixDecimals( 12.4996, 0 ) ).toBe( '12' ); } );
-    test( 'fn: numberFixDecimals( float, len )'       , () => { expect( Ofn.numberFixDecimals( 12.4996, 3 ) ).toBe( '12.500' ); } );
-    test( 'fn: numberFixDecimals( float, false )'     , () => { expect( Ofn.numberFixDecimals( 12.4996, false ) ).toBe( '12.4996' ); } );
-    test( 'fn: numberFixDecimals( float, len, noz )'  , () => { expect( Ofn.numberFixDecimals( 12.4996, 3, false ) ).toBe( '12.50' ); } );
-    test( 'fn: numberFixDecimals( float2, len, noz )' , () => { expect( Ofn.numberFixDecimals( 12.4993, 3, false ) ).toBe( '12.499' ); } );
-    test( 'fn: numberFixDecimals( float, len, minz )' , () => { expect( Ofn.numberFixDecimals( 12.4996, 3, false, 4 ) ).toBe( '12.5000' ); } );
-    test( 'fn: numberFixDecimals( float, -len, minz )', () => { expect( Ofn.numberFixDecimals( 12.4996, -3 ) ).toBe( '12' ); } );
-    test( 'fn: numberFixDecimals( float, len, -minz )', () => { expect( Ofn.numberFixDecimals( 12.4996, 3, false, -4 ) ).toBe( '12.5' ); } );
+    test( 'fn: numberFixDecimals()'                    , () => { expect( Ofn.numberFixDecimals() ).toBe( undefined ); } );
+    test( 'fn: numberFixDecimals( bool )'              , () => { expect( Ofn.numberFixDecimals( true ) ).toBe( true ); } );
+    test( 'fn: numberFixDecimals( str bad )'           , () => { expect( Ofn.numberFixDecimals( 'chacho' ) ).toBe( 'chacho' ); } );
+    test( 'fn: numberFixDecimals( str bad comma )'     , () => { expect( Ofn.numberFixDecimals( '1,2,3' ) ).toBe( '1,2,3' ); } );
+
+    test( 'fn: numberFixDecimals( str ok comma )'      , () => { expect( Ofn.numberFixDecimals( '2,1499' ) ).toBe( '2.15' ); } );
+    test( 'fn: numberFixDecimals( str ok )'            , () => { expect( Ofn.numberFixDecimals( '2.1499' ) ).toBe( '2.15' ); } );
+    test( 'fn: numberFixDecimals( float )'             , () => { expect( Ofn.numberFixDecimals( 12.5 ) ).toBe( '12.50' ); } );
+    test( 'fn: numberFixDecimals( float long )'        , () => { expect( Ofn.numberFixDecimals( 12.4996 ) ).toBe( '12.50' ); } );
+
+    test( 'fn: numberFixDecimals( float, 0 )'          , () => { expect( Ofn.numberFixDecimals( '2.1499', 0 ) ).toBe( '2' ); } );
+    test( 'fn: numberFixDecimals( float, 0 )'          , () => { expect( Ofn.numberFixDecimals( '2.1499', -3 ) ).toBe( '2' ); } );
+    test( 'fn: numberFixDecimals( float, len )'        , () => { expect( Ofn.numberFixDecimals( '2.1499', 3 ) ).toBe( '2.150' ); } );
+    test( 'fn: numberFixDecimals( float, len 6 )'      , () => { expect( Ofn.numberFixDecimals( '2.1499', 6 ) ).toBe( '2.149900' ); } );
+    test( 'fn: numberFixDecimals( float, false )'      , () => { expect( Ofn.numberFixDecimals( '2.1499', false ) ).toBe( '2.1499' ); } );
+    test( 'fn: numberFixDecimals( float, false2 )'     , () => { expect( Ofn.numberFixDecimals( '2.1490', false ) ).toBe( '2.1490' ); } );
+
+    test( 'fn: numberFixDecimals( float, len, noz )'   , () => { expect( Ofn.numberFixDecimals( '2.1499', 6, false ) ).toBe( '2.1499' ); } );
+    test( 'fn: numberFixDecimals( float, len2, noz )'  , () => { expect( Ofn.numberFixDecimals( '2.1499', 3, false ) ).toBe( '2.15' ); } );
+    test( 'fn: numberFixDecimals( float, len, noz, 3 )'  , () => { expect( Ofn.numberFixDecimals( '2.1499', 3, false, 3 ) ).toBe( '2.150' ); } );
+
+    test( 'fn: numberFixDecimals( float, len, noz, 2 )'  , () => { expect( Ofn.numberFixDecimals( '2.1387', 3, false, 2 ) ).toBe( '2.139' ); } );
+    test( 'fn: numberFixDecimals( float1, len, noz, 2 )' , () => { expect( Ofn.numberFixDecimals( '2.1999', 3, false, 2 ) ).toBe( '2.20' ); } );
+
+    test( 'fn: numberFixDecimals( int )'                   , () => { expect( Ofn.numberFixDecimals( 12 ) ).toBe( '12.00' ); } );
+    test( 'fn: numberFixDecimals( int, false )'            , () => { expect( Ofn.numberFixDecimals( 12, false ) ).toBe( '12' ); } );
+    test( 'fn: numberFixDecimals( int, 0 )'                , () => { expect( Ofn.numberFixDecimals( 12, 0 ) ).toBe( '12' ); } );
+    test( 'fn: numberFixDecimals( int, len, noz )'         , () => { expect( Ofn.numberFixDecimals( 12, 2, false ) ).toBe( '12' ); } );
+    test( 'fn: numberFixDecimals( int, len, allow )'       , () => { expect( Ofn.numberFixDecimals( 12, 2, true ) ).toBe( '12.00' ); } );
+    test( 'fn: numberFixDecimals( int, len, allow, false )', () => { expect( Ofn.numberFixDecimals( 12, 2, true, false ) ).toBe( '12' ); } );
+
 });
 
 describe('fn: numberPrintDecimals', () => {
-    test( 'fn: numberPrintDecimals()'                   , () => { expect( Ofn.numberPrintDecimals() ).toBe( '0,00' ); } );
-    test( 'fn: numberPrintDecimals( bool )'             , () => { expect( Ofn.numberPrintDecimals( true ) ).toBe( '0,00' ); } );
+    test( 'fn: numberPrintDecimals()'                   , () => { expect( Ofn.numberPrintDecimals() ).toBe( undefined ); } );
+    test( 'fn: numberPrintDecimals( bool )'             , () => { expect( Ofn.numberPrintDecimals( true ) ).toBe( true ); } );
     test( 'fn: numberPrintDecimals( str bad )'          , () => { expect( Ofn.numberPrintDecimals( 'chacho' ) ).toBe( 'chacho' ); } );
     test( 'fn: numberPrintDecimals( str bad comma )'    , () => { expect( Ofn.numberPrintDecimals( '1.2,3' ) ).toBe( '1.2,3' ); } );
     test( 'fn: numberPrintDecimals( str ok )'           , () => { expect( Ofn.numberPrintDecimals( '12.5' ) ).toBe( '12,50' ); } );

@@ -1,4 +1,6 @@
-.idea/*
+.idea/
+.DS_Store
 .gitignore
-*.test.js
+node_modules/
+tests/
 tmp.js

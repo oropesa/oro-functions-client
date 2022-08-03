@@ -129,6 +129,7 @@ describe('fn: dateIsObj', () => {
 describe('fn: dateObjPlusDays', () => {
     test( 'fn: dateObjPlusDays( undefined )'   , () => { expect( Ofn.dateObjPlusDays() ).toBe( null ); } );
     test( 'fn: dateObjPlusDays( date )'        , () => { expect( Ofn.dateObjPlusDays( date ) ).toEqual( dateObj ); } );
+    test( 'fn: dateObjPlusDays( date, 1 )'     , () => { expect( Ofn.dateObjPlusDays( date, 1 ).date ).toBe( '14/08/2021' ); } );
     test( 'fn: dateObjPlusDays( dateObj, 1 )'  , () => { expect( Ofn.dateObjPlusDays( dateObj, 1 ).date ).toBe( '14/08/2021' ); } );
     test( 'fn: dateObjPlusDays( dateObj2, -1 )', () => { expect( Ofn.dateObjPlusDays( dateObjSep, -1 ).date ).toBe( '12-08-2021' ); } );
 });
@@ -138,7 +139,7 @@ describe('fn: datesCompare', () => {
     test( 'fn: datesCompare( str, bool )'       , () => { expect( Ofn.datesCompare( 'chacho', true ) ).toBe( 0 ); } );
     test( 'fn: datesCompare( date )'            , () => { expect( Ofn.datesCompare( new Date() ) ).toBe( -1 ); } );
     test( 'fn: datesCompare( null, dateObj )'   , () => { expect( Ofn.datesCompare( null, Ofn.dateObjByToday() ) ).toBe( 1 ); } );
-    test( 'fn: datesCompare( date, date )'      , () => { expect( Ofn.datesCompare( new Date(), dateObj ) ).toBe( -1 ); } );
+    test( 'fn: datesCompare( date, dateObj )'   , () => { expect( Ofn.datesCompare( new Date(), dateObj ) ).toBe( -1 ); } );
     test( 'fn: datesCompare( dateObj, dateObj )', () => { expect( Ofn.datesCompare( dateObj, Ofn.dateObjByToday() ) ).toBe( 1 ); } );
 });
 

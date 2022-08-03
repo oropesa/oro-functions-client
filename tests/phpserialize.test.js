@@ -4,7 +4,7 @@ describe('fn: phpSerialize', () => {
     test( 'fn: phpSerialize( undefined )'  , () => { expect( Ofn.phpSerialize() ).toBe( undefined ); } );
     test( 'fn: phpSerialize( str )'        , () => { expect( Ofn.phpSerialize( 'chacho' ) ).toBe( 'chacho' ); } );
     test( 'fn: phpSerialize( obj )'        , () => { expect( Ofn.phpSerialize( { chacho: true } ) ).toBe( '{"chacho":true}' ); } );
-    test( 'fn: phpSerialize( obj, strict )', () => { expect( Ofn.phpSerialize( { chacho: true }, true ) ).toBe( 'a:1:{s:6:\"chacho\";b:1;}' ); } );
+    test( 'fn: phpSerialize( obj, strict )', () => { expect( Ofn.phpSerialize( { chacho: true }, true ) ).toBe( 'a:1:{s:6:"chacho";b:1;}' ); } );
 });
 
 describe('fn: phpUnserialize', () => {
@@ -16,7 +16,8 @@ describe('fn: phpUnserialize', () => {
 });
 
 describe('fn: phpIsSerialized', () => {
-    test( 'fn: phpIsSerialized( undefined )', () => { expect( Ofn.phpIsSerialized() ).toBe( false ); } );
-    test( 'fn: phpIsSerialized( str bad )'  , () => { expect( Ofn.phpIsSerialized( 'chacho' ) ).toBe( false ); } );
-    test( 'fn: phpIsSerialized( str )'      , () => { expect( Ofn.phpIsSerialized( 'a:1:{s:6:\"chacho\";b:1;}' ) ).toBe( true ); } );
+    test( 'fn: phpIsSerialized( undefined )'   , () => { expect( Ofn.phpIsSerialized() ).toBe( false ); } );
+    test( 'fn: phpIsSerialized( str bad )'     , () => { expect( Ofn.phpIsSerialized( 'chacho' ) ).toBe( false ); } );
+    test( 'fn: phpIsSerialized( str json bad )', () => { expect( Ofn.phpIsSerialized( '{"chacho":true}' ) ).toBe( false ); } );
+    test( 'fn: phpIsSerialized( str )'         , () => { expect( Ofn.phpIsSerialized( 'a:1:{s:6:"chacho";b:1;}' ) ).toBe( true ); } );
 });

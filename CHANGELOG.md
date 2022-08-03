@@ -1,3 +1,10 @@
+## 1.4.0 / 2022-08-03
+* Updated _Readme_ and `tests/`.
+* Added `package-lock.json`.
+* Updated lib `oro-php-locutus` to `v1.1.0`.
+* Updated lib `oro-regexp` to `v1.2.0`.
+* Updated lib-dev `jest` to `v28.1.3`.
+
 ## 1.3.7 / 2022-06-21
 * Fixed _method_ `type` when param `strict` is `true` and _test_ different cases.
 

@@ -1,13 +1,14 @@
 const Ofn = require( '../index' );
 
 describe('fn: objIsEmpty', () => {
-    test( 'fn: objIsEmpty( undefined )', () => { expect( Ofn.objIsEmpty( undefined )        ).toBe( true ); } );
-    test( 'fn: objIsEmpty( int )'      , () => { expect( Ofn.objIsEmpty( 123 )              ).toBe( true ); } );
-    test( 'fn: objIsEmpty( str )'      , () => { expect( Ofn.objIsEmpty( 'chacho' )         ).toBe( true ); } );
-    test( 'fn: objIsEmpty( obj empty )', () => { expect( Ofn.objIsEmpty( {} )               ).toBe( true ); } );
-    test( 'fn: objIsEmpty( obj )'      , () => { expect( Ofn.objIsEmpty( { chacho: true } ) ).toBe( false ); } );
-    test( 'fn: objIsEmpty( arr empty )', () => { expect( Ofn.objIsEmpty( [] )               ).toBe( true ); } );
-    test( 'fn: objIsEmpty( arr )'      , () => { expect( Ofn.objIsEmpty( [ 1, 2, 3 ] )      ).toBe( false ); } );
+    test( 'fn: objIsEmpty( undefined )', () => { expect( Ofn.objIsEmpty( undefined )             ).toBe(  true ); } );
+    test( 'fn: objIsEmpty( int )'      , () => { expect( Ofn.objIsEmpty( 123 )                   ).toBe(  true ); } );
+    test( 'fn: objIsEmpty( str )'      , () => { expect( Ofn.objIsEmpty( 'chacho' )              ).toBe(  true ); } );
+    test( 'fn: objIsEmpty( obj empty )', () => { expect( Ofn.objIsEmpty( {} )                    ).toBe(  true ); } );
+    test( 'fn: objIsEmpty( obj )'      , () => { expect( Ofn.objIsEmpty( { chacho: true } )      ).toBe( false ); } );
+    test( 'fn: objIsEmpty( obj )'      , () => { expect( Ofn.objIsEmpty( { chacho: undefined } ) ).toBe( false ); } );
+    test( 'fn: objIsEmpty( arr empty )', () => { expect( Ofn.objIsEmpty( [] )                    ).toBe(  true ); } );
+    test( 'fn: objIsEmpty( arr )'      , () => { expect( Ofn.objIsEmpty( [ 1, 2, 3 ] )           ).toBe( false ); } );
 });
 
 describe('fn: objGetMethods', () => {

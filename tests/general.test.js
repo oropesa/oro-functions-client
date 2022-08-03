@@ -104,6 +104,11 @@ describe('fn: is(Type)', () => {
     test( 'fn: isObject()'     , () => { expect( Ofn.isObject() ).toBe( false ); } );
     test( 'fn: isObject( obj )', () => { expect( Ofn.isObject( {} ) ).toBe( true ); } );
 
+    test( 'fn: isFunction()'          , () => { expect( Ofn.isFunction() ).toBe( false ); } );
+    test( 'fn: isFunction( obj )'     , () => { expect( Ofn.isFunction( {} ) ).toBe( false ); } );
+    test( 'fn: isFunction( fn )'      , () => { expect( Ofn.isFunction( function() {} ) ).toBe( true ); } );
+    test( 'fn: isFunction( fn arrow )', () => { expect( Ofn.isFunction( () => {} ) ).toBe( true ); } );
+
     test( 'fn: isRegexp()'        , () => { expect( Ofn.isRegexp() ).toBe( false ); } );
     test( 'fn: isRegexp( regexp )', () => { expect( Ofn.isRegexp( /([A-Z])\w+/ ) ).toBe( true ); } );
 
