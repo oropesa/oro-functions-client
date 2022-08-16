@@ -1,3 +1,6 @@
+## 1.4.1 / 2022-08-16
+* Updated lib `oro-php-locutus` to `v1.1.1`.
+
 ## 1.4.0 / 2022-08-03
 * Updated _Readme_ and `tests/`.
 * Added `package-lock.json`.
