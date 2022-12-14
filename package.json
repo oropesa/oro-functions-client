@@ -23,7 +23,7 @@
   "homepage": "https://github.com/oropesa/oro-functions-client#readme",
   "dependencies": {
     "crypto-js": "^4.1.1",
-    "js-base64": "^3.7.2",
+    "js-base64": "^3.7.3",
     "oro-php-locutus": "^1.1.1",
     "oro-regexp": "^1.2.0"
   },
