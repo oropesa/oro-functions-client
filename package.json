@@ -24,7 +24,7 @@
   "dependencies": {
     "crypto-js": "^4.1.1",
     "js-base64": "^3.7.2",
-    "oro-php-locutus": "^1.1.1",
+    "oro-php-locutus": "^1.2.0",
     "oro-regexp": "^1.2.0"
   },
   "devDependencies": {
