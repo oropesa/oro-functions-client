@@ -1,0 +1,1 @@
+export type arrayValuesByKey = <T, V>( arr: T[], key: string, strict?: boolean ) => V[];

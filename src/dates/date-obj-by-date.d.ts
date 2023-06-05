@@ -1,0 +1,28 @@
+export interface DateObj {
+    iso: string,
+    sep: string,
+    local: string,
+    year: string,
+    month: string,
+    day: string,
+    hour: string,
+    minute: string,
+    second: string,
+    time: string,
+    times: string,
+    date: string,
+    datetime: string,
+    datetimes: string,
+    sqldate: string,
+    sqldatetime: string,
+    sqldatetimeIso: string,
+    fulldate: string,
+    fulldateStart: string,
+    fulldateEnd: string,
+    weekday: number,
+    monthdays: number,
+    timestamp: number,
+    jsdate: Date,
+}
+
+export type dateObjByDate = ( date: Date, opts?: { sep: string } | string ) => DateObj | null;

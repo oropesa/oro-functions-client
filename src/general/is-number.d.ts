@@ -1,0 +1,1 @@
+export type isNumber = ( value: any ) => boolean;

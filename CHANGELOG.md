@@ -1,3 +1,17 @@
+## 1.5.0 / 2023-06-05
+* Added `TS` support.
+* Added _ts tests_.
+* Improved _tests_.
+* Improved _readme_.
+* Improved _fn_ `cloneObject` benchmark using `lodash.clonedeep`.
+* Renamed _fn_ `dateIsObj` (deprecated) by `isDateObj`.
+* Updated lib `js-base64` to `v3.7.5`.
+* Updated lib `oro-php-locutus` to `v1.3.0`.
+* Updated lib `oro-regexp` to `v1.3.0`.
+* Updated lib-dev `jest` to `v29.5.0`.
+* Allow to get functions individually in `/src`:
+  * `const { fn1, fn2, ... } = require( 'oro-functions-client/src' )`
+
 ## 1.4.1 / 2022-08-16
 * Updated lib `oro-php-locutus` to `v1.1.1`.
 

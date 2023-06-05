@@ -1,0 +1,1 @@
+export type urlObjByUrl = ( url: string ) => URL | null;

@@ -1,0 +1,1 @@
+export type isFunction = ( value: any ) => boolean;

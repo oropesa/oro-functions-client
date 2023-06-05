@@ -1,0 +1,1 @@
+export type phpUnserialize = <T, S extends string = string>( str: S, strict?: boolean ) => T | S;

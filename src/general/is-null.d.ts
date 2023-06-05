@@ -1,0 +1,1 @@
+export type isNull = ( value: any ) => boolean;

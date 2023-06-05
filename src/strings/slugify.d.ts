@@ -1,0 +1,1 @@
+export type slugify = ( str: string ) => string;

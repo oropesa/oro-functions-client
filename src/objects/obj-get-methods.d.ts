@@ -1,0 +1,1 @@
+export type objGetMethods = <T>( obj: T, allowDefaults?: boolean ) => string[];

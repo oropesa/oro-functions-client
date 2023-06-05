@@ -1,0 +1,1 @@
+export type cloneArray = <T>( arr: T ) => T;

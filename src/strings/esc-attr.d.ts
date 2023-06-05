@@ -1,0 +1,1 @@
+export type escAttr = ( str: string ) => string;

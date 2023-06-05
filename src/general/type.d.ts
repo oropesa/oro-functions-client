@@ -1,0 +1,1 @@
+export type type = ( value: any, strict?: boolean ) => string;

@@ -1,0 +1,1 @@
+export type splitStringNumber = ( str: string, sep?: string ) => string[];

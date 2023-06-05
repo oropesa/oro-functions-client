@@ -1,0 +1,1 @@
+export type isClass = ( value: any ) => boolean;

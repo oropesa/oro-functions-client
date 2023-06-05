@@ -1,0 +1,1 @@
+export type sanitizePath = ( path: string ) => string;

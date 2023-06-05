@@ -1,0 +1,1 @@
+export type isString = ( value: any ) => boolean;

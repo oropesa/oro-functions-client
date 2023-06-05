@@ -1,0 +1,1 @@
+export type getClassMethods = ( classy: any ) => string[];

@@ -1,0 +1,1 @@
+export type getFunctionName = ( func?: string | Function ) => string;

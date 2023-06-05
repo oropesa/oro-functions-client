@@ -1,0 +1,1 @@
+export type urlEncode = ( url: string ) => string;

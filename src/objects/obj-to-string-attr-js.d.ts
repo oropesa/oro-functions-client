@@ -1,0 +1,1 @@
+export type objToStringAttrJs = <T>( obj: T ) => string;

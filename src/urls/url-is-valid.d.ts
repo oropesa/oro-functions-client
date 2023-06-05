@@ -1,0 +1,1 @@
+export type urlIsValid = ( url: string ) => boolean;

@@ -1,0 +1,1 @@
+export type substrCount = ( str: string, substr: string ) => number;

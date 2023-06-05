@@ -1,0 +1,1 @@
+export type cloneObjectWithKeys = <T, K extends keyof T = keyof T>( obj: T, keys: K[] ) => T extends Array<any> ? T : Pick<T, K>;

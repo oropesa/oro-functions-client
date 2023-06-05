@@ -1,0 +1,1 @@
+export type jsonStringify = <T extends object>( json: T, beautify?: boolean ) => string;

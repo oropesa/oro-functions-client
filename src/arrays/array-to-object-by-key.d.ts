@@ -1,0 +1,1 @@
+export type arrayToObjectByKey = <T>( arr: T[], key: string, strict?: boolean ) => {[key: string]: T};

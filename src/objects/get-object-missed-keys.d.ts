@@ -1,0 +1,1 @@
+export type getObjectMissedKeys = <T, K = string>( obj: T, keys: K[] ) => Omit<K, keyof T>;

@@ -1,0 +1,1 @@
+export type isObject = ( value: any ) => boolean;
