@@ -1,126 +1,257 @@
 // General
-export const { issetGet } = require( './general/isset-get' );
-export const { type } = require( './general/type' );
-export const { isArray } = require( './general/is-array' );
-export const { isBoolean } = require( './general/is-boolean' );
-export const { isClass } = require( './general/is-class' );
-export const { isDate } = require( './general/is-date' );
-export const { isFunction } = require( './general/is-function' );
-export const { isNull } = require( './general/is-null' );
-export const { isNully } = require( './general/is-nully' );
-export const { isNumber } = require( './general/is-number' );
-export const { isObject } = require( './general/is-object' );
-export const { isRegexp } = require( './general/is-regexp' );
-export const { isString } = require( './general/is-string' );
-export const { isUndefined } = require( './general/is-undefined' );
+const { issetGet } = require( './general/isset-get' );
+const { type } = require( './general/type' );
+const { isArray } = require( './general/is-array' );
+const { isBoolean } = require( './general/is-boolean' );
+const { isClass } = require( './general/is-class' );
+const { isDate } = require( './general/is-date' );
+const { isFunction } = require( './general/is-function' );
+const { isNull } = require( './general/is-null' );
+const { isNully } = require( './general/is-nully' );
+const { isNumber } = require( './general/is-number' );
+const { isObject } = require( './general/is-object' );
+const { isRegexp } = require( './general/is-regexp' );
+const { isString } = require( './general/is-string' );
+const { isUndefined } = require( './general/is-undefined' );
 
 // Numbers
-export const { isNumeric, isNumberic } = require( './numbers/is-numeric' );
-export const { isEven } = require( './numbers/is-even' );
-export const { isOdd } = require( './numbers/is-odd' );
-export const { numberFixDecimals } = require( './numbers/number-fix-decimals' );
-export const { numberPrintDecimals } = require( './numbers/number-print-decimals' );
-export const { randomMinMax } = require( './numbers/random-min-max' );
+const { isNumeric, isNumberic } = require( './numbers/is-numeric' );
+const { isEven } = require( './numbers/is-even' );
+const { isOdd } = require( './numbers/is-odd' );
+const { numberFixDecimals } = require( './numbers/number-fix-decimals' );
+const { numberPrintDecimals } = require( './numbers/number-print-decimals' );
+const { randomMinMax } = require( './numbers/random-min-max' );
 
 // String
-export const { capitalize } = require( './strings/capitalize' );
-export const { chunkStringByCharSize } = require( './strings/chunk-string-by-char-size' );
-export const { escAttr } = require( './strings/esc-attr' );
-export const { isStringJson } = require( './strings/is-string-json' );
-export const { jsonParse } = require( './strings/json-parse' );
-export const { jsonStringify } = require( './strings/json-stringify' );
-export const { jsonize } = require( './strings/jsonize' );
-export const { arrayize } = require( './strings/arrayize' );
-export const { randomString } = require( './strings/random-string' );
-export const { slugify } = require( './strings/slugify' );
-export const { snakeify } = require( './strings/snakeify' );
-export const { splitStringNumber } = require( './strings/split-string-number' );
-export const { strPad } = require( './strings/str-pad' );
-export const { substrCount } = require( './strings/substr-count' );
-export const { textTruncate } = require( './strings/text-truncate' );
-export const { trimAll } = require( './strings/trim-all' );
+const { capitalize } = require( './strings/capitalize' );
+const { chunkStringByCharSize } = require( './strings/chunk-string-by-char-size' );
+const { escAttr } = require( './strings/esc-attr' );
+const { isStringJson } = require( './strings/is-string-json' );
+const { jsonParse } = require( './strings/json-parse' );
+const { jsonStringify } = require( './strings/json-stringify' );
+const { jsonize } = require( './strings/jsonize' );
+const { arrayize } = require( './strings/arrayize' );
+const { randomString } = require( './strings/random-string' );
+const { slugify } = require( './strings/slugify' );
+const { snakeify } = require( './strings/snakeify' );
+const { splitStringNumber } = require( './strings/split-string-number' );
+const { strPad } = require( './strings/str-pad' );
+const { substrCount } = require( './strings/substr-count' );
+const { textTruncate } = require( './strings/text-truncate' );
+const { trimAll } = require( './strings/trim-all' );
 
 // Crypto
-export const { md5 } = require( './crypto/md5' );
-export const { strEncrypt } = require( './crypto/str-encrypt' );
-export const { strDecrypt } = require( './crypto/str-decrypt' );
+const { md5 } = require( './crypto/md5' );
+const { strEncrypt } = require( './crypto/str-encrypt' );
+const { strDecrypt } = require( './crypto/str-decrypt' );
 
 // Functions
-export const { sleep } = require( './functions/sleep' );
-export const { getFunctionName } = require( './functions/get-function-name' );
+const { sleep } = require( './functions/sleep' );
+const { getFunctionName } = require( './functions/get-function-name' );
 
 // Classes
-export const { getClassName } = require( './classes/get-class-name' );
-export const { getClassMethods } = require( './classes/get-class-methods' );
-export const { getClassStaticMethods } = require( './classes/get-class-static-methods' );
+const { getClassName } = require( './classes/get-class-name' );
+const { getClassMethods } = require( './classes/get-class-methods' );
+const { getClassStaticMethods } = require( './classes/get-class-static-methods' );
 
 // Objects
-export const { cloneObject } = require( './objects/clone-object' );
-export const { cloneObjectWithKeys } = require( './objects/clone-object-with-keys' );
-export const { cloneObjectWithoutKeys } = require( './objects/clone-object-without-keys' );
-export const { getObjectMissedKeys } = require( './objects/get-object-missed-keys' );
-export const { mergeObjectsDeep } = require( './objects/merge-objects-deep' );
-export const { objGetMethods } = require( './objects/obj-get-methods' );
-export const { objHasKeys } = require( './objects/obj-has-keys' );
-export const { objIsEmpty } = require( './objects/obj-is-empty' );
-export const { objToStringAttr } = require( './objects/obj-to-string-attr' );
-export const { objToStringAttrData } = require( './objects/obj-to-string-attr-data' );
-export const { objToStringAttrJs } = require( './objects/obj-to-string-attr-js' );
-export const { objToStringSqlSet } = require( './objects/obj-to-string-sql-set' );
+const { cloneObject } = require( './objects/clone-object' );
+const { cloneObjectWithKeys } = require( './objects/clone-object-with-keys' );
+const { cloneObjectWithoutKeys } = require( './objects/clone-object-without-keys' );
+const { getObjectMissedKeys } = require( './objects/get-object-missed-keys' );
+const { mergeObjectsDeep } = require( './objects/merge-objects-deep' );
+const { objGetMethods } = require( './objects/obj-get-methods' );
+const { objHasKeys } = require( './objects/obj-has-keys' );
+const { objIsEmpty } = require( './objects/obj-is-empty' );
+const { objToStringAttr } = require( './objects/obj-to-string-attr' );
+const { objToStringAttrData } = require( './objects/obj-to-string-attr-data' );
+const { objToStringAttrJs } = require( './objects/obj-to-string-attr-js' );
+const { objToStringSqlSet } = require( './objects/obj-to-string-sql-set' );
 
 // Arrays
-export const { cloneArray } = require( './arrays/clone-array' );
-export const { arrayCountByKey } = require( './arrays/array-count-by-key' );
-export const { arrayGetUnique } = require( './arrays/array-get-unique' );
-export const { arrayGroupByKey } = require( './arrays/array-group-by-key' );
-export const { arraySortByKey } = require( './arrays/array-sort-by-key' );
-export const { arrayToObjectByKey } = require( './arrays/array-to-object-by-key' );
-export const { arrayValuesByKey } = require( './arrays/array-values-by-key' );
-export const { arraysDifference } = require( './arrays/arrays-difference' );
-export const { arraysDifferenceAll } = require( './arrays/arrays-difference-all' );
-export const { arraysIntersection } = require( './arrays/arrays-intersection' );
+const { cloneArray } = require( './arrays/clone-array' );
+const { arrayCountByKey } = require( './arrays/array-count-by-key' );
+const { arrayGetUnique } = require( './arrays/array-get-unique' );
+const { arrayGroupByKey } = require( './arrays/array-group-by-key' );
+const { arraySortByKey } = require( './arrays/array-sort-by-key' );
+const { arrayToObjectByKey } = require( './arrays/array-to-object-by-key' );
+const { arrayValuesByKey } = require( './arrays/array-values-by-key' );
+const { arraysDifference } = require( './arrays/arrays-difference' );
+const { arraysDifferenceAll } = require( './arrays/arrays-difference-all' );
+const { arraysIntersection } = require( './arrays/arrays-intersection' );
 
 // Dates
-export const { dateObjByToday } = require( './dates/date-obj-by-today' );
-export const { dateObjByTimestamp } = require( './dates/date-obj-by-timestamp' );
-export const { dateObjBySql } = require( './dates/date-obj-by-sql' );
-export const { dateObjByHtml } = require( './dates/date-obj-by-html' );
-export const { dateObjByDate } = require( './dates/date-obj-by-date' );
-export const { dateObjPlusDays } = require( './dates/date-obj-plus-days' );
-export const { isDateObj, dateIsObj } = require( './dates/is-date-obj' );
-export const { datesCompare } = require( './dates/dates-compare' );
-export const { dateIsBetween } = require( './dates/date-is-between' );
-export const { datesDiffDays } = require( './dates/dates-diff-days' );
-export const { datesDiffMonths } = require( './dates/dates-diff-months' );
-export const { datesDiffMonthsArray } = require( './dates/dates-diff-months-array' );
-export const { dateCheckString } = require( './dates/date-check-string' );
+const { dateObjByToday } = require( './dates/date-obj-by-today' );
+const { dateObjByTimestamp } = require( './dates/date-obj-by-timestamp' );
+const { dateObjBySql } = require( './dates/date-obj-by-sql' );
+const { dateObjByHtml } = require( './dates/date-obj-by-html' );
+const { dateObjByDate } = require( './dates/date-obj-by-date' );
+const { dateObjPlusDays } = require( './dates/date-obj-plus-days' );
+const { isDateObj, dateIsObj } = require( './dates/is-date-obj' );
+const { datesCompare } = require( './dates/dates-compare' );
+const { dateIsBetween } = require( './dates/date-is-between' );
+const { datesDiffDays } = require( './dates/dates-diff-days' );
+const { datesDiffMonths } = require( './dates/dates-diff-months' );
+const { datesDiffMonthsArray } = require( './dates/dates-diff-months-array' );
+const { dateCheckString } = require( './dates/date-check-string' );
 
 // Urls
-export const { urlDecode } = require( './urls/url-decode' );
-export const { urlEncode } = require( './urls/url-encode' );
-export const { urlGetBase } = require( './urls/url-get-base' );
-export const { urlGetCurrentByReq } = require( './urls/url-get-current-by-req' );
-export const { urlGetHostByReq } = require( './urls/url-get-host-by-req' );
-export const { urlGetParams } = require( './urls/url-get-params' );
-export const { urlIsValid } = require( './urls/url-is-valid' );
-export const { urlObjByUrl } = require( './urls/url-obj-by-url' );
-export const { urlPlainToString } = require( './urls/url-plain-to-string' );
-export const { urlStringToPlain } = require( './urls/url-string-to-plain' );
+const { urlDecode } = require( './urls/url-decode' );
+const { urlEncode } = require( './urls/url-encode' );
+const { urlGetBase } = require( './urls/url-get-base' );
+const { urlGetCurrentByReq } = require( './urls/url-get-current-by-req' );
+const { urlGetHostByReq } = require( './urls/url-get-host-by-req' );
+const { urlGetParams } = require( './urls/url-get-params' );
+const { urlIsValid } = require( './urls/url-is-valid' );
+const { urlObjByUrl } = require( './urls/url-obj-by-url' );
+const { urlPlainToString } = require( './urls/url-plain-to-string' );
+const { urlStringToPlain } = require( './urls/url-string-to-plain' );
 
 // Files
-export const { getFilenameByPath } = require( './files/get-filename-by-path' );
-export const { getFilenameExtByName } = require( './files/get-filename-ext-by-name' );
-export const { getFilenameWOutExtByName } = require( './files/get-filename-wout-ext-by-name' );
-export const { getFolderByPath } = require( './files/get-folder-by-path' );
-export const { sanitizeFilename } = require( './files/sanitize-filename' );
-export const { sanitizePath } = require( './files/sanitize-path' );
-export const { slugifyFilename } = require( './files/slugify-filename' );
+const { getFilenameByPath } = require( './files/get-filename-by-path' );
+const { getFilenameExtByName } = require( './files/get-filename-ext-by-name' );
+const { getFilenameWOutExtByName } = require( './files/get-filename-wout-ext-by-name' );
+const { getFolderByPath } = require( './files/get-folder-by-path' );
+const { sanitizeFilename } = require( './files/sanitize-filename' );
+const { sanitizePath } = require( './files/sanitize-path' );
+const { slugifyFilename } = require( './files/slugify-filename' );
 
 // PHP Serialize
-export const { phpSerialize } = require( './php-serialize/php-serialize' );
-export const { phpUnserialize } = require( './php-serialize/php-unserialize' );
-export const { phpIsSerialized } = require( './php-serialize/php-is-serialized' );
+const { phpSerialize } = require( './php-serialize/php-serialize' );
+const { phpUnserialize } = require( './php-serialize/php-unserialize' );
+const { phpIsSerialized } = require( './php-serialize/php-is-serialized' );
 
 // Response
-export const { setResponseKO } = require( './set-response/set-response-ko' );
-export const { setResponseOK } = require( './set-response/set-response-ok' );
+const { setResponseKO } = require( './set-response/set-response-ko' );
+const { setResponseOK } = require( './set-response/set-response-ok' );
+
+module.exports = {
+    // General
+    issetGet,
+    type,
+    isArray,
+    isBoolean,
+    isClass,
+    isDate,
+    isFunction,
+    isNull,
+    isNully,
+    isNumber,
+    isObject,
+    isRegexp,
+    isString,
+    isUndefined,
+
+    // Numbers
+    isNumeric,
+    isNumberic,
+    isEven,
+    isOdd,
+    numberFixDecimals,
+    numberPrintDecimals,
+    randomMinMax,
+
+    // String
+    capitalize,
+    chunkStringByCharSize,
+    escAttr,
+    isStringJson,
+    jsonParse,
+    jsonStringify,
+    jsonize,
+    arrayize,
+    randomString,
+    slugify,
+    snakeify,
+    splitStringNumber,
+    strPad,
+    substrCount,
+    textTruncate,
+    trimAll,
+
+    // Crypto
+    md5,
+    strEncrypt,
+    strDecrypt,
+
+    // Functions
+    sleep,
+    getFunctionName,
+
+    // Classes
+    getClassName,
+    getClassMethods,
+    getClassStaticMethods,
+
+    // Objects
+    cloneObject,
+    cloneObjectWithKeys,
+    cloneObjectWithoutKeys,
+    getObjectMissedKeys,
+    mergeObjectsDeep,
+    objGetMethods,
+    objHasKeys,
+    objIsEmpty,
+    objToStringAttr,
+    objToStringAttrData,
+    objToStringAttrJs,
+    objToStringSqlSet,
+
+    // Arrays
+    cloneArray,
+    arrayCountByKey,
+    arrayGetUnique,
+    arrayGroupByKey,
+    arraySortByKey,
+    arrayToObjectByKey,
+    arrayValuesByKey,
+    arraysDifference,
+    arraysDifferenceAll,
+    arraysIntersection,
+
+    // Dates
+    dateObjByToday,
+    dateObjByTimestamp,
+    dateObjBySql,
+    dateObjByHtml,
+    dateObjByDate,
+    dateObjPlusDays,
+    isDateObj,
+    dateIsObj,
+    datesCompare,
+    dateIsBetween,
+    datesDiffDays,
+    datesDiffMonths,
+    datesDiffMonthsArray,
+    dateCheckString,
+
+    // Urls
+    urlDecode,
+    urlEncode,
+    urlGetBase,
+    urlGetCurrentByReq,
+    urlGetHostByReq,
+    urlGetParams,
+    urlIsValid,
+    urlObjByUrl,
+    urlPlainToString,
+    urlStringToPlain,
+
+    // Files
+    getFilenameByPath,
+    getFilenameExtByName,
+    getFilenameWOutExtByName,
+    getFolderByPath,
+    sanitizeFilename,
+    sanitizePath,
+    slugifyFilename,
+
+    // PHP Serialize
+    phpSerialize,
+    phpUnserialize,
+    phpIsSerialized,
+
+    // Response
+    setResponseKO,
+    setResponseOK,
+}

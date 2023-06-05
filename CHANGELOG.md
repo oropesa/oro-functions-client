@@ -1,3 +1,6 @@
+## 1.5.1 / 2023-06-05
+* Fixed remove `export` from `index.js`.
+
 ## 1.5.0 / 2023-06-05
 * Added `TS` support.
 * Added _ts tests_.
