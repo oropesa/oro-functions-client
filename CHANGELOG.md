@@ -1,3 +1,6 @@
+## 1.5.2 / 2023-06-07
+* Fixed _type_ declaration of `SResponseOK`, `SResponseKO`.
+
 ## 1.5.1 / 2023-06-05
 * Fixed remove `export` from `index.js`.
 

@@ -27,6 +27,11 @@ describe( 'fn: setResponseOK', () => {
         expect( Ofn.setResponseOK( null, { chacho: true } ) )
             .toEqual( { status: true, chacho: true } );
     } );
+    test( 'fn: setResponseOK( null, obj ) T', () => {
+        interface Custom { chacho: boolean }
+        const response = Ofn.setResponseOK<Custom>( null, { chacho: true } )
+        expect( response ).toEqual( { status: true, chacho: true } );
+    } );
     test( 'fn: setResponseOK( null, obj.msg )', () => {
         expect( Ofn.setResponseOK( null, { msg: 'tio' } ) )
             .toEqual( { status: true, msg: 'tio' } );
@@ -63,6 +68,11 @@ describe( 'fn: setResponseKO', () => {
         expect( Ofn.setResponseKO( null, { chacho: true } ) )
             .toEqual( { status: false, error: { chacho: true } } );
     } );
+    test( 'fn: setResponseKO( null, obj ) T', () => {
+        interface Custom { chacho: boolean }
+        const response = Ofn.setResponseKO<Custom>( null, { chacho: true } )
+        expect( response ).toEqual( { status: false, error: { chacho: true } } );
+    } );
     test( 'fn: setResponseKO( null, obj.msg )', () => {
         expect( Ofn.setResponseKO( null, { msg: 'tio' } ) )
             .toEqual( { status: false, error: { msg: 'tio' } } );
@@ -82,6 +92,14 @@ describe( 'fn: setResponseKO', () => {
         expect( response ).toEqual( error );
         expect( Ofn.type( response ) ).toEqual( 'error' );
         expect( response.name ).toBe( 'responseError' );
+    } );
+    test( 'fn: setResponseKO( str, obj, null, asError ) T', () => {
+        interface Custom { chacho: boolean }
+        let response = Ofn.setResponseKO<Custom, true>( 'chacho', { chacho: true }, null, true );
+
+        expect( Ofn.type( response ) ).toEqual( 'error' );
+        expect( response.name ).toBe( 'responseError' );
+        expect( response.responseError.error.chacho ).toBe( true );
     } );
     test( 'fn: setResponseKO( str, obj, null, asError )', () => {
         let responseKO = Ofn.setResponseKO( 'chacho', { errorName: 'customError' } );

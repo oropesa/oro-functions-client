@@ -1,9 +1,4 @@
-interface SResponseOK {
-    status: true;
-    msg?: string;
-}
+export type SResponseOK<T extends object> = T & { status: true; msg?: string; }
 
-export type setResponseOK = <T extends object>( msgOrData?: string | T, data?: T ) => {
-    status: true;
-    msg?: string;
-} & Omit<T, 'status' | 'msg'>;
+export type setResponseOK = <T extends object>
+    ( msgOrData?: string | T, data?: T ) => SResponseOK<T>;

@@ -1,6 +1,6 @@
-interface SResponseKO {
+export type SResponseKO<T extends object> = {
     status: false;
-    error: { msg?: string; }
+    error?: T & { msg?: string; }
     tryAgain?: boolean;
 }
 
@@ -10,19 +10,5 @@ export type setResponseKO = <T extends object, E extends boolean = false>(
     tryAgain?: boolean,
     asError?: E
 ) => E extends true
-     ? Error & {
-         responseError: {
-             status: false;
-             error: {
-                 msg?: string;
-             } & Omit<T, 'msg'>
-             tryAgain?: boolean;
-         }
-     }
-     : {
-         status: false;
-         error: {
-             msg?: string;
-         } & Omit<T, 'msg'>
-         tryAgain?: boolean;
-     };
+     ? Error & { responseError: SResponseKO<T> }
+     : SResponseKO<T>;
