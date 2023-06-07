@@ -135,8 +135,10 @@ export {
   EncryptPadding,
   DateObj,
   DateDiffMonth,
+  SResponseError,
   SResponseKO,
   SResponseOK,
+  SResponse,
 } from './src/';
 
 declare class Ofn {

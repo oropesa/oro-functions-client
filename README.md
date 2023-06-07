@@ -1646,15 +1646,35 @@ Ofn.phpUnserialize( '{"foo":true}', true )
 
 ### Response
 
+```ts
+export type SResponse<
+  OK extends object,
+  KO extends object,
+  E extends boolean = false
+> = E extends true
+    ? SResponseOK<OK> | SResponseError<KO>
+    : SResponseOK<OK> | SResponseKO<KO>
+
+type SResponseOK<T extends object> = T & {
+  status: true;
+  msg?: string;
+}
+
+type SResponseKO<T extends object> = {
+  status: false;
+  error?: T & { msg?: string; }
+  tryAgain?: boolean;
+}
+
+type SResponseError<T extends object> = Error & {
+  responseError: SResponseKO<T>
+};
+```
+
 #### Ofn.setResponseOK()
 ```ts
 Ofn.setResponseOK<T extends object>
     ( msgOrData?: string | T, data?: T ) => SResponseOK<T>;
-
-type SResponseOK<T extends object> = T & { 
-  status: true;
-  msg?: string;
-}
 ```
 ```js
 Ofn.setResponseOK()
@@ -1680,15 +1700,7 @@ Ofn.setResponseKO<T extends object, E extends boolean = false>(
   error?: T,
   tryAgain?: boolean,
   asError?: E
-) => E extends true
-       ? Error & { responseError: SResponseKO<T> }
-       : SResponseKO<T>;
-
-type SResponseKO<T extends object> = {
-  status: false;
-  error?: T & { msg?: string; }
-  tryAgain?: boolean;
-}
+) => E extends true ? SResponseError<T> : SResponseKO<T>;
 ```
 ```js
 Ofn.setResponseKO()

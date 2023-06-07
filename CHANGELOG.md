@@ -1,5 +1,6 @@
-## 1.5.2 / 2023-06-07
+## 1.5.3 & 1.5.2 / 2023-06-07
 * Fixed _type_ declaration of `SResponseOK`, `SResponseKO`.
+* Added _type_ `SResponse`, `SResponseError`.
 
 ## 1.5.1 / 2023-06-05
 * Fixed remove `export` from `index.js`.
