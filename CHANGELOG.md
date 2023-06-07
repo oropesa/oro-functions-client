@@ -1,4 +1,4 @@
-## 1.5.3 & 1.5.2 / 2023-06-07
+## 1.5.4 & 1.5.3 & 1.5.2 / 2023-06-07
 * Fixed _type_ declaration of `SResponseOK`, `SResponseKO`.
 * Added _type_ `SResponse`, `SResponseError`.
 

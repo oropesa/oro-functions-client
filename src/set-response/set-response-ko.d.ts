@@ -1,10 +1,10 @@
-export type SResponseKO<T extends object> = {
+export type SResponseKO<T extends object = {}> = {
     status: false;
-    error?: T & { msg?: string; }
+    error: { msg?: string; } & T
     tryAgain?: boolean;
 }
 
-export type SResponseError<T extends object> = Error & {
+export type SResponseError<T extends object = {}> = Error & {
     responseError: SResponseKO<T>
 };
 
