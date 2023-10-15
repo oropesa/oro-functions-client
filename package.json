@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/oropesa/oro-functions-client#readme",
   "dependencies": {
-    "@types/express": "^4.17.17",
+    "@types/express": "^4.17.18",
     "crypto-js": "^4.1.1",
     "js-base64": "^3.7.5",
     "lodash.clonedeep": "^4.5.0",
