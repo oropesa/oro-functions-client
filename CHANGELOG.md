@@ -1,3 +1,38 @@
+## 2.0.0 / 2023-10-24
+
+**NOTE:**<br>
+⚠️ It's not valid anymore:<br>`const Ofn = require('oro-functions-client')`,<br>
+✔️ use the following instead:<br>`const { Ofn } = require('oro-functions-client')`
+
+* Added _methods_:
+  * `objIsNotEmpty`.
+  * `arrayizeString`.
+  * `arrayizeObject`.
+* Updated methods `isEven`, `isOdd` and now they return always boolean (`false` instead of `undefined`) when it's not _numeric_.
+* Updated method `urlObjByUrl` and now it returns `URL | undefined` (instead of `URL | null`).
+* Refactored `*.js` to `src/*.ts`.
+* Improved _typescript output declarations_.
+* Updated _package_ as `type: "module"`.
+* Added `tsup` and now _package_ is compiled to `cjs` _(common)_ and `mjs` _(module)_.
+* Added _github actions_:
+  * `validate_pr_to_master`
+  * `npm_publish_on_pr_merge_to_master`.
+* Added `husky` (to ensure only valid commits).
+* Added `eslint` (and applied it).
+* Added `prettier` (and applied it).
+* Updated _package description_
+* Updated libs:
+  * `oro-php-locutus` to `2.0.0`
+  * `oro-regexp` to `2.0.0`
+* Updated _dev_ libs:
+  * `@babel/core` to `v7.23.2`.
+  * `@babel/preset-env` to `v7.23.2`.
+  * `@babel/preset-typescript` to `v7.23.2`.
+  * `@types/express` to `4.17.20`
+  * `@types/jest` to `v29.5.6`.
+  * `babel-jest` to `v29.7.0`.
+  * `jest` to `v29.7.0`.
+
 ## 1.5.4 & 1.5.3 & 1.5.2 / 2023-06-07
 * Fixed _type_ declaration of `SResponseOK`, `SResponseKO`.
 * Added _type_ `SResponse`, `SResponseError`.

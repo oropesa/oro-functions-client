@@ -1,0 +1,59 @@
+$schema: https://json.schemastore.org/eslintrc
+extends:
+  - alloy
+  - alloy/typescript
+  - plugin:unicorn/recommended
+parserOptions:
+  project: './tsconfig.json'
+globals:
+  expect: readonly
+  test: readonly
+  jest: readonly
+  describe: readonly
+overrides:
+  - files:
+      - '**/*.ts'
+      - '**/*.tsx'
+    env:
+      jest: true
+ignorePatterns:
+  - dist/
+  - tests/*.js
+  - tests/*/*.js
+  - tmp.js
+rules:
+  max-params: ["error", 4]
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - argsIgnorePattern: '^_'
+      varsIgnorePattern: '^_'
+  unicorn/switch-case-braces: ["error", "avoid"]
+  unicorn/no-null: off
+  unicorn/no-array-reduce: off
+  unicorn/no-nested-ternary: off
+  unicorn/prefer-string-replace-all: off
+  unicorn/prevent-abbreviations:
+    - error
+    - allowList:
+        fn: true
+        def: true
+        obj: true
+        Obj: true
+        str: true
+        sep: true
+        Sep: true
+        len: true
+        tmp: true
+        Ext: true
+        ext: true
+        req: true
+        Req: true
+        msg: true
+        prop: true
+        args: true
+        Attr: true
+        attr: true
+        Params: true
+        params: true
+        escAttr: true
+        esc-attr: true

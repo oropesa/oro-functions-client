@@ -1,1 +1,0 @@
-export type cloneObjectWithoutKeys = <T, OK extends keyof T>( obj: T, keys: OK[] ) => T extends Array<any> ? T : Omit<T, OK>;

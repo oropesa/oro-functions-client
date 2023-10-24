@@ -1,1 +1,0 @@
-export type getFilenameByPath = ( path: string ) => string;

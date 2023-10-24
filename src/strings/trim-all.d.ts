@@ -1,1 +1,0 @@
-export type trimAll = ( str: string ) => string;

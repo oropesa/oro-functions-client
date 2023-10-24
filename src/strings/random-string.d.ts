@@ -1,1 +1,0 @@
-export type randomString = ( len: number ) => string;

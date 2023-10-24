@@ -1,1 +1,0 @@
-export type arraysIntersection = <T>( ...args: T[] ) => T[];

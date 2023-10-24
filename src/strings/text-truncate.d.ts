@@ -1,1 +1,0 @@
-export type textTruncate = ( str: string, max?: number, suffix?: string ) => string;

@@ -1,1 +1,0 @@
-export type urlStringToPlain = ( str: string ) => string;

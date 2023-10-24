@@ -1,6 +1,13 @@
+.github/
+.husky/
 .idea/
-.DS_Store
-.gitignore
-node_modules/
+src/
 tests/
+
+.eslintrc.yaml
+.gitignore
+.prettierignore
+.prettierrc.yaml
+babel.config.cjs
+tsconfig.json
 tmp.js

@@ -1,1 +1,0 @@
-export type arrayCountByKey = <T>( arr: T[], key: string, strict?: boolean ) => {[key: string]: number};

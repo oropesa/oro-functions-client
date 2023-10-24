@@ -1,1 +1,0 @@
-export type issetGet = <T, O, K extends string | number = string>( obj: O, key: K, def?: T, allowFalsy?: boolean ) => T;

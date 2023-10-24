@@ -1,1 +1,0 @@
-export type getFolderByPath = ( path: string, deep?: number ) => string;

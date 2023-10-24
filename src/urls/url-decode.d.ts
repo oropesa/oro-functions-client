@@ -1,1 +1,0 @@
-export type urlDecode = ( url: string ) => string;

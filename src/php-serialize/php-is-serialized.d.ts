@@ -1,1 +1,0 @@
-export type phpIsSerialized = ( str: string, strict?: string ) => boolean;

@@ -1,1 +1,0 @@
-export type arraysDifference = <T>( ...args: T[] ) => T[];

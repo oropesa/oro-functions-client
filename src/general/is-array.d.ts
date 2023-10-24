@@ -1,1 +1,0 @@
-export type isArray = ( value: any ) => boolean;
