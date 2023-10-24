@@ -1,1 +1,0 @@
-export type md5 = ( str: string ) => string;

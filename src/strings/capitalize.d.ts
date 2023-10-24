@@ -1,1 +1,0 @@
-export type capitalize = ( str: string ) => string;

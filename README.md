@@ -4,137 +4,10 @@
 * [Installation](#installation)
 * [Example](#example)
 * [Methods](#methods)
-
-  * [General](#general)
-    * [Ofn.issetGet()](#ofnissetget)
-    * [Ofn.type()](#ofntype)
-    * [Ofn.isArray()](#ofnisarray)
-    * [Ofn.isBoolean()](#ofnisboolean)
-    * [Ofn.isClass()](#ofnisclass)
-    * [Ofn.isDate()](#ofnisdate)
-    * [Ofn.isFunction()](#ofnisfunction)
-    * [Ofn.isNull()](#ofnisnull)
-    * [Ofn.isNully()](#ofnisnully)
-    * [Ofn.isNumber()](#ofnisnumber)
-    * [Ofn.isObject()](#ofnisobject)
-    * [Ofn.isRegexp()](#ofnisregexp)
-    * [Ofn.isString()](#ofnisstring)
-    * [Ofn.isUndefined()](#ofnisundefined)
-  
-  * [Numbers](#numbers)
-    * [Ofn.isNumeric()](#ofnisnumeric)
-    * [Ofn.isEven()](#ofniseven)
-    * [Ofn.isOdd()](#ofnisodd)
-    * [Ofn.numberFixDecimals()](#ofnnumberfixdecimals)
-    * [Ofn.numberPrintDecimals()](#ofnnumberprintdecimals)
-    * [Ofn.randomMinMax()](#ofnrandomminmax)
-    
-  * [String](#string)
-    * [Ofn.capitalize()](#ofncapitalize)
-    * [Ofn.chunkStringByCharSize()](#ofnchunkstringbycharsize)
-    * [Ofn.escAttr()](#ofnescattr)
-    * [Ofn.isStringJson()](#ofnisstringjson)
-    * [Ofn.jsonParse()](#ofnjsonparse)
-    * [Ofn.jsonStringify()](#ofnjsonstringify)
-    * [Ofn.jsonize()](#ofnjsonize)
-    * [Ofn.arrayize()](#ofnarrayize)
-    * [Ofn.randomString()](#ofnrandomstring)
-    * [Ofn.slugify()](#ofnslugify)
-    * [Ofn.snakeify()](#ofnsnakeify)
-    * [Ofn.splitStringNumber()](#ofnsplitstringnumber)
-    * [Ofn.strPad()](#ofnstrpad)
-    * [Ofn.substrCount()](#ofnsubstrcount)
-    * [Ofn.textTruncate()](#ofntexttruncate)
-    * [Ofn.trimAll()](#ofntrimall)
-  
-  * [Crypto](#crypto)
-    * [Ofn.md5()](#ofnmd5)
-    * [Ofn.strEncrypt()](#ofnstrencrypt)
-    * [Ofn.strDecrypt()](#ofnstrdecrypt)
-   
-  * [Functions](#functions)
-    * [await Ofn.sleep()](#await-ofnsleep)
-    * [Ofn.getFunctionName()](#ofngetfunctionname)
-  
-  * [Classes](#objects)
-    * [Ofn.getClassName()](#ofngetclassname)
-    * [Ofn.getClassMethods()](#ofngetclassmethods)
-    * [Ofn.getClassStaticMethods()](#ofngetclassstaticmethods)
-  
-  * [Objects](#objects)
-    * [Ofn.cloneObject()](#ofncloneobject)
-    * [Ofn.cloneObjectWithKeys()](#ofncloneobjectwithkeys)
-    * [Ofn.cloneObjectWithoutKeys()](#ofncloneobjectwithoutkeys)
-    * [Ofn.getObjectMissedKeys()](#ofngetobjectmissedkeys)
-    * [Ofn.mergeObjectsDeep()](#ofnmergeobjectsdeep)
-    * [Ofn.objGetMethods()](#ofnobjgetmethods)
-    * [Ofn.objHasKeys()](#ofnobjhaskeys)
-    * [Ofn.objIsEmpty()](#ofnobjisempty)
-    * [Ofn.objToStringAttr()](#ofnobjtostringattr)
-    * [Ofn.objToStringAttrData()](#ofnobjtostringattrdata)
-    * [Ofn.objToStringAttrJs()](#ofnobjtostringattrjs)
-    * [Ofn.objToStringSqlSet()](#ofnobjtostringsqlset)
-  
-  * [Arrays](#arrays)
-    * [Ofn.cloneArray()](#ofnclonearray)
-    * [Ofn.arrayCountByKey()](#ofnarraycountbykey)
-    * [Ofn.arrayGetUnique()](#ofnarraygetunique)
-    * [Ofn.arrayGroupByKey()](#ofnarraygroupbykey)
-    * [Ofn.arraySortByKey()](#ofnarraysortbykey)
-    * [Ofn.arrayToObjectByKey()](#ofnarraytoobjectbykey)
-    * [Ofn.arrayValuesByKey()](#ofnarrayvaluesbykey)
-    * [Ofn.arraysDifference()](#ofnarraysdifference)
-    * [Ofn.arraysDifferenceAll()](#ofnarraysdifferenceall)
-    * [Ofn.arraysIntersection()](#ofnarraysintersection)
-  
-  * [Dates](#dates)
-    * [Ofn.dateObjByDate()](#ofndateobjbydate)
-    * [Ofn.dateObjByHtml()](#ofndateobjbyhtml)
-    * [Ofn.dateObjBySql()](#ofndateobjbysql)
-    * [Ofn.dateObjByTimestamp()](#ofndateobjbytimestamp)
-    * [Ofn.dateObjByToday()](#ofndateobjbytoday)
-    * [Ofn.dateObjPlusDays()](#ofndateobjplusdays)
-    * [Ofn.isDateObj()](#ofnisdateobj)
-    * [Ofn.datesCompare()](#ofndatescompare)
-    * [Ofn.dateIsBetween()](#ofndateisbetween)
-    * [Ofn.datesDiffDays()](#ofndatesdiffdays)
-    * [Ofn.datesDiffMonths()](#ofndatesdiffmonths)
-    * [Ofn.datesDiffMonthsArray()](#ofndatesdiffmonthsarray)
-    * [Ofn.dateCheckString()](#ofndatecheckstring)
-
-  * [URLs](#urls)
-    * [Ofn.urlDecode()](#ofnurldecode)
-    * [Ofn.urlEncode()](#ofnurlencode)
-    * [Ofn.urlGetBase()](#ofnurlgetbase)
-    * [Ofn.urlGetCurrentByReq()](#ofnurlgetcurrentbyreq)
-    * [Ofn.urlGetHostByReq()](#ofnurlgethostbyreq)
-    * [Ofn.urlGetParams()](#ofnurlgetparams)
-    * [Ofn.urlIsValid()](#ofnurlisvalid)
-    * [Ofn.urlObjByUrl()](#ofnurlobjbyurl)
-    * [Ofn.urlPlainToString()](#ofnurlplaintostring)
-    * [Ofn.urlStringToPlain()](#ofnurlstringtoplain)
-  
-  * [Files](#files)
-    * [Ofn.getFilenameByPath()](#ofngetfilenamebypath)
-    * [Ofn.getFilenameExtByName()](#ofngetfilenameextbyname)
-    * [Ofn.getFilenameWOutExtByName()](#ofngetfilenamewoutextbyname)
-    * [Ofn.getFolderByPath()](#ofngetfolderbypath)
-    * [Ofn.sanitizeFilename()](#ofnsanitizefilename)
-    * [Ofn.sanitizePath()](#ofnsanitizepath)
-    * [Ofn.slugifyFilename()](#ofnslugifyfilename)
-  
-  * [PHP Serialize](#php-serialize)
-    * [Ofn.phpIsSerialized()](#ofnphpisserialized)
-    * [Ofn.phpSerialize()](#ofnphpserialize-mixedvalue)
-    * [Ofn.phpUnserialize()](#ofnphpunserialize)
-  
-  * [Response](#response)
-    * [Ofn.setResponseOK()](#ofnsetresponseok)
-    * [Ofn.setResponseKO()](#ofnsetresponseko)
   
 ## Overview
 
-By default, **Ofn**, it's a simple class with helper static functions.
+**Ofn** contains utility static methods (helpers).
 
 This package ( `oro-functions-client` ) is divided from `oro-functions` to allow using it in _js-client environments_ like `Vuejs` or `React`. 
 
@@ -148,26 +21,157 @@ npm install oro-functions-client
 
 ## Example:
 ```js
-// js
-const Ofn = require( 'oro-functions-client' );
+// cjs
+const { Ofn } = require( 'oro-functions-client' );
 
-// ts
-import Ofn from 'oro-functions-client';
+// mjs, ts
+import { Ofn } from 'oro-functions-client';
 
 Ofn.type( [ 1, 2, 3 ] ); // -> 'array'
 ```
 
+also every method could be called individually:
 ```js
-// js
-const { type } = require( 'oro-functions-client/src' );
+// cjs
+const { type } = require( 'oro-functions-client' );
 
-//ts
-import { type } from 'oro-functions-client/src';
+// mjs, ts
+import { type } from 'oro-functions-client';
 
 type( [ 1, 2, 3 ] ); // -> 'array'
 ```
 
 ## Methods
+
+* [General](#general)
+  * [Ofn.issetGet()](#ofnissetget)
+  * [Ofn.type()](#ofntype)
+  * [Ofn.isArray()](#ofnisarray)
+  * [Ofn.isBoolean()](#ofnisboolean)
+  * [Ofn.isClass()](#ofnisclass)
+  * [Ofn.isDate()](#ofnisdate)
+  * [Ofn.isFunction()](#ofnisfunction)
+  * [Ofn.isNull()](#ofnisnull)
+  * [Ofn.isNully()](#ofnisnully)
+  * [Ofn.isNumber()](#ofnisnumber)
+  * [Ofn.isObject()](#ofnisobject)
+  * [Ofn.isRegexp()](#ofnisregexp)
+  * [Ofn.isString()](#ofnisstring)
+  * [Ofn.isUndefined()](#ofnisundefined)
+
+* [Numbers](#numbers)
+  * [Ofn.isNumeric()](#ofnisnumeric)
+  * [Ofn.isEven()](#ofniseven)
+  * [Ofn.isOdd()](#ofnisodd)
+  * [Ofn.numberFixDecimals()](#ofnnumberfixdecimals)
+  * [Ofn.numberPrintDecimals()](#ofnnumberprintdecimals)
+  * [Ofn.randomMinMax()](#ofnrandomminmax)
+
+* [String](#string)
+  * [Ofn.capitalize()](#ofncapitalize)
+  * [Ofn.chunkStringByCharSize()](#ofnchunkstringbycharsize)
+  * [Ofn.escAttr()](#ofnescattr)
+  * [Ofn.isStringJson()](#ofnisstringjson)
+  * [Ofn.jsonParse()](#ofnjsonparse)
+  * [Ofn.jsonStringify()](#ofnjsonstringify)
+  * [Ofn.jsonize()](#ofnjsonize)
+  * [Ofn.arrayize()](#ofnarrayize)
+  * [Ofn.arrayizeString()](#ofnarrayizestring)
+  * [Ofn.arrayizeObject()](#ofnarrayizeobject)
+  * [Ofn.randomString()](#ofnrandomstring)
+  * [Ofn.slugify()](#ofnslugify)
+  * [Ofn.snakeify()](#ofnsnakeify)
+  * [Ofn.splitStringNumber()](#ofnsplitstringnumber)
+  * [Ofn.strPad()](#ofnstrpad)
+  * [Ofn.substrCount()](#ofnsubstrcount)
+  * [Ofn.textTruncate()](#ofntexttruncate)
+  * [Ofn.trimAll()](#ofntrimall)
+
+* [Crypto](#crypto)
+  * [Ofn.md5()](#ofnmd5)
+  * [Ofn.strEncrypt()](#ofnstrencrypt)
+  * [Ofn.strDecrypt()](#ofnstrdecrypt)
+
+* [Functions](#functions)
+  * [await Ofn.sleep()](#await-ofnsleep)
+  * [Ofn.getFunctionName()](#ofngetfunctionname)
+
+* [Classes](#objects)
+  * [Ofn.getClassName()](#ofngetclassname)
+  * [Ofn.getClassMethods()](#ofngetclassmethods)
+  * [Ofn.getClassStaticMethods()](#ofngetclassstaticmethods)
+
+* [Objects](#objects)
+  * [Ofn.cloneObject()](#ofncloneobject)
+  * [Ofn.cloneObjectWithKeys()](#ofncloneobjectwithkeys)
+  * [Ofn.cloneObjectWithoutKeys()](#ofncloneobjectwithoutkeys)
+  * [Ofn.getObjectMissedKeys()](#ofngetobjectmissedkeys)
+  * [Ofn.mergeObjectsDeep()](#ofnmergeobjectsdeep)
+  * [Ofn.objGetMethods()](#ofnobjgetmethods)
+  * [Ofn.objHasKeys()](#ofnobjhaskeys)
+  * [Ofn.objIsNotEmpty()](#ofnobjisnotempty)
+  * [Ofn.objIsEmpty()](#ofnobjisempty)
+  * [Ofn.objToStringAttr()](#ofnobjtostringattr)
+  * [Ofn.objToStringAttrData()](#ofnobjtostringattrdata)
+  * [Ofn.objToStringAttrJs()](#ofnobjtostringattrjs)
+  * [Ofn.objToStringSqlSet()](#ofnobjtostringsqlset)
+
+* [Arrays](#arrays)
+  * [Ofn.cloneArray()](#ofnclonearray)
+  * [Ofn.arrayCountByKey()](#ofnarraycountbykey)
+  * [Ofn.arrayGetUnique()](#ofnarraygetunique)
+  * [Ofn.arrayGroupByKey()](#ofnarraygroupbykey)
+  * [Ofn.arraySortByKey()](#ofnarraysortbykey)
+  * [Ofn.arrayToObjectByKey()](#ofnarraytoobjectbykey)
+  * [Ofn.arrayValuesByKey()](#ofnarrayvaluesbykey)
+  * [Ofn.arraysDifference()](#ofnarraysdifference)
+  * [Ofn.arraysDifferenceAll()](#ofnarraysdifferenceall)
+  * [Ofn.arraysIntersection()](#ofnarraysintersection)
+
+* [Dates](#dates)
+  * [Ofn.dateObjByDate()](#ofndateobjbydate)
+  * [Ofn.dateObjByHtml()](#ofndateobjbyhtml)
+  * [Ofn.dateObjBySql()](#ofndateobjbysql)
+  * [Ofn.dateObjByTimestamp()](#ofndateobjbytimestamp)
+  * [Ofn.dateObjByToday()](#ofndateobjbytoday)
+  * [Ofn.dateObjPlusDays()](#ofndateobjplusdays)
+  * [Ofn.isDateObj()](#ofnisdateobj)
+  * [Ofn.datesCompare()](#ofndatescompare)
+  * [Ofn.dateIsBetween()](#ofndateisbetween)
+  * [Ofn.datesDiffDays()](#ofndatesdiffdays)
+  * [Ofn.datesDiffMonths()](#ofndatesdiffmonths)
+  * [Ofn.datesDiffMonthsArray()](#ofndatesdiffmonthsarray)
+  * [Ofn.dateCheckString()](#ofndatecheckstring)
+
+* [URLs](#urls)
+  * [Ofn.urlDecode()](#ofnurldecode)
+  * [Ofn.urlEncode()](#ofnurlencode)
+  * [Ofn.urlGetBase()](#ofnurlgetbase)
+  * [Ofn.urlGetCurrentByReq()](#ofnurlgetcurrentbyreq)
+  * [Ofn.urlGetHostByReq()](#ofnurlgethostbyreq)
+  * [Ofn.urlGetParams()](#ofnurlgetparams)
+  * [Ofn.urlIsValid()](#ofnurlisvalid)
+  * [Ofn.urlObjByUrl()](#ofnurlobjbyurl)
+  * [Ofn.urlPlainToString()](#ofnurlplaintostring)
+  * [Ofn.urlStringToPlain()](#ofnurlstringtoplain)
+
+* [Files](#files)
+  * [Ofn.getFilenameByPath()](#ofngetfilenamebypath)
+  * [Ofn.getFilenameExtByName()](#ofngetfilenameextbyname)
+  * [Ofn.getFilenameWOutExtByName()](#ofngetfilenamewoutextbyname)
+  * [Ofn.getFolderByPath()](#ofngetfolderbypath)
+  * [Ofn.sanitizeFilename()](#ofnsanitizefilename)
+  * [Ofn.sanitizePath()](#ofnsanitizepath)
+  * [Ofn.slugifyFilename()](#ofnslugifyfilename)
+
+* [PHP Serialize](#php-serialize)
+  * [Ofn.phpIsSerialized()](#ofnphpisserialized)
+  * [Ofn.phpSerialize()](#ofnphpserialize-mixedvalue)
+  * [Ofn.phpUnserialize()](#ofnphpunserialize)
+
+* [Response](#response)
+  * [Ofn.setResponseOK()](#ofnsetresponseok)
+  * [Ofn.setResponseKO()](#ofnsetresponseko)
 
 <hr>
 
@@ -175,8 +179,11 @@ type( [ 1, 2, 3 ] ); // -> 'array'
 
 #### Ofn.issetGet()
 ```ts
-Ofn.issetGet<T, O, K extends string | number = string>
-    ( obj: O, key: K, def?: T, allowFalsy?: boolean ) => T;
+Ofn.issetGet<
+  T,
+  O extends Record<string | number, any>, // object | array
+  K extends string | number = string
+>( obj: O, key: K, def?: T, allowFalsy = true ) => T | null;
 
 // < T output-type, O object-interface, K allowed-keys>
 // Note: 'key' could be number when 'obj' is array
@@ -230,10 +237,10 @@ Ofn.type( function() {} )   // -> 'function'
 Ofn.type( new Date() )      // -> 'date'
 ```
 ```js
-// Note: when obj is a obj-class
+// Note: when obj is an obj-class
 
 class MyClass {}
-let foo = new MyClass();
+const foo = new MyClass();
 
 Ofn.type( MyClass )   // -> 'class'
 Ofn.type( foo )       // -> 'object'
@@ -364,26 +371,26 @@ Ofn.isNumberic( num )
 
 #### Ofn.isEven()
 ```ts
-Ofn.isEven( num: number ) => boolean | undefined;
+Ofn.isEven( num: number ) => boolean;
 ```
 ```js
 Ofn.isEven( 0 ) // -> true
 Ofn.isEven( 1 ) // -> false
 
-Ofn.isEven( NaN ) // -> undefined
+Ofn.isEven( NaN ) // -> false
 Ofn.isEven( 0.2 ) // -> true
 Ofn.isEven( 1.2 ) // -> false
 ```
 
 #### Ofn.isOdd()
 ```ts
-Ofn.isOdd( num: number ) => boolean | undefined;
+Ofn.isOdd( num: number ) => boolean;
 ```
 ```js
 Ofn.isOdd( 0 ) // -> false
 Ofn.isOdd( 1 ) // -> true
 
-Ofn.isOdd( NaN ) // -> undefined
+Ofn.isOdd( NaN ) // -> false
 Ofn.isOdd( 0.2 ) // -> false
 Ofn.isOdd( 1.2 ) // -> true
 ```
@@ -428,12 +435,12 @@ Ofn.numberPrintDecimals(
   num: number | string,             
   decimalLength?: number | false,   // def: 2
   allowAllRightZeros?: boolean,     // def: true
-  minRightZeros?: number | boolean, // def: true
+  minRightZeros?: number | boolean, // def: 2
 ) => string;
 ```
 
 Is the same as [Ofn.numberFixDecimals](#ofnnumberfixdecimals),
-but separator is comma `2,10`, not dot `2.10`.
+but the separator is a comma `2,10`, not a dot `2.10`.
 
 It's better to print, for example, in _excel fields_.
 
@@ -473,8 +480,10 @@ Ofn.chunkStringByCharSize(
   str: string,
   char: string,
   size: number,
-  orientation?: 'left' | 'right'  // def: 'left'
+  orientation?: LeftRight  // def: 'left'
 ) => string;
+
+type LeftRight = 'left' | 'right';
 ```
 ```js
 Ofn.chunkStringByCharSize( '1234567', '_', 2 );          
@@ -504,11 +513,10 @@ Ofn.isStringJson( '[ "foo", "bar" ]', true ); // -> true
 
 #### Ofn.jsonParse()
 ```ts
-Ofn.jsonParse<T, B extends boolean = boolean>
-    ( str: string, strict?: B ) 
-        => B extends true
-            ? T | null
-            : T | string;
+Ofn.jsonParse<T, B extends boolean = boolean>(
+  str: string,
+  strict?: B,
+) => B extends true ? T | null : T | string
 ```
 ```js
 Ofn.jsonParse( 'foo' );       // -> 'foo'
@@ -523,8 +531,10 @@ Ofn.jsonParse( '{"0":1,"1":2,"2":3}', true ); // -> { "0": 1, "1": 2, "2": 3 }
 
 #### Ofn.jsonStringify()
 ```ts
-Ofn.jsonStringify<T extends object>
-    ( json: T, beautify?: boolean ) => string;
+Ofn.jsonStringify<T extends Record<string | number, any>>(
+  json: T,
+  beautify = false,
+) => string;
 ```
 ```js
 Ofn.jsonStringify( 'foo' );               // -> ''
@@ -536,11 +546,10 @@ Ofn.jsonStringify( [ 1, 2, 3 ] );         // -> '{"0":1,"1":2,"2":3}'
 
 #### Ofn.jsonize()
 ```ts
-Ofn.jsonize<T, B extends boolean = boolean>
-    ( str: string, strict?: B ) 
-        => B extends true
-            ? T | null
-            : T | string;
+Ofn.jsonize<T, B extends boolean = boolean>(
+  str: string,
+  strict?: B,
+) => B extends true ? T | null : T | string;
 ```
 ```js
 Ofn.jsonize( 'foo' );       // -> 'foo'
@@ -556,11 +565,13 @@ Ofn.jsonize( '{"0":1,"1":2,"2":3}' ); // -> [ 1, 2, 3 ]
 
 #### Ofn.arrayize()
 ```ts
-Ofn.jsonize<T, O extends object = object, B extends boolean = boolean>
-    ( strOrObject: string | O, strict?: B ) 
-        => B extends true
-            ? T | null
-            : T | string;
+Ofn.arrayize<
+  T,
+  B extends boolean = boolean,
+  O extends Record<string, any> = Record<string, any>,
+>
+( strOrObject: string | O, strict?: B )
+=> B extends true ? T | null : T | string | O;
 ```
 ```js
 Ofn.arrayize( 'foo' );       // -> 'foo'
@@ -572,6 +583,44 @@ Ofn.arrayize( { foo: true } );  // -> [] with property foo = true
 Ofn.arrayize( '[ 1, 2, 3 ]' );                  
 // -> [ 1, 2, 3 ]
 Ofn.arrayize( '{ "0":1, "2":3, "foo":true }' ); 
+// -> [ 1, undefined, 3 ] with property foo = true
+```
+
+#### Ofn.arrayizeString()
+```ts
+Ofn.arrayizeString<T, B extends boolean = boolean>(
+  str: string,
+  strict?: B,
+) => B extends true ? T | null : T | string;
+```
+```js
+Ofn.arrayizeString( 'foo' );       // -> 'foo'
+Ofn.arrayizeString( 'foo', true ); // -> null
+
+Ofn.arrayizeString( '{"foo":true}' ); // -> [] with property foo = true
+Ofn.arrayizeString( { foo: true }, true ); // -> null
+
+Ofn.arrayizeString( '[ 1, 2, 3 ]' );                  
+// -> [ 1, 2, 3 ]
+Ofn.arrayizeString( '{ "0":1, "2":3, "foo":true }' ); 
+// -> [ 1, undefined, 3 ] with property foo = true
+```
+
+#### Ofn.arrayizeObject()
+```ts
+Ofn.arrayizeObject<
+  T,
+  O extends Record<string, any> = Record<string, any>,
+  B extends boolean = boolean,
+>(object: O, strict?: B) => B extends true ? T | null : T | O;
+```
+```js
+Ofn.arrayizeObject( '{"foo":true}', true ); // -> null
+Ofn.arrayizeObject( { foo: true } ); // -> [] with property foo = true
+
+Ofn.arrayizeObject( [ 1, 2, 3 ] );                  
+// -> [ 1, 2, 3 ]
+Ofn.arrayizeObject( { "0": 1, "2": 3, "foo": true } ); 
 // -> [ 1, undefined, 3 ] with property foo = true
 ```
 
@@ -619,9 +668,11 @@ Ofn.splitStringNumber( '1.234.567', '.', );
 Ofn.strPad = strPad(
   str: string | number,
   length: number,
-  pad?: string | number,
-  leftRight?: 'left' | 'right'  // def: 'left'
+  pad?: string | number, // def: ' '
+  leftRight?: LeftRight  // def: 'left'
 ) => string;
+
+type LeftRight = 'left' | 'right';
 ```
 ```js
 Ofn.strPad( '123', 5 );               // -> '  123'
@@ -652,8 +703,8 @@ Ofn.trimAll( '  string    with    spaces   ' );
 ```ts
 Ofn.textTruncate = textTruncate( 
   str: string,
-  max?: number,    // def: 120
-  suffix?: string  // def: '...'
+  max?: number | true, // def: 120
+  suffix?: string      // def: '...'
 ) => string;
 ```
 ```js
@@ -714,7 +765,9 @@ Ofn.strDecrypt( 'MHVuUmE5MHAvOXpOazkwckhyTGc5VUFUM0NXWkNPUFdzcU9wZE5ydlo4Zz0=', 
 
 #### await Ofn.sleep( ms )
 ```ts
-Ofn.sleep( ms: number ) => Promise<void>;
+Ofn.sleep( 
+  ms?: number // def: 0
+) => Promise<void>;
 ```
 ```js
 await Ofn.sleep( 5000 ); // -> 5 second
@@ -722,14 +775,14 @@ await Ofn.sleep( 5000 ); // -> 5 second
 
 #### Ofn.getFunctionName()
 ```ts
-Ofn.getFunctionName( func?: string | Function ) => string;
+Ofn.getFunctionName( fn?: string | Function ) => string;
 ```
 ```js
 function fnTest() {}
 
-let callback = fnTest;
+const callback = fnTest;
 
-Ofn.getFunctionName( callback ) 
+Ofn.getFunctionName( callback );
 // -> 'fnTest'
 ```
 
@@ -804,7 +857,7 @@ Ofn.getClassStaticMethods( MyClass );
 
 #### Ofn.cloneObject()
 ```ts
-Ofn.cloneObject<T>( obj: T ) => T;
+Ofn.cloneObject<T>( obj: T ) => NonNullable<T>;
 ```
 ```js
 //deep clone
@@ -820,8 +873,10 @@ obj2.foo.bar = false;
 
 #### Ofn.cloneObjectWithKeys()
 ```ts
-Ofn.cloneObjectWithKeys<T, K extends keyof T = keyof T>
-    ( obj: T, keys: K[] ) => T extends Array<any> ? T : Pick<T, K>;
+Ofn.cloneObjectWithKeys<T, K extends keyof T = keyof T>(
+  obj: T,
+  keys: K[],
+) => Partial<Pick<T, K>;
 ```
 ```js
 Ofn.cloneObjectWithKeys( { a: true, b: true }, [ 'a' ] ); 
@@ -836,8 +891,10 @@ Ofn.cloneObjectWithKeys<Custom>( { a: true, b: true }, [ 'a' ] );
 
 #### Ofn.cloneObjectWithoutKeys()
 ```ts
-Ofn.cloneObjectWithoutKeys<T, K extends keyof T = keyof T>
-    ( obj: T, keys: K[] ) => T extends Array<any> ? T : Pick<T, K>;
+Ofn.cloneObjectWithoutKeys<T, K extends keyof T>(
+  obj: T,
+  keys: K[],
+) => Partial<Omit<T, K>>;
 ```
 ```js
 Ofn.cloneObjectWithoutKeys( { a: true, b: true }, [ 'a' ] ); 
@@ -852,8 +909,10 @@ Ofn.cloneObjectWithoutKeys<Custom>( { a: true, b: true }, [ 'a' ] );
 
 #### Ofn.getObjectMissedKeys()
 ```ts
-Ofn.getObjectMissedKeys<T, K = string>
-    ( obj: T, keys: K[] ) => Omit<K, keyof T>;
+Ofn.getObjectMissedKeys<T extends Record<string, any>, K = string>(
+  obj: T,
+  keys: K[],
+) => Omit<K[], keyof T>;
 ```
 ```js
 Ofn.getObjectMissedKeys( { a: true }, [ 'a' ] );      
@@ -897,8 +956,10 @@ Ofn.objGetMethods( obj )
 
 #### Ofn.objHasKeys()
 ```ts
-Ofn.objHasKeys<T, K = string>
-    ( obj: T, keys: K[] ) => boolean;
+Ofn.objHasKeys<T extends Record<string, any>, K = string>(
+  obj: T,
+  keys: K[]
+) => boolean;
 ```
 ```js
 Ofn.objHasKeys( { a: true }, [ 'a' ] );      
@@ -917,7 +978,9 @@ Ofn.objHasKeys<Custom, keyof Custom>( { a: true }, [ 'a', 'b' ] );
 
 #### Ofn.mergeObjectsDeep()
 ```ts
-Ofn.mergeObjectsDeep<T>(...args: T[]) => T;
+Ofn.mergeObjectsDeep<T extends Record<string, any>>(
+  ...args: Array<Partial<T>>
+) => T;
 ```
 ```js
 Ofn.mergeObjectsDeep( 
@@ -927,9 +990,19 @@ Ofn.mergeObjectsDeep(
 // -> { a: { b: '7', c: '2', d: '3' }
 ```
 
+#### Ofn.objIsNotEmpty()
+```ts
+Ofn.objIsNotEmpty( obj: any ) => boolean;
+// => obj is NonNullable<Record<string | number, any>>;
+```
+```js
+Ofn.objIsNotEmpty( {} );         // -> false
+Ofn.objIsNotEmpty( { foo: 0 } ); // -> true
+```
+
 #### Ofn.objIsEmpty()
 ```ts
-Ofn.objIsEmpty<T>( obj: T ) => boolean;
+Ofn.objIsEmpty( obj: any ) => boolean;
 ```
 ```js
 Ofn.objIsEmpty( {} );         // -> true
@@ -1001,8 +1074,11 @@ arr2[ 1 ].bar = true;
 
 #### Ofn.arrayCountByKey()
 ```ts
-Ofn.arrayCountByKey<T>
-    ( arr: T[], key: string, strict?: boolean ) => {[key: string]: number};
+Ofn.arrayCountByKey<T>(
+  array: T[],
+  key: string,
+  strict?: boolean // def: false,
+) => Record<string, number>;
 ```
 ```js
 Ofn.arrayCountByKey( 
@@ -1017,7 +1093,7 @@ Ofn.arrayCountByKey(
 
 #### Ofn.arrayGetUnique()
 ```ts
-Ofn.arrayGetUnique<T>( arr: T[] ) => T[];
+Ofn.arrayGetUnique<T>( array: T[] ) => T[];
 ```
 ```js
 Ofn.arrayGetUnique( [ 1, 1, 2, 1, 3 ] ); 
@@ -1026,8 +1102,11 @@ Ofn.arrayGetUnique( [ 1, 1, 2, 1, 3 ] );
 
 #### Ofn.arrayGroupByKey()
 ```ts
-Ofn.arrayGroupByKey<T>
-    ( arr: T[], key: string, strict?: boolean ) => {[key: string]: T[]};
+Ofn.arrayGroupByKey<T>(
+  array: T[],
+  key: string,
+  strict?: boolean, // def: false
+) => Record<string, T[]>;
 ```
 ```js
 Ofn.arrayGroupByKey( 
@@ -1045,8 +1124,11 @@ Ofn.arrayGroupByKey(
 
 #### Ofn.arraySortByKey()
 ```ts
-Ofn.arraySortByKey<T>
-    ( arr: T[], key: string, sortArray?: string[] ) => T[];
+Ofn.arraySortByKey<T>(
+  arr: T[],
+  key: string,
+  sortArray?: string[] 
+) => T[];
 ```
 ```js
 Ofn.arraySortByKey( 
@@ -1077,8 +1159,11 @@ Ofn.arraySortByKey(
 
 #### Ofn.arrayToObjectByKey()
 ```ts
-Ofn.arrayToObjectByKey<T>
-    ( arr: T[], key: string, strict?: boolean ) => {[key: string]: T};
+Ofn.arrayToObjectByKey<T>(
+  arr: T[],
+  key: string,
+  strict?: boolean // def: false
+) => Record<string, T>;
 ```
 ```js
 Ofn.arrayToObjectByKey(
@@ -1096,8 +1181,11 @@ Ofn.arrayToObjectByKey(
 
 #### Ofn.arrayValuesByKey()
 ```ts
-Ofn.arrayValuesByKey<T, V>
-    ( arr: T[], key: string, strict?: boolean ) => V[];
+Ofn.arrayValuesByKey<T, V, B extends boolean = false>(
+  array: T[],
+  key: string,
+  strict?: B,
+) => B extends true ? Array<V> : Array<V | undefined>;
 ```
 ```js
 Ofn.arrayValuesByKey( 
@@ -1210,8 +1298,14 @@ interface DateObj {
 
 #### Ofn.dateObjByDate()
 ```ts
-Ofn.dateObjByDate
-    ( date: Date, opts?: { sep: string } | string ) => DateObj | null;
+Ofn.dateObjByDate( 
+  date: Date, 
+  options: DateObjOptions | string = {}
+) => DateObj;
+
+interface DateObjOptions {
+  sep?: string;
+}
 ```
 ```js
 Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ) )
@@ -1220,8 +1314,14 @@ Ofn.dateObjByDate( new Date( '2021-08-13 10:57:34' ) )
 
 #### Ofn.dateObjByHtml()
 ```ts
-Ofn.dateObjByHtml
-    ( html: string, opts?: { sep: string } | string ) => DateObj | null;
+Ofn.dateObjByHtml(
+  html: string,
+  options: DateObjOptions | string = {} 
+) => DateObj | null;
+
+interface DateObjOptions {
+  sep?: string;
+}
 ```
 ```js
 Ofn.dateObjByHtml( '13/08/2021 10:57:34' )
@@ -1230,8 +1330,14 @@ Ofn.dateObjByHtml( '13/08/2021 10:57:34' )
 
 #### Ofn.dateObjBySql()
 ```ts
-Ofn.dateObjBySql
-    ( sqldate: string, opts?: { sep: string } | string ) => DateObj | null;
+Ofn.dateObjBySql(
+  sqldate: string,
+  options: DateObjOptions | string = {} 
+) => DateObj | null;
+
+interface DateObjOptions {
+  sep?: string;
+}
 ```
 ```js
 Ofn.dateObjBySql( '2021-08-13 10:57:34' )
@@ -1240,8 +1346,14 @@ Ofn.dateObjBySql( '2021-08-13 10:57:34' )
 
 #### Ofn.dateObjByTimestamp()
 ```ts
-Ofn.dateObjByTimestamp
-    ( timestamp: number, opts?: { sep: string } | string ) => DateObj | null;
+Ofn.dateObjByTimestamp(
+  timestamp: number,
+  options: DateObjOptions | string = {} 
+) => DateObj | null;
+
+interface DateObjOptions {
+  sep?: string;
+}
 ```
 ```js
 Ofn.dateObjByTimestamp( 1628848654000 )
@@ -1250,7 +1362,11 @@ Ofn.dateObjByTimestamp( 1628848654000 )
 
 #### Ofn.dateObjByToday()
 ```ts
-Ofn.dateObjByToday( opts?: { sep: string } | string ) => DateObj;
+Ofn.dateObjByToday( options: DateObjOptions | string = {} ) => DateObj;
+
+interface DateObjOptions {
+  sep?: string;
+}
 ```
 ```js
 Ofn.dateObjByToday()
@@ -1258,8 +1374,10 @@ Ofn.dateObjByToday()
 
 #### Ofn.dateObjPlusDays()
 ```ts
-Ofn.dateObjPlusDays
-   ( date: DateObj | Date, days: number ) => DateObj | null;
+Ofn.dateObjPlusDays(
+  date: DateObj | Date, 
+  days: number
+) => DateObj;
 ```
 ```js
 const date = new Date( '2021-08-13 10:57:34' );
@@ -1275,6 +1393,7 @@ Ofn.dateObjPlusDays( dateObj, -1 )
 #### Ofn.isDateObj()
 ```ts
 Ofn.isDateObj( date: any ) => boolean;
+// => date is DateObj
 
 // depricated
 Ofn.dateIsObj( date: any ) => boolean;
@@ -1291,8 +1410,10 @@ Ofn.isDateObj( dateObj );
 
 #### Ofn.datesCompare()
 ```ts
-Ofn.datesCompare
-   ( date1: DateObj | Date, date2: DateObj | Date ) => -1 | 0 | 1;
+Ofn.datesCompare(
+  date1: DateObj | Date,
+  date2: DateObj | Date
+) => -1 | 0 | 1;
 ```
 ```js
 const date = new Date( '2021-08-13 10:57:34' );
@@ -1309,8 +1430,11 @@ Ofn.datesCompare( todayObj, todayObj )
 
 #### Ofn.dateIsBetween()
 ```ts
-Ofn.dateIsBetween
-   ( date: DateObj | Date, dateMin: DateObj | Date, dateMax: DateObj | Date ) => boolean;
+Ofn.dateIsBetween(
+  date: DateObj | Date, 
+  dateMin: DateObj | Date, 
+  dateMax: DateObj | Date
+) => boolean;
 ```
 ```js
 const date = new Date( '2021-08-13 10:57:34' );
@@ -1322,8 +1446,10 @@ Ofn.dateIsBetween( Ofn.dateObjPlusDays( date, 1 ), date, todayObj );
 
 #### Ofn.datesDiffDays()
 ```ts
-Ofn.datesDiffDays
-   ( date1: DateObj | Date, date2: DateObj | Date ) => number;
+Ofn.datesDiffDays(
+  date1: DateObj | Date,
+  date2: DateObj | Date 
+) => number;
 ```
 ```js
 const dateObj1 = Ofn.dateObjBySql( '2021-12-25' );
@@ -1335,8 +1461,10 @@ Ofn.datesDiffDays( dateObj1, dateObj2 );
 
 #### Ofn.datesDiffMonths()
 ```ts
-Ofn.datesDiffMonths
-   ( date1: DateObj | Date, date2: DateObj | Date ) => number;
+Ofn.datesDiffMonths(
+  date1: DateObj | Date, 
+  date2: DateObj | Date 
+) => number;
 ```
 ```js
 const dateObj1 = Ofn.dateObjBySql( '2021-12-25' );
@@ -1348,8 +1476,10 @@ Ofn.datesDiffMonths( dateObj1, dateObj2 );
 
 #### Ofn.datesDiffMonthsArray()
 ```ts
-Ofn.datesDiffMonthsArray
-   ( date1: DateObj | Date, date2: DateObj | Date ) => DateDiffMonth[];
+Ofn.datesDiffMonthsArray(
+  date1: DateObj | Date, 
+  date2: DateObj | Date 
+) => DateDiffMonth[];
 
 interface DateDiffMonth {
   year: string;
@@ -1366,8 +1496,7 @@ Ofn.datesDiffMonths( dateObj1, dateObj2 );
 
 #### Ofn.dateCheckString()
 ```ts
-Ofn.dateCheckString
-   ( str: string, format?: DateStringFormat ) => boolean;
+Ofn.dateCheckString( str: string, format?: DateStringFormat ) => boolean;
 
 type DateStringFormat =
   | 'datetime_strict'
@@ -1444,8 +1573,10 @@ Ofn.urlGetBase( 'https://example.com/page?param1=value1&param2=value2' );
 
 #### Ofn.urlGetCurrentByReq()
 ```ts
-Ofn.urlGetCurrentByReq
-   ( req: Pick<Request, 'originalUrl' | 'protocol'>, isFullpath?: boolean ) => string;
+Ofn.urlGetCurrentByReq(
+  req: Pick<Request, 'originalUrl' | 'protocol'>, // type { Request } from 'express'
+  isFullpath?: boolean 
+) => string;
 ```
 ```js
 // simulating `Request` of express
@@ -1463,8 +1594,9 @@ Ofn.urlGetCurrentByReq( req, false );
 
 #### Ofn.urlGetHostByReq()
 ```ts
-Ofn.urlGetHostByReq
-   ( req: Pick<Request, 'originalUrl' | 'protocol' | 'get'> ) => string;
+Ofn.urlGetHostByReq(
+  req: Pick<Request, 'originalUrl' | 'protocol' | 'get'> // type { Request } from 'express'
+) => string;
 ```
 ```js
 // simulating `Request` of express
@@ -1480,7 +1612,7 @@ Ofn.urlGetHostByReq( req );
 
 #### Ofn.urlGetParams()
 ```ts
-Ofn.urlGetParams( urlOrQuery: string ) => { [key in string]: string };
+Ofn.urlGetParams( urlOrQuery: string ) => Record<string, string | string[]>;
 ```
 ```js
 Ofn.urlGetParams( 'https://example.com/page?param1=value1&param2=value2' );
@@ -1500,11 +1632,11 @@ Ofn.urlIsValid( 'https://example.com?foo&bar=1' );
 
 #### Ofn.urlObjByUrl()
 ```ts
-Ofn.urlObjByUrl( url: string ) => URL | null;
+Ofn.urlObjByUrl( url: string ) => URL | undefined;
 ```
 ```js
 Ofn.urlObjByUrl( 'example.com' ); 
-// -> null
+// -> undefined
 Ofn.urlObjByUrl( 'https://example.com?foo&bar=1' ); 
 // -> new URL( url )
 ```
@@ -1560,7 +1692,10 @@ Ofn.getFilenameWOutExtByName( 'filename.pdf' )
 
 #### Ofn.getFolderByPath()
 ```ts
-Ofn.getFolderByPath( path: string, deep?: number ) => string;
+Ofn.getFolderByPath( 
+  path: string,
+  deep?: number // def: 1
+) => string;
 ```
 ```js
 Ofn.getFolderByPath( '/var/www/htdoc/filename.pdf' )    
@@ -1621,7 +1756,10 @@ Ofn.phpIsSerialized( 'a:1:{s:6:"foo";b:1;}' )
 
 #### Ofn.phpSerialize()
 ```ts
-Ofn.phpSerialize<T>( mixedValue: T, strict?: boolean ) => string | T;
+Ofn.phpSerialize<T>(
+  mixedValue: T,
+  strict?: boolean // def: false
+) => string | T;
 ```
 ```js
 Ofn.phpSerialize( { foo: true } )       
@@ -1632,8 +1770,10 @@ Ofn.phpSerialize( { foo: true }, true )
 
 #### Ofn.phpUnserialize()
 ```ts
-Ofn.phpUnserialize<T, S extends string = string>
-    ( str: S, strict?: boolean ) => T | S;
+Ofn.phpUnserialize<T>(
+  str: string, 
+  strict?: boolean // def: false
+) => T | string;
 ```
 ```js
 Ofn.phpUnserialize( '{"foo":true}' )         
@@ -1648,33 +1788,37 @@ Ofn.phpUnserialize( '{"foo":true}', true )
 
 ```ts
 export type SResponse<
-  OK extends object,
-  KO extends object,
+  OK extends Record<string, any> = {},
+  KO extends Record<string, any> = {},
   E extends boolean = false
 > = E extends true
     ? SResponseOK<OK> | SResponseError<KO>
     : SResponseOK<OK> | SResponseKO<KO>
 
-type SResponseOK<T extends object> = T & {
+type SResponseOK<T extends Record<string, any> = {}> = T & {
   status: true;
   msg?: string;
 }
 
-type SResponseKO<T extends object> = {
+type SResponseKOError<T extends Record<string, any> = {}> = T & { msg?: string };
+
+type SResponseKO<T extends Record<string, any> = {}> = {
   status: false;
-  error?: T & { msg?: string; }
+  error?: SResponseKOError
   tryAgain?: boolean;
 }
 
-type SResponseError<T extends object> = Error & {
+type SResponseError<T extends Record<string, any> = {}> = Error & {
   responseError: SResponseKO<T>
 };
 ```
 
 #### Ofn.setResponseOK()
 ```ts
-Ofn.setResponseOK<T extends object>
-    ( msgOrData?: string | T, data?: T ) => SResponseOK<T>;
+Ofn.setResponseOK<T extends Record<string, any>>(
+  msgOrData?: string | T, 
+  data?: T 
+) => SResponseOK<T>;
 ```
 ```js
 Ofn.setResponseOK()
@@ -1695,11 +1839,11 @@ Ofn.setResponseKO( 'Reason:', { msg: 'custom', label: 'foo' } )
 
 #### Ofn.setResponseKO()
 ```ts
-Ofn.setResponseKO<T extends object, E extends boolean = false>(
+Ofn.setResponseKO<T extends Record<string, any>, E extends boolean = false>(
   msgOrError?: string | T,
   error?: T,
-  tryAgain?: boolean,
-  asError?: E
+  tryAgain?: boolean, // def: false
+  asError?: E // def: false
 ) => E extends true ? SResponseError<T> : SResponseKO<T>;
 ```
 ```js

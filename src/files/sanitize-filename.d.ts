@@ -1,1 +1,0 @@
-export type sanitizeFilename = ( path: string ) => string;

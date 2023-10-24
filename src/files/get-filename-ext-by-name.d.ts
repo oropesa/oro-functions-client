@@ -1,1 +1,0 @@
-export type getFilenameExtByName = ( filenameOrPath: string ) => string;

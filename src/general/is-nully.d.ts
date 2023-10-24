@@ -1,1 +1,0 @@
-export type isNully = ( value: any ) => boolean;

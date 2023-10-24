@@ -1,1 +1,0 @@
-export type getClassName = ( classy: any ) => string;

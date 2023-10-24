@@ -5,7 +5,7 @@ export { getObjectMissedKeys } from './get-object-missed-keys';
 export { mergeObjectsDeep } from './merge-objects-deep';
 export { objGetMethods } from './obj-get-methods';
 export { objHasKeys } from './obj-has-keys';
-export { objIsEmpty } from './obj-is-empty';
+export { objIsEmpty, objIsNotEmpty } from './obj-is-empty';
 export { objToStringAttr } from './obj-to-string-attr';
 export { objToStringAttrData } from './obj-to-string-attr-data';
 export { objToStringAttrJs } from './obj-to-string-attr-js';

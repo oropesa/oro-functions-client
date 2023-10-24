@@ -1,1 +1,0 @@
-export type arraySortByKey = <T>( arr: T[], key: string, sortArray?: string[] ) => T[];

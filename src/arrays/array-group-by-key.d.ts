@@ -1,1 +1,0 @@
-export type arrayGroupByKey = <T>( arr: T[], key: string, strict?: boolean ) => {[key: string]: T[]};

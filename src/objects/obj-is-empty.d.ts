@@ -1,1 +1,0 @@
-export type objIsEmpty = <T>( obj: T ) => boolean;

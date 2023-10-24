@@ -1,1 +1,0 @@
-export type phpSerialize = <T>( mixedValue: T, strict?: boolean ) => string | T;

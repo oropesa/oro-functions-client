@@ -1,1 +1,0 @@
-export type isOdd = ( num: number ) => boolean | undefined;

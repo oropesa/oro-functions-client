@@ -1,1 +1,0 @@
-export type cloneObject = <T>( obj: T ) => T;
