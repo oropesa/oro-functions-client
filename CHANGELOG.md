@@ -1,3 +1,8 @@
+## 2.0.1 / 2023-10-24
+* Updated libs:
+  * `oro-php-locutus` from `2.0.0` to `2.0.1`
+  * `oro-regexp` from `2.0.0` to `2.0.1`
+
 ## 2.0.0 / 2023-10-24
 
 **NOTE:**<br>
