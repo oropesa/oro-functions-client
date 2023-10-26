@@ -31,17 +31,17 @@ describe('fn: setResponseOK', () => {
     });
   });
   test('fn: setResponseOK( null, obj )', () => {
-    expect(Ofn.setResponseOK(null, { chacho: true })).toEqual({ status: true, chacho: true });
+    expect(Ofn.setResponseOK(undefined, { chacho: true })).toEqual({ status: true, chacho: true });
   });
   test('fn: setResponseOK( null, obj ) T', () => {
     interface Custom {
       chacho: boolean;
     }
-    const response = Ofn.setResponseOK<Custom>(null, { chacho: true });
+    const response = Ofn.setResponseOK<Custom>(undefined, { chacho: true });
     expect(response).toEqual({ status: true, chacho: true });
   });
   test('fn: setResponseOK( null, obj.msg )', () => {
-    expect(Ofn.setResponseOK(null, { msg: 'tio' })).toEqual({ status: true, msg: 'tio' });
+    expect(Ofn.setResponseOK(undefined, { msg: 'tio' })).toEqual({ status: true, msg: 'tio' });
   });
   test('fn: setResponseOK( str, obj.msg )', () => {
     expect(Ofn.setResponseOK('chacho', { msg: 'tio' })).toEqual({
@@ -76,7 +76,7 @@ describe('fn: setResponseKO', () => {
     expect(response).toEqual({ status: false, error: { status: 'tio', chacho: true } });
   });
   test('fn: setResponseKO( null, obj )', () => {
-    expect(Ofn.setResponseKO(null, { chacho: true })).toEqual({
+    expect(Ofn.setResponseKO(undefined, { chacho: true })).toEqual({
       status: false,
       error: { chacho: true },
     });
@@ -85,11 +85,11 @@ describe('fn: setResponseKO', () => {
     interface Custom {
       chacho: boolean;
     }
-    const response = Ofn.setResponseKO<Custom>(null, { chacho: true });
+    const response = Ofn.setResponseKO<Custom>(undefined, { chacho: true });
     expect(response).toEqual({ status: false, error: { chacho: true } });
   });
   test('fn: setResponseKO( null, obj.msg )', () => {
-    expect(Ofn.setResponseKO(null, { msg: 'tio' })).toEqual({
+    expect(Ofn.setResponseKO(undefined, { msg: 'tio' })).toEqual({
       status: false,
       error: { msg: 'tio' },
     });
@@ -101,14 +101,14 @@ describe('fn: setResponseKO', () => {
     });
   });
   test('fn: setResponseKO( str, null, tryAgain )', () => {
-    expect(Ofn.setResponseKO('chacho', null, true)).toEqual({
+    expect(Ofn.setResponseKO('chacho', undefined, true)).toEqual({
       status: false,
       error: { msg: 'chacho' },
       tryAgain: true,
     });
   });
   test('fn: setResponseKO( str, null, null, asError )', () => {
-    let response = Ofn.setResponseKO('chacho', null, null, true);
+    let response = Ofn.setResponseKO('chacho', undefined, undefined, true);
     let error = new Error('chacho');
 
     expect(response).toEqual(error);
@@ -119,7 +119,7 @@ describe('fn: setResponseKO', () => {
     interface Custom {
       chacho: boolean;
     }
-    let response = Ofn.setResponseKO<Custom, true>('chacho', { chacho: true }, null, true);
+    let response = Ofn.setResponseKO<Custom>('chacho', { chacho: true }, undefined, true);
 
     expect(Ofn.type(response)).toEqual('error');
     expect(response.name).toBe('responseError');
@@ -127,7 +127,7 @@ describe('fn: setResponseKO', () => {
   });
   test('fn: setResponseKO( str, obj, null, asError )', () => {
     let responseKO = Ofn.setResponseKO('chacho', { errorName: 'customError' });
-    let response = Ofn.setResponseKO('chacho', { errorName: 'customError' }, null, true);
+    let response = Ofn.setResponseKO('chacho', { errorName: 'customError' }, undefined, true);
     let error = new Error('chacho');
 
     expect(response).toEqual(error);

@@ -1,2 +1,2 @@
-export { sleep } from './sleep';
-export { getFunctionName } from './get-function-name';
+export * from './sleep';
+export * from './get-function-name';

@@ -36,6 +36,7 @@ rules:
     - error
     - allowList:
         fn: true
+        err: true
         def: true
         obj: true
         Obj: true
