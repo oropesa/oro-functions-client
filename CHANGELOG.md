@@ -1,3 +1,30 @@
+## 2.1.0 / 2023-10-26
+* Updated _exports_ as `export * from ./source-file` in every `index` files.
+* Improved _type definition_ for `setResponseOK` & `setResponseKO` using function overloads.
+* Updated `setResponseOK` & `setResponseKO` providing more detailed outputs:
+  * _SResponseOKBasic_ <small>`{ status: true  }`</small>
+  * _SResponseOKSimple_ <small>`{ status: true, msg: string }`</small>
+  * _SResponseOKObject_ <small>`{ status: true } & T`</small>
+  * _SResponseOKObjectSimple_ <small>`{ status: true, msg: string} & T`</small>
+  * _SResponseKOBasic_ <small>`{ status: false }`</small>
+  * _SResponseKOBasicAgain_ <small>`{ status: false, tryAgain: boolean }`</small>
+  * _SResponseKOSimple_ <small>`{ status: false, error: { msg: string } }`</small>
+  * _SResponseKOSimpleAgain_ <small>`{ status: false, error: { msg: string }, tryAgain: boolean }`</small>
+  * _SResponseKOObject_ <small>`{ status: false, error: T }`</small>
+  * _SResponseKOObjectAgain_ <small>`{ status: false, error: T, tryAgain: boolean }`</small>
+  * _SResponseKOObjectSimple_ <small>`{ status: false, error: T & { msg: string } }`</small>
+  * _SResponseKOObjectSimpleAgain_ <small>`{ status: false, error: T & { msg: string }, tryAgain: boolean }`</small>
+  * _SResponseErrorBasic_ <small>`Error & { responseError: SResponseKOBasic }`</small>
+  * _SResponseErrorBasicAgain_ <small>`Error & { responseError: SResponseKOBasicAgain }`</small>
+  * _SResponseErrorSimple_ <small>`Error & { responseError: SResponseKOSimple }`</small>
+  * _SResponseErrorSimpleAgain_ <small>`Error & { responseError: SResponseKOSimpleAgain }`</small>
+  * _SResponseErrorObject_ <small>`Error & { responseError: SResponseKOObject }`</small>
+  * _SResponseErrorObjectAgain_ <small>`Error & { responseError: SResponseKOObjectAgain }`</small>
+  * _SResponseErrorObjectSimple_ <small>`Error & { responseError: SResponseKOObjectSimple }`</small>
+  * _SResponseErrorObjectSimpleAgain_ <small>`Error & { responseError: SResponseKOObjectSimpleAgain }`</small>
+* Updated libs:
+  * `crypto-js` from `4.1.1` to `4.2.0` <small>(security issue)</small>
+  
 ## 2.0.1 / 2023-10-24
 * Updated libs:
   * `oro-php-locutus` from `2.0.0` to `2.0.1`

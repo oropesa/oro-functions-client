@@ -1837,6 +1837,18 @@ Ofn.setResponseKO( 'Reason:', { msg: 'custom', label: 'foo' } )
 // -> { status: true, msg: 'Reason: custom', label: 'foo' }
 ```
 
+Allowed returned type:
+```ts
+SResponseOKBasic 
+  `{ status: true  }`
+SResponseOKSimple 
+  `{ status: true, msg: string }`
+SResponseOKObject<T> 
+  `{ status: true } & T`
+SResponseOKObjectSimple<T> 
+  `{ status: true, msg: string} & T`
+```
+
 #### Ofn.setResponseKO()
 ```ts
 Ofn.setResponseKO<T extends Record<string, any>, E extends boolean = false>(
@@ -1876,4 +1888,41 @@ Ofn.setResponseKO( 'Error Reason', { label: 'foo', errorName: 'customError' }, n
 //      .name = 'customError'
 //      .message = 'Error Reason'
 //      .responseError = { status: false, error: { msg: 'Error Reason', label: 'foo', errorName: 'customError' } }
+```
+
+Allowed returned type:
+```ts
+SResponseKOBasic 
+  `{ status: false }`
+SResponseKOBasicAgain 
+  `{ status: false, tryAgain: boolean }`
+SResponseKOSimple 
+  `{ status: false, error: { msg: string } }`
+SResponseKOSimpleAgain 
+  `{ status: false, error: { msg: string }, tryAgain: boolean }`
+SResponseKOObject 
+  `{ status: false, error: T }`
+SResponseKOObjectAgain 
+  `{ status: false, error: T, tryAgain: boolean }`
+SResponseKOObjectSimple 
+  `{ status: false, error: T & { msg: string } }`
+SResponseKOObjectSimpleAgain 
+  `{ status: false, error: T & { msg: string }, tryAgain: boolean }`
+
+SResponseErrorBasic 
+  `Error & { responseError: SResponseKOBasic }`
+SResponseErrorBasicAgain 
+  `Error & { responseError: SResponseKOBasicAgain }`
+SResponseErrorSimple 
+  `Error & { responseError: SResponseKOSimple }`
+SResponseErrorSimpleAgain 
+  `Error & { responseError: SResponseKOSimpleAgain }`
+SResponseErrorObject 
+  `Error & { responseError: SResponseKOObject }`
+SResponseErrorObjectAgain 
+  `Error & { responseError: SResponseKOObjectAgain }`
+SResponseErrorObjectSimple 
+  `Error & { responseError: SResponseKOObjectSimple }`
+SResponseErrorObjectSimpleAgain 
+  `Error & { responseError: SResponseKOObjectSimpleAgain }`
 ```
