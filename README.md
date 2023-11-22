@@ -13,6 +13,21 @@ This package ( `oro-functions-client` ) is divided from `oro-functions` to allow
 
 If you are going to use this package in _js-server environments_ like `Nodejs`, it's recommended to use *[oro-functions](https://github.com/oropesa/oro-functions/)* instead.
 
+Functions could be divided in groups: <br>
+· [General](#general) <br>
+· [Numbers](#numbers) <br>
+· [String](#string) <br>
+· [Crypto](#crypto) <br>
+· [Functions](#functions) <br>
+· [Classes](#objects) <br>
+· [Objects](#objects) <br>
+· [Arrays](#arrays) <br>
+· [Dates](#dates) <br>
+· [URLs](#urls) <br>
+· [Files](#files) <br>
+· [PHP Serialize](#php-serialize) <br>
+· [Response](#response) <br>
+
 ## Installation
 
 ```shell
