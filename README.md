@@ -196,12 +196,12 @@ type( [ 1, 2, 3 ] ); // -> 'array'
 ```ts
 Ofn.issetGet<
   T,
-  O extends Record<string | number, any>, // object | array
-  K extends string | number = string
+  O extends Record<string | number, any> = Record<string | number, any>, // object | array
+  K extends string | number = string | number
 >( obj: O, key: K, def?: T, allowFalsy = true ) => T | null;
 
 // < T output-type, O object-interface, K allowed-keys>
-// Note: 'key' could be number when 'obj' is array
+// Note: 'key' should be number when 'obj' is an array
 ```
 
 ```js
@@ -222,16 +222,17 @@ Ofn.issetGet( obj3, 'label', 'default' );
 ```ts
 // ts
 interface Custom { name: string; label?: string; }
+type AllowedKeys = 'label' | 'another-label';
 
 const obj1: Custom = { name: 'Foo', label: 'foo' };
 const obj2: Custom = { name: 'Foo', label: '' };
 const obj3: Custom = { name: 'Foo' };
 
-Ofn.issetGet<string, Custom, keyof Custom>( obj1, 'label', 'default' ); 
+Ofn.issetGet<string>( obj1, 'label', 'default' ); 
 // -> 'foo'
-Ofn.issetGet<string, Custom, keyof Custom>( obj2, 'label', 'default' ); 
+Ofn.issetGet<string, Custom>( obj2, 'label', 'default' ); 
 // -> ''
-Ofn.issetGet<string, Custom, keyof Custom>( obj2, 'label', 'default', false ); 
+Ofn.issetGet<string, Custom, AllowedKeys>( obj2, 'label', 'default', false ); 
 // -> 'default'
 Ofn.issetGet<string, Custom, keyof Custom>( obj3, 'label', 'default' ); 
 // -> 'default'
