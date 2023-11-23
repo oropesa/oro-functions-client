@@ -31,29 +31,55 @@ describe('fn: issetGet', () => {
 
   test('fn: issetGet( arr )', () => {
     // expect( Ofn.issetGet( [] ) ).toBe( null );
-    // expect( Ofn.issetGet( [], 'param' ) ).toBe( null );
-    // expect( Ofn.issetGet( [], 'param', 'test' ) ).toBe( 'test' );
-    // expect( Ofn.issetGet( [], 'param', 'test', false ) ).toBe( 'test' );
+    expect(Ofn.issetGet([], 'param')).toBe(undefined);
+    expect(Ofn.issetGet([], 'param', 'test')).toBe('test');
+    expect(Ofn.issetGet([], 'param', 'test', false)).toBe('test');
 
     // expect( Ofn.issetGet( [ 0, 1, 2 ] ) ).toBe( null );
-    // expect( Ofn.issetGet( [ 0, 1, 2 ], 'param' ) ).toBe( null );
-    // expect( Ofn.issetGet( [ 0, 1, 2 ], 'param', 'test' ) ).toBe( 'test' );
-    // expect( Ofn.issetGet( [ 0, 1, 2 ], 'param', 'test', false ) ).toBe( 'test' );
+    expect(Ofn.issetGet([0, 1, 2], 'param')).toBe(undefined);
+    expect(Ofn.issetGet([0, 1, 2], 'param', 'test')).toBe('test');
+    expect(Ofn.issetGet([0, 1, 2], 'param', 'test', false)).toBe('test');
     expect(Ofn.issetGet([0, 1, 2], 0, 'test')).toBe(0);
     expect(Ofn.issetGet([0, 1, 2], 1, 'test')).toBe(1);
     expect(Ofn.issetGet([0, 1, 2], 0, 'test', false)).toBe('test');
+
+    const valueArraySimple = Ofn.issetGet<string>(['a', 'b', ''], 3);
+    expect(valueArraySimple).toBe(undefined);
+
+    const valueArraySimple2 = Ofn.issetGet<string>(['a', 'b', ''], 3, 'test');
+    expect(valueArraySimple2).toBe('test');
+
+    const valueArray = Ofn.issetGet(['a', 'b', ''], 1, 'test');
+    expect(valueArray).toBe('b');
+
+    const valueArray1 = Ofn.issetGet<string>(['a', 'b', ''], 1, 'test');
+    expect(valueArray1).toBe('b');
+
+    const valueArrayString = Ofn.issetGet<string, string[]>(['a', 'b', ''], 2, 'test');
+    expect(valueArrayString).toBe('');
+
+    const valueArrayFalsy = Ofn.issetGet<string, string[], number>(
+      ['a', 'b', ''],
+      2,
+      'test',
+      false,
+    );
+    expect(valueArrayFalsy).toBe('test');
+
+    const valueArrayTruly = Ofn.issetGet<string, string[], number>(['a', 'b', ''], 2, 'test', true);
+    expect(valueArrayTruly).toBe('');
   });
 
   test('fn: issetGet( obj )', () => {
     // expect( Ofn.issetGet( {} ) ).toBe( null );
-    // expect( Ofn.issetGet( {}, 'param' ) ).toBe( null );
-    // expect( Ofn.issetGet( {}, 'param', 'test' ) ).toBe( 'test' );
-    // expect( Ofn.issetGet( {}, 'param', 'test', false ) ).toBe( 'test' );
+    expect(Ofn.issetGet({}, 'param')).toBe(undefined);
+    expect(Ofn.issetGet({}, 'param', 'test')).toBe('test');
+    expect(Ofn.issetGet({}, 'param', 'test', false)).toBe('test');
 
     // expect( Ofn.issetGet( { chacho: 'loco', tio: '' } ) ).toBe( null );
-    // expect( Ofn.issetGet( { chacho: 'loco', tio: '' }, 'param' ) ).toBe( null );
-    // expect( Ofn.issetGet( { chacho: 'loco', tio: '' }, 'param', 'test' ) ).toBe( 'test' );
-    // expect( Ofn.issetGet( { chacho: 'loco', tio: '' }, 'param', 'test', false ) ).toBe( 'test' );
+    expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'param')).toBe(undefined);
+    expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'param', 'test')).toBe('test');
+    expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'param', 'test', false)).toBe('test');
     expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'chacho', 'test')).toBe('loco');
     expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'tio', 'test')).toBe('');
     expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'tio', 'test', false)).toBe('test');
@@ -67,17 +93,43 @@ describe('fn: issetGet', () => {
       tio: string;
     }
 
-    expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'chacho', 'test')).toBe('loco');
-    expect(Ofn.issetGet<number, NumberObject>({ chacho: 5, tio: 7 }, 'chacho', 9)).toBe(5);
-    expect(Ofn.issetGet<string, StringObject>({ chacho: 'loco', tio: '' }, 'tio', 'test')).toBe('');
-    expect(
-      Ofn.issetGet<string, StringObject, keyof StringObject>(
-        { chacho: 'loco', tio: '' },
-        'tio',
-        'test',
-        false,
-      ),
-    ).toBe('test');
+    const valueObjSimple = Ofn.issetGet<string>({ chacho: 'loco', tio: '' }, 'foo');
+    expect(valueObjSimple).toBe(undefined);
+
+    const valueObjSimple2 = Ofn.issetGet<string>({ chacho: 'loco', tio: '' }, 'foo', 'test');
+    expect(valueObjSimple2).toBe('test');
+
+    const valueObj = Ofn.issetGet({ chacho: 'loco', tio: '' }, 'chacho', 'test');
+    expect(valueObj).toBe('loco');
+
+    const valueObj1 = Ofn.issetGet<string>({ chacho: 'loco', tio: '' }, 'chacho', 'test');
+    expect(valueObj1).toBe('loco');
+
+    const valueObjNumber = Ofn.issetGet<number, NumberObject>({ chacho: 5, tio: 7 }, 'chacho', 9);
+    expect(valueObjNumber).toBe(5);
+
+    const valueObjString = Ofn.issetGet<string, StringObject>(
+      { chacho: 'loco', tio: '' },
+      'tio',
+      'test',
+    );
+    expect(valueObjString).toBe('');
+
+    const valueObjFalsy = Ofn.issetGet<string, StringObject, string>(
+      { chacho: 'loco', tio: '' },
+      'tio',
+      'test',
+      false,
+    );
+    expect(valueObjFalsy).toBe('test');
+
+    const valueObjTruly = Ofn.issetGet<string, StringObject, keyof StringObject>(
+      { chacho: 'loco', tio: '' },
+      'tio',
+      'test',
+      true,
+    );
+    expect(valueObjTruly).toBe('');
   });
 });
 

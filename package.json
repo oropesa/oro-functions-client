@@ -1,6 +1,6 @@
 {
   "name": "oro-functions-client",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Ofn contains utility static methods (helpers): General, Numbers, Strings, Functions, Objects, Arrays, Dates, URLs, Files, PHP Serialize, and Response.",
   "type": "module",
   "main": "./dist/index.cjs",

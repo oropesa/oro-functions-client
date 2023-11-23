@@ -1,4 +1,10 @@
-## 2.1.1 / 2023-11-24
+## 2.1.2 / 2023-11-23
+* Updated _fn_ `issetGet`:
+  * the _returned value type_ is changed from `T | null` to `T | undefined`.
+  * function overloading is implemented, so when `def` _param_ is declared, the _returned value type_ is only `T`.
+  * tests have been improved.
+
+## 2.1.1 / 2023-11-22
 * Fixed _github action_ `npm_publish_on_pr_merge_to_master`.
 * Updated libs:
   * `oro-php-locutus` from `v2.0.1` to `v2.0.2`.

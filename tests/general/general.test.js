@@ -2,41 +2,41 @@ const { Ofn } = require('../../dist');
 
 describe('fn: issetGet', () => {
   test('fn: issetGet()', () => {
-    expect(Ofn.issetGet(undefined)).toBe(null);
-    expect(Ofn.issetGet(undefined, 'param')).toBe(null);
+    expect(Ofn.issetGet(undefined)).toBe(undefined);
+    expect(Ofn.issetGet(undefined, 'param')).toBe(undefined);
     expect(Ofn.issetGet(undefined, 'param', 'test')).toBe('test');
     expect(Ofn.issetGet(undefined, 'param', 'test', false)).toBe('test');
   });
 
   test('fn: issetGet( null )', () => {
-    expect(Ofn.issetGet(null)).toBe(null);
-    expect(Ofn.issetGet(null, 'param')).toBe(null);
+    expect(Ofn.issetGet(null)).toBe(undefined);
+    expect(Ofn.issetGet(null, 'param')).toBe(undefined);
     expect(Ofn.issetGet(null, 'param', 'test')).toBe('test');
     expect(Ofn.issetGet(null, 'param', 'test', false)).toBe('test');
   });
 
   test('fn: issetGet( bool )', () => {
-    expect(Ofn.issetGet(true)).toBe(null);
-    expect(Ofn.issetGet(true, 'param')).toBe(null);
+    expect(Ofn.issetGet(true)).toBe(undefined);
+    expect(Ofn.issetGet(true, 'param')).toBe(undefined);
     expect(Ofn.issetGet(true, 'param', 'test')).toBe('test');
     expect(Ofn.issetGet(true, 'param', 'test', false)).toBe('test');
   });
 
   test('fn: issetGet( int )', () => {
-    expect(Ofn.issetGet(1)).toBe(null);
-    expect(Ofn.issetGet(1, 'param')).toBe(null);
+    expect(Ofn.issetGet(1)).toBe(undefined);
+    expect(Ofn.issetGet(1, 'param')).toBe(undefined);
     expect(Ofn.issetGet(1, 'param', 'test')).toBe('test');
     expect(Ofn.issetGet(1, 'param', 'test', false)).toBe('test');
   });
 
   test('fn: issetGet( arr )', () => {
-    expect(Ofn.issetGet([])).toBe(null);
-    expect(Ofn.issetGet([], 'param')).toBe(null);
+    expect(Ofn.issetGet([])).toBe(undefined);
+    expect(Ofn.issetGet([], 'param')).toBe(undefined);
     expect(Ofn.issetGet([], 'param', 'test')).toBe('test');
     expect(Ofn.issetGet([], 'param', 'test', false)).toBe('test');
 
-    expect(Ofn.issetGet([0, 1, 2])).toBe(null);
-    expect(Ofn.issetGet([0, 1, 2], 'param')).toBe(null);
+    expect(Ofn.issetGet([0, 1, 2])).toBe(undefined);
+    expect(Ofn.issetGet([0, 1, 2], 'param')).toBe(undefined);
     expect(Ofn.issetGet([0, 1, 2], 'param', 'test')).toBe('test');
     expect(Ofn.issetGet([0, 1, 2], 'param', 'test', false)).toBe('test');
     expect(Ofn.issetGet([0, 1, 2], 0, 'test')).toBe(0);
@@ -45,13 +45,13 @@ describe('fn: issetGet', () => {
   });
 
   test('fn: issetGet( obj )', () => {
-    expect(Ofn.issetGet({})).toBe(null);
-    expect(Ofn.issetGet({}, 'param')).toBe(null);
+    expect(Ofn.issetGet({})).toBe(undefined);
+    expect(Ofn.issetGet({}, 'param')).toBe(undefined);
     expect(Ofn.issetGet({}, 'param', 'test')).toBe('test');
     expect(Ofn.issetGet({}, 'param', 'test', false)).toBe('test');
 
-    expect(Ofn.issetGet({ chacho: 'loco', tio: '' })).toBe(null);
-    expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'param')).toBe(null);
+    expect(Ofn.issetGet({ chacho: 'loco', tio: '' })).toBe(undefined);
+    expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'param')).toBe(undefined);
     expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'param', 'test')).toBe('test');
     expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'param', 'test', false)).toBe('test');
     expect(Ofn.issetGet({ chacho: 'loco', tio: '' }, 'chacho', 'test')).toBe('loco');
