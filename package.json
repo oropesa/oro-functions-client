@@ -41,7 +41,7 @@
     "js-base64": "^3.7.5",
     "lodash.clonedeep": "^4.5.0",
     "oro-php-locutus": "^2.0.2",
-    "oro-regexp": "^2.0.2"
+    "oro-regexp": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
