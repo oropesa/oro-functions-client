@@ -1,4 +1,4 @@
-import { isString } from '../general';
+import { isArray, isString } from '../general';
 import { urlObjByUrl } from './url-obj-by-url';
 
 export function urlGetParams(urlOrQuery: string): Record<string, string | string[]> {
@@ -6,7 +6,7 @@ export function urlGetParams(urlOrQuery: string): Record<string, string | string
     return {};
   }
 
-  let urlObj = urlObjByUrl(urlOrQuery);
+  const urlObj = urlObjByUrl(urlOrQuery);
   if (!urlObj && urlOrQuery.includes('?')) {
     return {};
   }
@@ -14,11 +14,16 @@ export function urlGetParams(urlOrQuery: string): Record<string, string | string
   const searchParams = urlObj ? urlObj.searchParams : new URLSearchParams(urlOrQuery);
   const params: Record<string, string | string[]> = {};
 
-  for (const [key, value] of searchParams) {
+  for (const [stringKey, value] of searchParams) {
+    const isArrayKey = stringKey.slice(-2) === '[]';
+    const key = isArrayKey ? stringKey.slice(0, -2) : stringKey;
+
     params[key] =
       params[key] === undefined
-        ? value
-        : [...(Array.isArray(params[key]) ? params[key] : [String(params[key])]), ...value];
+        ? isArrayKey
+          ? [value]
+          : value
+        : [...(isArray(params[key]) ? [...params[key], value] : [String(params[key]), value])];
   }
 
   return params;

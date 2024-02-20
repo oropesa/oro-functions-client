@@ -11,7 +11,7 @@ export function arraysDifference<T>(...args: Array<T[]>): T[] {
       continue;
     }
     if (arrayResult.length === 0) {
-      arrayResult = array;
+      arrayResult = [...array];
       continue;
     }
 

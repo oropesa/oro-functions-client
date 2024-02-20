@@ -19,13 +19,13 @@ export function phpIsSerialized(str: string, strict = true): boolean {
     return false;
   }
   if (strict) {
-    let lastc = string.slice(-1);
+    const lastc = string.slice(-1);
     if (lastc !== ';' && lastc !== '}') {
       return false;
     }
   } else {
-    let semicolon = string.indexOf(';');
-    let brace = string.indexOf('}');
+    const semicolon = string.indexOf(';');
+    const brace = string.indexOf('}');
     // Either ; or } must exist.
     if (semicolon === -1 && brace === -1) {
       return false;
@@ -40,7 +40,7 @@ export function phpIsSerialized(str: string, strict = true): boolean {
   }
 
   let end: string;
-  let token = string[0];
+  const token = string[0];
   switch (token) {
     case 's':
       if (strict) {

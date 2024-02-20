@@ -1,6 +1,6 @@
+import { isBoolean, isNully, isNumber, isString } from '../general';
 import { strPad } from '../strings';
 import { isNumeric } from './is-numeric';
-import { isBoolean, isNully, isNumber, isString } from '../general';
 
 // numberFixDecimals( '2,1478' ); -> '2.15'
 // numberFixDecimals( '2,1478', 6 ); -> '2.147800'
@@ -17,11 +17,10 @@ export function numberFixDecimals(
   let string = number;
   isNully(string) && (string = '');
 
-  if (!isString(number) && !isNumber(number)) {
+  if ((!isString(number) && !isNumber(number)) || (isString(string) && !string)) {
     return String(string);
   }
 
-  !string && (string = 0);
   string = String(string);
 
   const tmp = string;
@@ -42,7 +41,7 @@ export function numberFixDecimals(
   let minRight = minRightZeros;
   !isBoolean(minRight) && (!isNumeric(minRight) || minRight < 0) && (minRight = 0);
 
-  let parts = string.split('.');
+  const parts = string.split('.');
   if (parts[1] === undefined) {
     parts.push('');
   }

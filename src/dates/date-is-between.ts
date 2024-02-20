@@ -1,12 +1,8 @@
 import { isDate } from '../general';
-import { isDateObj } from './is-date-obj';
 import type { DateObj } from './date-obj-by-date';
+import { isDateObj } from './is-date-obj';
 
-export function dateIsBetween(
-  date: DateObj | Date,
-  dateMin: DateObj | Date,
-  dateMax: DateObj | Date,
-): boolean {
+export function dateIsBetween(date: DateObj | Date, dateMin: DateObj | Date, dateMax: DateObj | Date): boolean {
   if (!isDate(date) && !isDateObj(date)) {
     return false;
   }

@@ -1,10 +1,10 @@
-import { escAttr } from '../strings';
 import { isObject } from '../general';
+import { escAttr } from '../strings';
 
 // objToStringAttr( { id: 20, name: 'oro' } );
 // -> ' id="20" name="oro" '
 
-export function objToStringAttr<T>(obj: T): string {
+export function objToStringAttr<T extends Record<string, any>>(obj: T): string {
   if (!isObject(obj)) {
     return '';
   }

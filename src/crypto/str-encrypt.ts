@@ -1,21 +1,10 @@
 import CryptoJS from 'crypto-js';
 import { Base64 } from 'js-base64';
+
 import { isNully } from '../general';
 
-export type EncryptMode =
-  | 'CBC'
-  | 'CTR'
-  | 'CTRGladman'
-  | 'OFB'
-  | 'ECB'
-  | 'AES-256-CBC' /* deprecated */;
-export type EncryptPadding =
-  | 'Pkcs7'
-  | 'Iso97971'
-  | 'AnsiX923'
-  | 'Iso10126'
-  | 'ZeroPadding'
-  | 'NoPadding';
+export type EncryptMode = 'CBC' | 'CTR' | 'CTRGladman' | 'OFB' | 'ECB' | 'AES-256-CBC' /* deprecated */;
+export type EncryptPadding = 'Pkcs7' | 'Iso97971' | 'AnsiX923' | 'Iso10126' | 'ZeroPadding' | 'NoPadding';
 
 // eslint-disable-next-line max-params
 export function strEncrypt(
@@ -29,12 +18,12 @@ export function strEncrypt(
     return '';
   }
 
-  let secretKey = CryptoJS.enc.Utf8.parse(
+  const secretKey = CryptoJS.enc.Utf8.parse(
     CryptoJS.SHA256(key || 'random')
       .toString()
       .slice(0, 32),
   );
-  let secretIv = CryptoJS.enc.Utf8.parse(
+  const secretIv = CryptoJS.enc.Utf8.parse(
     CryptoJS.SHA256(iv || 'random')
       .toString()
       .slice(0, 16),

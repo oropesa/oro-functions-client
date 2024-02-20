@@ -1,13 +1,25 @@
 import { isFunction } from '../general';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export function getFunctionName(fn?: string | Function): string {
   if (fn !== undefined) {
     if (isFunction(fn)) {
       return fn.name;
     }
 
-    const result = /^function\s+([\w$]+)\s*\(/.exec(fn.toString());
-    return result ? result[1] : '';
+    try {
+      if (isFunction((global as any)[fn])) {
+        return (global as any)[fn].name;
+      }
+    } catch {}
+
+    try {
+      if (isFunction((window as any)[fn])) {
+        return (window as any)[fn].name;
+      }
+    } catch {}
+
+    return '';
   }
 
   const obj = {};
@@ -22,7 +34,7 @@ export function getFunctionName(fn?: string | Function): string {
   return stack.slice(firstCharacter, lastCharacter).replace('Object.', '');
 }
 
-const findFirstOccurrence = (string: string, searchElements: string[], fromIndex = 0) => {
+const findFirstOccurrence = (string: string, searchElements: string[], fromIndex: number) => {
   let min = string.length;
   for (const searchElement of searchElements) {
     const occ = string.indexOf(searchElement, fromIndex);

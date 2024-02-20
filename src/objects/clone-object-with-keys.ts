@@ -1,11 +1,11 @@
+import { isArray, type } from '../general';
 import { isNumeric } from '../numbers';
-import { type, isArray } from '../general';
 import { cloneObject } from './clone-object';
 
 // cloneObjectWithKeys( { a: '1', b: '2', c: '3' }, ['a', 'b'] );
 // -> { a: '1', b: '2' }
 
-export function cloneObjectWithKeys<T, K extends keyof T = keyof T>(
+export function cloneObjectWithKeys<T extends Record<string | number, any>, K extends keyof T = keyof T>(
   obj: T,
   keys: K[],
 ): Partial<Pick<T, K>> {
@@ -19,11 +19,9 @@ export function cloneObjectWithKeys<T, K extends keyof T = keyof T>(
   }
 
   return cloneObject(
-    Object.keys(obj || {})
+    Object.keys(obj)
       .filter((k) => {
-        return isNumeric(k)
-          ? keys.includes(k as K) || keys.includes(Number(k) as K)
-          : keys.includes(k as K);
+        return isNumeric(k) ? keys.includes(k as K) || keys.includes(Number(k) as K) : keys.includes(k as K);
       })
       .reduce((o, k) => Object.assign(o, { [k]: obj[k as K] }), objDefault),
   );

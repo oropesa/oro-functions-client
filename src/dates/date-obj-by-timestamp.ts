@@ -1,12 +1,9 @@
+import { isNumber, isObject, isString } from '../general';
 import { isNumeric } from '../numbers';
 import { dateObjByDate } from './date-obj-by-date';
-import { isNumber, isString, isObject } from '../general';
 import type { DateObj, DateObjOptions } from './date-obj-by-date';
 
-export function dateObjByTimestamp(
-  timestamp: number,
-  options: DateObjOptions | string = {},
-): DateObj | null {
+export function dateObjByTimestamp(timestamp: number, options: DateObjOptions | string = {}): DateObj | null {
   if (!isNumber(timestamp) || !isNumeric(timestamp)) {
     return null;
   }

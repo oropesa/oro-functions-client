@@ -1,9 +1,6 @@
-import { type, isArray } from '../general';
+import { isArray, type } from '../general';
 
-export function getObjectMissedKeys<T extends Record<string, any>, K = string>(
-  obj: T,
-  keys: K[],
-): Omit<K[], keyof T> {
+export function getObjectMissedKeys<T extends Record<string, any>, K = string>(obj: T, keys: K[]): Omit<K[], keyof T> {
   if (!['object', 'array'].includes(type(obj))) {
     return [];
   }

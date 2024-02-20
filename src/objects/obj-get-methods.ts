@@ -1,4 +1,4 @@
-import { type, isArray, isObject } from '../general';
+import { isArray, isObject, type } from '../general';
 
 export function objGetMethods<T>(obj: T, allowDefaults = false): string[] {
   if (!['object', 'array'].includes(type(obj))) {
@@ -6,8 +6,8 @@ export function objGetMethods<T>(obj: T, allowDefaults = false): string[] {
   }
 
   let currentObj = obj;
-  let properties: Set<string> = new Set();
-  let defaultsObject = new Set([
+  const properties: Set<string> = new Set();
+  const defaultsObject = new Set([
     'constructor',
     '__defineGetter__',
     '__defineSetter__',
@@ -21,7 +21,7 @@ export function objGetMethods<T>(obj: T, allowDefaults = false): string[] {
     'toLocaleString',
   ]);
 
-  let defaultsArray = new Set([
+  const defaultsArray = new Set([
     'constructor',
     'concat',
     'copyWithin',
@@ -81,7 +81,5 @@ export function objGetMethods<T>(obj: T, allowDefaults = false): string[] {
     }
   } while ((currentObj = Object.getPrototypeOf(currentObj)));
 
-  return [...properties.values()].filter(
-    (propertyName) => typeof obj[propertyName as keyof T] === 'function',
-  );
+  return [...properties.values()].filter((propertyName) => typeof obj[propertyName as keyof T] === 'function');
 }

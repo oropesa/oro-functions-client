@@ -1,9 +1,6 @@
-import { isObject, isArray } from '../general';
+import { isArray, isObject } from '../general';
 
-export function jsonStringify<T extends Record<string | number, any>>(
-  json: T,
-  beautify = false,
-): string {
+export function jsonStringify<T extends Record<string | number, any>>(json: T, beautify = false): string {
   if (!isObject(json) && !isArray(json)) {
     return '';
   }

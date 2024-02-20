@@ -1,4 +1,5 @@
 import { REGEXP } from 'oro-regexp';
+
 import { isString } from '../general';
 
 export type DateStringFormat =

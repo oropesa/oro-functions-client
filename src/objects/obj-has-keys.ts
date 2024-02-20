@@ -1,4 +1,4 @@
-import { type, isArray } from '../general';
+import { isArray, type } from '../general';
 
 export function objHasKeys<T extends Record<string, any>, K = string>(obj: T, keys: K[]): boolean {
   if (!['object', 'array'].includes(type(obj))) {

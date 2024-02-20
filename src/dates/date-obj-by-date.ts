@@ -1,4 +1,4 @@
-import { type, isString, isObject } from '../general';
+import { isObject, isString, type } from '../general';
 
 export interface DateObjOptions {
   sep?: string;

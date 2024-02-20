@@ -3,7 +3,7 @@ import { isObject } from '../general';
 // objToStringSqlSet( { id: 20, name: "'oro'", today: 'NOW()' } );
 // -> " id = 20, name = 'oro', today = NOW() "
 
-export function objToStringSqlSet<T>(obj: T): string {
+export function objToStringSqlSet<T extends Record<string, any>>(obj: T): string {
   if (!isObject(obj)) {
     return '';
   }

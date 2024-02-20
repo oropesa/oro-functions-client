@@ -1,5 +1,5 @@
-import { isNumeric } from '../numbers';
 import { isNully, isString } from '../general';
+import { isNumeric } from '../numbers';
 
 export type LeftRight = 'left' | 'right';
 

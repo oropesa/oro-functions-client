@@ -6,6 +6,6 @@ export function getFilenameByPath(path: string): string {
     return '';
   }
 
-  let filename = sanitizePath(path);
+  const filename = sanitizePath(path);
   return filename.slice(filename.lastIndexOf('/') + 1);
 }
