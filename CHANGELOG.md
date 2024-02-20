@@ -6,7 +6,7 @@
   * Fixed `getFunctionName` global & window case.
   * Fixed `randomString` length limit.
   * Fixed `urlGetParams` array case (default `key` and php `key[]`).
-  * Improved typing of:
+  * Improved typing of
     * `arrayCountByKey`, defining second param as `key: keyof T`
     * `arrayGroupByKey`, defining second param as `key: keyof T`
     * `arraySortByKey`, defining second param as `key: keyof T`
