@@ -1,12 +1,10 @@
-import { isString, isObject } from '../general';
 import { REGEXP_DATETIME_SQL } from 'oro-regexp';
+
+import { isObject, isString } from '../general';
 import { dateObjByDate } from './date-obj-by-date';
 import type { DateObj, DateObjOptions } from './date-obj-by-date';
 
-export function dateObjBySql(
-  sqldate: string,
-  options: DateObjOptions | string = {},
-): DateObj | null {
+export function dateObjBySql(sqldate: string, options: DateObjOptions | string = {}): DateObj | null {
   if (!isString(sqldate)) {
     return null;
   }

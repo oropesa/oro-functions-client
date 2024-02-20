@@ -1,20 +1,18 @@
-import { jsonize } from './jsonize';
-import { arrayize } from './arrayize';
 import { isObject } from '../general';
 import { isNumeric } from '../numbers';
+import { arrayize } from './arrayize';
+import { jsonize } from './jsonize';
 
-export function jsonParse<T, B extends boolean = boolean>(
-  str: string,
-  strict?: B,
-): B extends true ? T | null : T | string {
-  let strJson = jsonize<T, B>(str, strict);
+export function jsonParse<T>(str: string, strict?: false): T | string;
+export function jsonParse<T>(str: string, strict: true): T | null;
+export function jsonParse<T>(str: string, strict?: boolean): T | null | string {
+  const strJson = strict ? jsonize<T>(str, strict) : jsonize<T>(str, strict);
 
   if (!isObject(strJson)) {
-    return strJson as B extends true ? null : string;
+    return strJson;
   }
 
-  let isJsonArray =
-    !strict && Object.keys(strJson).some((element) => isNumeric(element) && Number(element) < 5);
+  const isJsonArray = !strict && Object.keys(strJson).some((element) => isNumeric(element) && Number(element) < 5);
 
-  return (isJsonArray ? arrayize<T, B>(strJson) : strJson) as T;
+  return isJsonArray ? (arrayize(strJson) as T) : strJson;
 }

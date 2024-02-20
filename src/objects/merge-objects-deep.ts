@@ -1,6 +1,6 @@
 import { isObject } from '../general';
-import { objIsEmpty } from './obj-is-empty';
 import { cloneObject } from './clone-object';
+import { objIsEmpty } from './obj-is-empty';
 
 // mergeObjectsDeep( { a: { a1: '1', a2: '2' }, { a: { a1: '7', a3: '3' } );
 // -> { a: { a1: '7', a2: '2', a3: '3' }
@@ -18,7 +18,7 @@ export function mergeObjectsDeep<T extends Record<string, any>>(...args: Array<P
       continue;
     }
 
-    let objClone = cloneObject<Partial<T>>(obj);
+    const objClone = cloneObject<Partial<T>>(obj);
     for (const key of Object.keys(objClone) as Array<keyof T>) {
       if (objMerged[key] === undefined) {
         objMerged[key] = objClone[key];

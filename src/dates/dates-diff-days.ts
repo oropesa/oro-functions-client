@@ -1,6 +1,6 @@
 import { isDate } from '../general';
-import { isDateObj } from './is-date-obj';
 import type { DateObj } from './date-obj-by-date';
+import { isDateObj } from './is-date-obj';
 
 export function datesDiffDays(date1: DateObj | Date, date2: DateObj | Date): number {
   if (!isDate(date1) && !isDateObj(date1)) {

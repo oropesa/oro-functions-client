@@ -1,5 +1,6 @@
 import CryptoJS from 'crypto-js';
 import { Base64 } from 'js-base64';
+
 import { isNully } from '../general';
 import type { EncryptMode, EncryptPadding } from './str-encrypt';
 
@@ -15,12 +16,12 @@ export function strDecrypt(
     return '';
   }
 
-  let secretKey = CryptoJS.enc.Utf8.parse(
+  const secretKey = CryptoJS.enc.Utf8.parse(
     CryptoJS.SHA256(key || 'random')
       .toString()
       .slice(0, 32),
   );
-  let secretIv = CryptoJS.enc.Utf8.parse(
+  const secretIv = CryptoJS.enc.Utf8.parse(
     CryptoJS.SHA256(iv || 'random')
       .toString()
       .slice(0, 16),
@@ -28,7 +29,6 @@ export function strDecrypt(
 
   let methodMode;
   switch (mode) {
-    case 'AES-256-CBC': // deprecated
     case 'CBC':
       methodMode = CryptoJS.mode.CBC;
       break;

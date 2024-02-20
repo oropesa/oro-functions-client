@@ -11,3 +11,7 @@ export function urlIsValid(url: string): boolean {
     return false;
   }
 }
+
+export function isValidUrl(url: string): boolean {
+  return urlIsValid(url);
+}

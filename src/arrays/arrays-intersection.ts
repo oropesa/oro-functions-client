@@ -5,14 +5,10 @@ import { cloneArray } from './clone-array';
 // -> [ 2, 3 ]
 
 export function arraysIntersection<T>(...args: Array<T[]>): T[] {
-  let arrayResult: T[] = [];
-
-  for (const array of args) {
-    if (!isArray(array) || array.length === 0) {
-      continue;
-    }
-    if (arrayResult.length === 0) {
-      arrayResult = array;
+  let arrayResult: T[] = [...(isArray(args[0]) ? args[0] : [])];
+  for (let index = 1, length = args.length; index < length; index++) {
+    const array = args[index];
+    if (!isArray(array)) {
       continue;
     }
 

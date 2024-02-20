@@ -1,6 +1,6 @@
 import { isDate } from '../general';
-import { isDateObj } from './is-date-obj';
 import type { DateObj } from './date-obj-by-date';
+import { isDateObj } from './is-date-obj';
 
 export function datesCompare(date1: DateObj | Date, date2: DateObj | Date): -1 | 0 | 1 {
   if (!isDate(date1) && !isDateObj(date1)) {

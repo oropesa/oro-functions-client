@@ -5,12 +5,7 @@ import type { LeftRight } from './str-pad';
 // chunkStringByCharSize( 'chacho', '|', 3 ) )
 // -> 'cha|cho'
 
-export function chunkStringByCharSize(
-  str: string,
-  char: string,
-  size: number,
-  orientation: LeftRight = 'left',
-) {
+export function chunkStringByCharSize(str: string, sep: string, size: number, orientation: LeftRight = 'left') {
   if (!str) {
     return '';
   }
@@ -18,9 +13,9 @@ export function chunkStringByCharSize(
     return str;
   }
 
-  let character = char;
-  isNully(char) && (character = '');
-  character = String(character);
+  let separator = sep;
+  isNully(sep) && (separator = '');
+  separator = String(separator);
 
   let string = str;
   string = String(string);
@@ -31,14 +26,13 @@ export function chunkStringByCharSize(
     string = [...string]
       .reverse()
       .join('')
-      .replace(regex, `$1${[...character].reverse().join('')}`);
+      .replace(regex, `$1${[...separator].reverse().join('')}`);
     string = [...string].reverse().join('');
-    string.slice(0, character.length) === character && (string = string.slice(character.length));
+    string.slice(0, separator.length) === separator && (string = string.slice(separator.length));
     return string;
   }
 
-  string = string.replace(regex, `$1${character}`);
-  string.slice(-character.length) === character &&
-    (string = string.slice(0, string.length - character.length));
+  string = string.replace(regex, `$1${separator}`);
+  string.slice(-separator.length) === separator && (string = string.slice(0, string.length - separator.length));
   return string;
 }

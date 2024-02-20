@@ -6,7 +6,7 @@ export function sanitizeFilename(filenameOrPath: string): string {
     return '';
   }
 
-  let filename = getFilenameByPath(filenameOrPath);
+  const filename = getFilenameByPath(filenameOrPath);
   return filename
     .normalize('NFD')
     .replace(/[\u0300-\u036F]/g, '')

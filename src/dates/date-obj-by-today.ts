@@ -1,4 +1,4 @@
-import { isString, isObject } from '../general';
+import { isObject, isString } from '../general';
 import { dateObjByDate } from './date-obj-by-date';
 import type { DateObj, DateObjOptions } from './date-obj-by-date';
 

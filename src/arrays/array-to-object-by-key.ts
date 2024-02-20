@@ -1,23 +1,29 @@
-import { isArray, isNumber, isString, isNully } from '../general';
+import { isArray, isNully, isNumber, isString } from '../general';
 
 // arrayToObjectByKey( [ { id: 'alpha', name: 'Alpha' }, { id: 'bravo', name: 'Bravo' } ], 'id' );
 // -> { 'alpha': { id: 'alpha', name: 'Alpha' }, 'bravo': { id: 'bravo', name: 'Bravo' }
 
-export function arrayToObjectByKey<T>(array: T[], key: string, strict = false): Record<string, T> {
-  if (!isArray(array)) {
-    return {};
+export function arrayToObjectByKey<T extends Record<string, any>>(
+  array: T[],
+  key: keyof T,
+  strict = false,
+): Record<string, T> {
+  const result: Record<string, T> = {};
+
+  if (!isArray(array) || array.length === 0) {
+    return result;
   }
 
-  let objKey = key;
-  isNumber(objKey) && (objKey = String(objKey));
+  const objKey = isNumber(key) ? (String(key) as keyof T) : key;
   if (!isString(objKey)) {
-    return {};
+    return result;
   }
 
-  const objResult: Record<string, T> = {};
-  return array.reduce((objResult, item) => {
-    return !isNully(item) && (!strict || item[objKey as keyof T] !== undefined)
-      ? { ...objResult, [String(item[objKey as keyof T])]: item }
-      : { ...objResult };
-  }, objResult);
+  return array.reduce((result, item) => {
+    if (!isNully(item) && (!strict || item[objKey] !== undefined)) {
+      result[String(item[objKey])] = item;
+    }
+
+    return result;
+  }, result);
 }

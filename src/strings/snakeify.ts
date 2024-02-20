@@ -4,7 +4,7 @@ export function snakeify(str: string): string {
   let string = str;
   isNumber(string) && (string = String(string));
 
-  if (!isString(string)) {
+  if (!isString(string) || string.length === 0) {
     return '';
   }
 

@@ -3,26 +3,32 @@ import { isArray, isNumber, isString } from '../general';
 // arrayGroupByKey( [ { id: 'alpha', category: 'male' }, { id: 'bravo', category: 'female' } ], 'category' );
 // -> { 'male': [ { id: 'alpha', category: 'male' } ], 'female': [ { id: 'bravo', category: 'female' } ] }
 
-export function arrayGroupByKey<T>(array: T[], key: string, strict = false): Record<string, T[]> {
-  if (!isArray(array)) {
-    return {};
+export function arrayGroupByKey<T extends Record<string, any>>(
+  array: T[],
+  key: keyof T,
+  strict = false,
+): Record<string, T[]> {
+  const result: Record<string, T[]> = {};
+
+  if (!isArray(array) || array.length === 0) {
+    return result;
   }
 
-  let objKey = key;
-  isNumber(objKey) && (objKey = String(objKey));
+  const objKey = isNumber(key) ? (String(key) as keyof T) : key;
   if (!isString(objKey)) {
-    return {};
+    return result;
   }
 
-  const objResult: Record<string, T[]> = {};
-  return array.reduce((objResult, item) => {
-    if (item && (!strict || item[objKey as keyof T])) {
-      objResult[String(item[objKey as keyof T])] = [
-        ...(objResult[String(item[objKey as keyof T])] || []),
-        item,
-      ];
+  return array.reduce((result, item) => {
+    if (item && (!strict || item[objKey])) {
+      const key = String(item[objKey]);
+      if (!result[key]) {
+        result[key] = [];
+      }
+
+      result[key].push(item);
     }
 
-    return objResult;
-  }, objResult);
+    return result;
+  }, result);
 }

@@ -6,6 +6,6 @@ export function getFilenameWOutExtByName(filenameOrPath: string): string {
     return '';
   }
 
-  let filename = getFilenameByPath(filenameOrPath);
+  const filename = getFilenameByPath(filenameOrPath);
   return filename.includes('.') ? filename.split('.').slice(0, -1).join('.') : filename;
 }
