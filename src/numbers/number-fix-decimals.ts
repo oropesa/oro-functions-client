@@ -36,7 +36,7 @@ export function numberFixDecimals(
   }
 
   (!isNumeric(length) || length < 0) && (length = 0);
-  string = String(Number(Math.round(Number(string + `e+${length}`)) + `e-${length}`));
+  string = String(Number(`${Math.round(Number(`${string}e+${length}`))}e-${length}`));
 
   let minRight = minRightZeros;
   !isBoolean(minRight) && (!isNumeric(minRight) || minRight < 0) && (minRight = 0);

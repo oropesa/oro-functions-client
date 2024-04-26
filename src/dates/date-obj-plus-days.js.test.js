@@ -1,4 +1,4 @@
-import { DATE_OBJ, ISO_DATE } from './_mocks';
+import { DATE_OBJ, ISO_DATE } from './_dates.mocks';
 import { dateObjPlusDays } from './date-obj-plus-days';
 
 describe('fn: dateObjPlusDays', () => {

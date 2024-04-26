@@ -4,7 +4,7 @@ export const req: Pick<Request, 'protocol' | 'originalUrl' | 'get'> = {
   protocol: 'https',
   originalUrl: '/',
   get: (key) => {
-    const obj: { [key in string]: any } = { host: 'example.com' };
+    const obj: Record<string, any> = { host: 'example.com' };
     return obj[key];
   },
 };

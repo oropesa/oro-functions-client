@@ -1,4 +1,4 @@
-import { DATE_OBJ } from './_mocks';
+import { DATE_OBJ } from './_dates.mocks';
 import { dateObjByToday } from './date-obj-by-today';
 import { datesCompare } from './dates-compare';
 

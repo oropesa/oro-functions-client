@@ -19,11 +19,11 @@ export function arrayCountByKey<T extends Record<string, any>>(
     return result;
   }
 
-  return array.reduce((result, item) => {
+  return array.reduce((obj, item) => {
     if (item && (!strict || item[objKey])) {
-      const key = String(item[objKey]);
-      result[key] = ++result[key] || 1;
+      const itemKey = String(item[objKey]);
+      obj[itemKey] = ++obj[itemKey] || 1;
     }
-    return result;
+    return obj;
   }, result);
 }

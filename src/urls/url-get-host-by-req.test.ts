@@ -1,4 +1,4 @@
-import { req } from './_mocks';
+import { req } from './_request.mocks';
 import { urlGetHostByReq } from './url-get-host-by-req';
 
 describe('fn: urlGetHostByReq', () => {

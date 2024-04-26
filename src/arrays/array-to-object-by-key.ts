@@ -19,11 +19,11 @@ export function arrayToObjectByKey<T extends Record<string, any>>(
     return result;
   }
 
-  return array.reduce((result, item) => {
+  return array.reduce((obj, item) => {
     if (!isNully(item) && (!strict || item[objKey] !== undefined)) {
-      result[String(item[objKey])] = item;
+      obj[String(item[objKey])] = item;
     }
 
-    return result;
+    return obj;
   }, result);
 }

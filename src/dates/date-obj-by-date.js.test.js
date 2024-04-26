@@ -1,4 +1,4 @@
-import { DATE_OBJ } from './_mocks';
+import { DATE_OBJ } from './_dates.mocks';
 import { dateObjByDate } from './date-obj-by-date';
 
 describe('fn: dateObjByDate', () => {

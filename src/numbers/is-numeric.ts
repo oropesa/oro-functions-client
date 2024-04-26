@@ -11,7 +11,9 @@ export function isNumeric(number: number | string): boolean {
   return false;
 }
 
-// @deprecated
+/**
+ * @deprecated use `isNumeric` instead
+ */
 export function isNumberic(number: number | string): boolean {
   return isNumeric(number);
 }

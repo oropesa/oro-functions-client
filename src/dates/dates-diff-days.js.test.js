@@ -1,4 +1,4 @@
-import { ISO_DATE } from './_mocks';
+import { ISO_DATE } from './_dates.mocks';
 import { datesDiffDays } from './dates-diff-days';
 
 describe('fn: datesDiffDays', () => {

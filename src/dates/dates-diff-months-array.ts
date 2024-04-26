@@ -34,7 +34,7 @@ export function datesDiffMonthsArray(date1: DateObj | Date, date2: DateObj | Dat
   while (true) {
     monthsArray.push({
       year: String(dateStart.getFullYear()),
-      month: ('0' + (dateStart.getMonth() + 1)).slice(-2),
+      month: `0${dateStart.getMonth() + 1}`.slice(-2),
     });
 
     const monthCompared = datesCompare(dateStart, dateEnd);

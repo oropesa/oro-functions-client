@@ -1,4 +1,4 @@
-import { req } from './_mocks';
+import { req } from './_request.mocks';
 import { urlGetCurrentByReq } from './url-get-current-by-req';
 
 describe('fn: urlGetCurrentByReq', () => {
