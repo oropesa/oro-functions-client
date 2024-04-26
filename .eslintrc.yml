@@ -7,6 +7,7 @@ extends:
   - alloy/typescript
   - eslint:recommended
   - plugin:jest/recommended
+  - plugin:github/recommended
   - plugin:unicorn/recommended
   - plugin:jest-formatting/recommended
   - plugin:@typescript-eslint/recommended
@@ -23,6 +24,8 @@ rules:
     - error
     - argsIgnorePattern: '^_'
       varsIgnorePattern: '^_'
+  i18n-text/no-en: off
+  filenames/match-regex: ['error', '^[_]?[a-z0-9-]+(.[a-z0-9-]+)?$']
   unicorn/switch-case-braces: ['error', 'avoid']
   unicorn/no-null: off
   unicorn/no-array-reduce: off

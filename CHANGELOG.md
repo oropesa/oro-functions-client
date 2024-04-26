@@ -1,3 +1,25 @@
+## 2.2.1 / 2024-04-26
+* Improved _github cicd_ replacing `npm install` to `npm ci`, and `actions/--@v3` by `actions/--@v4`.
+* Fixed `objGetMethods`, adding array-methods `toReversed, toSorted, toSpliced, with` to be ignored by default.
+* Added `/* @deprecated */` label in fns `dateIsObj`, `isNumberic`.
+* Renamed _mock files_ being less ambiguous.
+* Updated _libs_:
+  * `js-base64` from `v3.7.6` to `v3.7.7`.
+* Added _dev_ libs:
+  * `eslint-plugin-github@^4.10.2`
+* Updated _dev_ libs:
+  * `@babel/core` from `v7.23.9` to `v7.24.4`.
+  * `@babel/preset-env` from `v7.23.9` to `v7.24.4`.
+  * `@babel/preset-typescript` from `v7.23.3` to `v7.24.1`.
+  * `@typescript-eslint/eslint-plugin` from `v6.21.0` to `v7.7.1`.
+  * `@typescript-eslint/parser` from `v6.21.0` to `v7.7.1`.
+  * `eslint` from `v8.56.0` to `v8.57.0`.
+  * `eslint-plugin-jest` from `v27.6.3` to `v28.2.0`.
+  * `eslint-plugin-unicorn` from `v51.0.1` to `v52.0.0`.
+  * `husky` from `v9.0.10` to `v9.0.11`.
+  * `nodemon` from `v3.0.3` to `v3.1.0`.
+  * `typescript` from `v5.3.3` to `v5.4.5`.
+
 ## 2.2.0 / 2024-02-20
 * Improved/Fixed some _functions_:
   * Added `isValidUrl` (calling `urlIsValid`).
@@ -21,7 +43,6 @@
 * Fixed `let` by `const` when it's required.
 * Added _coverage_ for testing.
 * Added _watcher_ for coding.
-* Improved _github cicd_ replacing `npm install` to `npm ci`.
 * Improved `export` declarations in index files.
 * Enhanced _linter_ adding some extensions.
 * Enhanced _prettier_ adding import-sorter.

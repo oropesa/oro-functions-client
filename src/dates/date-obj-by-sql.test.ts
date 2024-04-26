@@ -1,4 +1,4 @@
-import { DATE_OBJ, DATE_OBJ_CUSTOM_SEP } from './_mocks';
+import { DATE_OBJ, DATE_OBJ_CUSTOM_SEP } from './_dates.mocks';
 import { dateObjBySql } from './date-obj-by-sql';
 
 describe('fn: dateObjBySql', () => {

@@ -1,23 +1,23 @@
 // type( (new Date()) ); -> "date"
 
 export function type(value: any, strict = false): string {
-  let type = Object.prototype.toString
+  let valueType = Object.prototype.toString
     .call(value)
     .match(/\s([A-Za-z]+)/)![1]
     .toLowerCase();
 
   if (
-    type === 'function' &&
+    valueType === 'function' &&
     value.prototype &&
     Object.getOwnPropertyNames(value.prototype).includes('constructor') &&
     /^\s*class/.test(value.toString())
   ) {
-    type = 'class';
+    valueType = 'class';
   }
 
   if (strict && typeof value === 'object') {
     return value.constructor.name;
   }
 
-  return type;
+  return valueType;
 }

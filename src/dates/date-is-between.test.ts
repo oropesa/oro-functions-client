@@ -1,4 +1,4 @@
-import { DATE_OBJ, DATE_OBJ_CUSTOM_SEP, ISO_DATE } from './_mocks';
+import { DATE_OBJ, DATE_OBJ_CUSTOM_SEP, ISO_DATE } from './_dates.mocks';
 import { dateIsBetween } from './date-is-between';
 
 describe('fn: dateIsBetween', () => {

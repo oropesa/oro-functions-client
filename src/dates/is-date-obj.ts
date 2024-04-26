@@ -5,7 +5,9 @@ export function isDateObj(date: any): date is DateObj {
   return !!date && isDate(date.jsdate);
 }
 
-// @deprecated
+/**
+ * @deprecated use `isDateObj` instead
+ */
 export function dateIsObj(date: any): date is DateObj {
   return isDateObj(date);
 }

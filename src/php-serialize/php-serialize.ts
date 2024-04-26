@@ -1,7 +1,6 @@
 import { serialize } from 'oro-php-locutus';
 
-import { isArray } from '../general';
-import { isObject } from '../general';
+import { isArray, isObject } from '../general';
 import { jsonStringify } from '../strings';
 
 export function phpSerialize<T>(mixedValue: T, strict = false): string | T {

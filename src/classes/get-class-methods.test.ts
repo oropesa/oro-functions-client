@@ -1,4 +1,4 @@
-import { ODummy } from './_mocks';
+import { ODummy } from './_dummy.mocks';
 import { getClassMethods } from './get-class-methods';
 
 describe('fn: getClassMethods', () => {

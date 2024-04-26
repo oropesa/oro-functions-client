@@ -1,4 +1,4 @@
-import { ODummy } from './_mocks';
+import { ODummy } from './_dummy.mocks';
 import { getClassStaticMethods } from './get-class-static-methods';
 
 describe('fn: getClassStaticMethods', () => {

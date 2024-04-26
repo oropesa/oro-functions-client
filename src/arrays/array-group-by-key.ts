@@ -19,16 +19,16 @@ export function arrayGroupByKey<T extends Record<string, any>>(
     return result;
   }
 
-  return array.reduce((result, item) => {
+  return array.reduce((obj, item) => {
     if (item && (!strict || item[objKey])) {
-      const key = String(item[objKey]);
-      if (!result[key]) {
-        result[key] = [];
+      const itemKey = String(item[objKey]);
+      if (!obj[itemKey]) {
+        obj[itemKey] = [];
       }
 
-      result[key].push(item);
+      obj[itemKey].push(item);
     }
 
-    return result;
+    return obj;
   }, result);
 }

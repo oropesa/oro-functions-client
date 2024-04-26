@@ -1,4 +1,4 @@
-import { ODummy } from './_mocks';
+import { ODummy } from './_dummy.mocks';
 import { getClassName } from './get-class-name';
 
 describe('fn: getClassName', () => {

@@ -1,4 +1,4 @@
-import { DATE_OBJ, DATE_OBJ_CUSTOM_SEP, DATE_OBJ_NO_TIME } from './_mocks';
+import { DATE_OBJ, DATE_OBJ_CUSTOM_SEP, DATE_OBJ_NO_TIME } from './_dates.mocks';
 import { dateObjByHtml } from './date-obj-by-html';
 
 describe('fn: dateObjByHtml', () => {
