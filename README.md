@@ -686,7 +686,7 @@ Ofn.arrayizeString('{ "0":1, "2":3, "foo":true }');
 #### Ofn.arrayizeObject()
 
 ```ts
-Ofn.arrayizeObject< T, O extends Record<string, any> = Record<string, any> >(object: O, strict?: boolean) 
+Ofn.arrayizeObject< T, O extends Record<string, any> = Record<string, any> >(object: O, strict?: boolean)
 => strict === true ? T | null : T | O;
 ```
 
