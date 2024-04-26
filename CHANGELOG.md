@@ -1,76 +1,81 @@
+## 2.2.2 / 2024-04-26
+- Fixed _prettier_ `endOfLine: 'lf'`
+
 ## 2.2.1 / 2024-04-26
-* Improved _github cicd_ replacing `npm install` to `npm ci`, and `actions/--@v3` by `actions/--@v4`.
-* Fixed `objGetMethods`, adding array-methods `toReversed, toSorted, toSpliced, with` to be ignored by default.
-* Added `/* @deprecated */` label in fns `dateIsObj`, `isNumberic`.
-* Renamed _mock files_ being less ambiguous.
-* Updated _libs_:
-  * `js-base64` from `v3.7.6` to `v3.7.7`.
-* Added _dev_ libs:
-  * `eslint-plugin-github@^4.10.2`
-* Updated _dev_ libs:
-  * `@babel/core` from `v7.23.9` to `v7.24.4`.
-  * `@babel/preset-env` from `v7.23.9` to `v7.24.4`.
-  * `@babel/preset-typescript` from `v7.23.3` to `v7.24.1`.
-  * `@typescript-eslint/eslint-plugin` from `v6.21.0` to `v7.7.1`.
-  * `@typescript-eslint/parser` from `v6.21.0` to `v7.7.1`.
-  * `eslint` from `v8.56.0` to `v8.57.0`.
-  * `eslint-plugin-jest` from `v27.6.3` to `v28.2.0`.
-  * `eslint-plugin-unicorn` from `v51.0.1` to `v52.0.0`.
-  * `husky` from `v9.0.10` to `v9.0.11`.
-  * `nodemon` from `v3.0.3` to `v3.1.0`.
-  * `typescript` from `v5.3.3` to `v5.4.5`.
+
+- Improved _github cicd_ replacing `npm install` to `npm ci`, and `actions/--@v3` by `actions/--@v4`.
+- Fixed `objGetMethods`, adding array-methods `toReversed, toSorted, toSpliced, with` to be ignored by default.
+- Added `/* @deprecated */` label in fns `dateIsObj`, `isNumberic`.
+- Renamed _mock files_ being less ambiguous.
+- Updated _libs_:
+  - `js-base64` from `v3.7.6` to `v3.7.7`.
+- Added _dev_ libs:
+  - `eslint-plugin-github@^4.10.2`
+- Updated _dev_ libs:
+  - `@babel/core` from `v7.23.9` to `v7.24.4`.
+  - `@babel/preset-env` from `v7.23.9` to `v7.24.4`.
+  - `@babel/preset-typescript` from `v7.23.3` to `v7.24.1`.
+  - `@typescript-eslint/eslint-plugin` from `v6.21.0` to `v7.7.1`.
+  - `@typescript-eslint/parser` from `v6.21.0` to `v7.7.1`.
+  - `eslint` from `v8.56.0` to `v8.57.0`.
+  - `eslint-plugin-jest` from `v27.6.3` to `v28.2.0`.
+  - `eslint-plugin-unicorn` from `v51.0.1` to `v52.0.0`.
+  - `husky` from `v9.0.10` to `v9.0.11`.
+  - `nodemon` from `v3.0.3` to `v3.1.0`.
+  - `typescript` from `v5.3.3` to `v5.4.5`.
 
 ## 2.2.0 / 2024-02-20
-* Improved/Fixed some _functions_:
-  * Added `isValidUrl` (calling `urlIsValid`).
-  * Fixed `arraysIntersection` empty-array case.
-  * Fixed `datesDiffMonthsArray` duplicate-month.
-  * Fixed `getFunctionName` global & window case.
-  * Fixed `randomString` length limit.
-  * Fixed `urlGetParams` array case (default `key` and php `key[]`).
-  * Improved typing of
-    * `arrayCountByKey`, defining second param as `key: keyof T`
-    * `arrayGroupByKey`, defining second param as `key: keyof T`
-    * `arraySortByKey`, defining second param as `key: keyof T`
-    * `arrayToObjectByKey`, defining second param as `key: keyof T`
-    * `arrayizeObject` removing `B` of `<T, O, B>` adding function overloading.
-    * `arrayizeString` removing `B` of `<T, B>` adding function overloading.
-    * `jsonize` removing `B` of `<T, B>` adding function overloading.
-    * `jsonParse` removing `B` of `<T, B>` adding function overloading.
-    * `arrayValuesByKey` removing `B` of `<T, V, B>` adding function overloading.
-    * `setResponseOK` adding more function overloadings.
-    * `setResponseKO` adding more function overloadings.
-* Fixed `let` by `const` when it's required.
-* Added _coverage_ for testing.
-* Added _watcher_ for coding.
-* Improved `export` declarations in index files.
-* Enhanced _linter_ adding some extensions.
-* Enhanced _prettier_ adding import-sorter.
-* Improved tests migrating every test to the same level as their source file.
-* Enhanced testing to achieve the `100%` of coverage (yay!).
-* Updated libs:
-  * `js-base64` from `v3.7.5` to `v3.7.6`.
-  * `oro-php-locutus` from `v2.0.2` to `v2.0.3`.
-  * `oro-regexp` from `v2.0.2` to `v2.0.3`.
-* Updated _dev_ libs:
-  * `@babel/core` from `v7.23.3` to `v7.23.9`.
-  * `@babel/preset-env` from `v7.23.3` to `v7.23.9`.
-  * `@types/crypto-js` from `v4.2.1` to `v4.2.2`.
-  * `@types/jest` from `v29.5.10` to `v29.5.12`.
-  * `@typescript-eslint/eslint-plugin` from `v6.12.0` to `v6.21.0`.
-  * `@typescript-eslint/parser` from `v6.12.0` to `v6.21.0`.
-  * `eslint` from `v8.54.0` to `v^8.56.0`.
-  * `eslint-plugin-unicorn` from `v49.0.0` to `v50.0.1`.
-  * `husky` from `v8.0.3` to `v9.0.10`.
-  * `prettier` from `v3.1.0` to `v3.2.5`.
-  * `tsup` from `v8.0.1` to `v8.0.2`.
-  * `typescript` from `v5.2.2` to `v5.3.3`.
-* Added _dev_ libs:
-  * `@trivago/prettier-plugin-sort-imports`
-  * `eslint-plugin-jest-formatting`
-  * `eslint-config-prettier`
-  * `eslint-plugin-jest`
-  * `nodemon`
+
+- Improved/Fixed some _functions_:
+  - Added `isValidUrl` (calling `urlIsValid`).
+  - Fixed `arraysIntersection` empty-array case.
+  - Fixed `datesDiffMonthsArray` duplicate-month.
+  - Fixed `getFunctionName` global & window case.
+  - Fixed `randomString` length limit.
+  - Fixed `urlGetParams` array case (default `key` and php `key[]`).
+  - Improved typing of
+    - `arrayCountByKey`, defining second param as `key: keyof T`
+    - `arrayGroupByKey`, defining second param as `key: keyof T`
+    - `arraySortByKey`, defining second param as `key: keyof T`
+    - `arrayToObjectByKey`, defining second param as `key: keyof T`
+    - `arrayizeObject` removing `B` of `<T, O, B>` adding function overloading.
+    - `arrayizeString` removing `B` of `<T, B>` adding function overloading.
+    - `jsonize` removing `B` of `<T, B>` adding function overloading.
+    - `jsonParse` removing `B` of `<T, B>` adding function overloading.
+    - `arrayValuesByKey` removing `B` of `<T, V, B>` adding function overloading.
+    - `setResponseOK` adding more function overloadings.
+    - `setResponseKO` adding more function overloadings.
+- Fixed `let` by `const` when it's required.
+- Added _coverage_ for testing.
+- Added _watcher_ for coding.
+- Improved `export` declarations in index files.
+- Enhanced _linter_ adding some extensions.
+- Enhanced _prettier_ adding import-sorter.
+- Improved tests migrating every test to the same level as their source file.
+- Enhanced testing to achieve the `100%` of coverage (yay!).
+- Updated libs:
+  - `js-base64` from `v3.7.5` to `v3.7.6`.
+  - `oro-php-locutus` from `v2.0.2` to `v2.0.3`.
+  - `oro-regexp` from `v2.0.2` to `v2.0.3`.
+- Updated _dev_ libs:
+  - `@babel/core` from `v7.23.3` to `v7.23.9`.
+  - `@babel/preset-env` from `v7.23.3` to `v7.23.9`.
+  - `@types/crypto-js` from `v4.2.1` to `v4.2.2`.
+  - `@types/jest` from `v29.5.10` to `v29.5.12`.
+  - `@typescript-eslint/eslint-plugin` from `v6.12.0` to `v6.21.0`.
+  - `@typescript-eslint/parser` from `v6.12.0` to `v6.21.0`.
+  - `eslint` from `v8.54.0` to `v^8.56.0`.
+  - `eslint-plugin-unicorn` from `v49.0.0` to `v50.0.1`.
+  - `husky` from `v8.0.3` to `v9.0.10`.
+  - `prettier` from `v3.1.0` to `v3.2.5`.
+  - `tsup` from `v8.0.1` to `v8.0.2`.
+  - `typescript` from `v5.2.2` to `v5.3.3`.
+- Added _dev_ libs:
+  - `@trivago/prettier-plugin-sort-imports`
+  - `eslint-plugin-jest-formatting`
+  - `eslint-config-prettier`
+  - `eslint-plugin-jest`
+  - `nodemon`
 
 ## 2.1.2 / 2023-11-23
 
