@@ -31,6 +31,8 @@ export function datesDiffMonthsArray(date1: DateObj | Date, date2: DateObj | Dat
   dateEnd = new Date(dateEnd.getFullYear(), dateEnd.getMonth(), 1);
 
   const monthsArray: DateDiffMonth[] = [];
+
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     monthsArray.push({
       year: String(dateStart.getFullYear()),

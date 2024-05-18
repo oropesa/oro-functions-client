@@ -18,8 +18,6 @@ describe('fn: objToStringAttr', () => {
   });
 
   test('fn: objToStringAttr( obj w html )', () => {
-    expect(objToStringAttr({ id: 20, name: '<span>oro</span>' })).toBe(
-      ' id="20" name="&lt;span&gt;oro&lt;/span&gt;" ',
-    );
+    expect(objToStringAttr({ id: 20, name: '<span>oro</span>' })).toBe(' id="20" name="&lt;span&gt;oro&lt;/span&gt;" ');
   });
 });

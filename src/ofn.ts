@@ -54,15 +54,7 @@ import {
   issetGet,
   type,
 } from './general/';
-import {
-  isEven,
-  isNumberic,
-  isNumeric,
-  isOdd,
-  numberFixDecimals,
-  numberPrintDecimals,
-  randomMinMax,
-} from './numbers/';
+import { isEven, isNumberic, isNumeric, isOdd, numberFixDecimals, numberPrintDecimals, randomMinMax } from './numbers/';
 import {
   cloneObject,
   cloneObjectWithKeys,
