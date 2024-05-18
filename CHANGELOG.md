@@ -1,4 +1,29 @@
+## 2.3.0 / 2024-05-18
+
+- Updated *eslint* to flat `eslint.config.js`.
+- Re-init `package-lock.json`.
+- Updated _prettier_ `printWidth: 120`
+- Updated libs:
+  - `oro-php-locutus` from `v2.0.3` to `v2.1.0`.
+  - `oro-regexp` from `v2.0.3` to `v2.1.0`.
+- Updated _dev_ libs:
+  - `@babel/core` from `v7.24.4` to `v7.24.5`.
+  - `@babel/preset-env` from `v7.24.4` to `v7.24.5`.
+  - `eslint-plugin-jest` from `v28.2.0` to `v28.5.0`.
+  - `eslint-plugin-unicorn` from `v52.0.0` to `v53.0.0`.
+- Added _dev_ libs:
+  - `@eslint/js` added `v9.2.0`.
+  - `globals` added `v15.2.0`.
+  - `typescript-eslint` added `v7.9.0`.
+- Removed _dev_ libs:
+  - `@typescript-eslint/eslint-plugin` removed.
+  - `@typescript-eslint/parser` removed.
+  - `eslint-config-alloy` removed.
+  - `eslint-plugin-github` removed.
+  - `eslint-plugin-jest-formatting` removed.
+
 ## 2.2.2 / 2024-04-26
+
 - Fixed _prettier_ `endOfLine: 'lf'`
 
 ## 2.2.1 / 2024-04-26

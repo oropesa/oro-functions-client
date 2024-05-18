@@ -7,12 +7,13 @@ src/
 **/_*
 **/*.test.*
 
-.eslintrc.yaml
 .gitignore
 .prettierignore
-.prettierrc.yaml
+.prettierrc.yml
 babel.config.cjs
 coverage.open.js
+eslint.config.js
+eslint.config.utils.js
 nodemon.json
 tsconfig.json
 tsup.config.ts

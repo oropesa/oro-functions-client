@@ -6,9 +6,7 @@ describe('fn: objToStringSqlSet', () => {
   });
 
   test('fn: objToStringSqlSet( obj )', () => {
-    expect(objToStringSqlSet({ id: 20, name: "'oro'", today: 'NOW()' })).toBe(
-      " id = 20, name = 'oro', today = NOW() ",
-    );
+    expect(objToStringSqlSet({ id: 20, name: "'oro'", today: 'NOW()' })).toBe(" id = 20, name = 'oro', today = NOW() ");
   });
 
   test('fn: objToStringSqlSet( obj ) typed', () => {
