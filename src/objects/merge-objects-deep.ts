@@ -29,7 +29,10 @@ export function mergeObjectsDeep<T extends Record<string, any>>(...args: Array<P
         continue;
       }
 
-      objMerged[key] = mergeObjectsDeep<NonNullable<T[keyof T]>>(objMerged[key]!, objClone[key]!);
+      objMerged[key] = mergeObjectsDeep<NonNullable<T[keyof T]>>(
+        objMerged[key],
+        objClone[key] as NonNullable<T[keyof T]>,
+      );
     }
   }
 
