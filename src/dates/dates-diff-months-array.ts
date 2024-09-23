@@ -18,7 +18,10 @@ export function datesDiffMonthsArray(date1: DateObj | Date, date2: DateObj | Dat
 
   let dateStart = new Date(isDateObj(date1) ? date1.jsdate : date1);
   let dateEnd = new Date(isDateObj(date2) ? date2.jsdate : date2);
-  dateEnd < dateStart && ([dateEnd, dateStart] = [dateStart, dateEnd]);
+
+  if (dateEnd < dateStart) {
+    [dateEnd, dateStart] = [dateStart, dateEnd];
+  }
 
   dateStart = new Date(dateStart.getFullYear(), dateStart.getMonth(), dateStart.getDate());
   dateEnd = new Date(dateEnd.getFullYear(), dateEnd.getMonth(), dateEnd.getDate());
@@ -32,7 +35,6 @@ export function datesDiffMonthsArray(date1: DateObj | Date, date2: DateObj | Dat
 
   const monthsArray: DateDiffMonth[] = [];
 
-  // eslint-disable-next-line no-constant-condition
   while (true) {
     monthsArray.push({
       year: String(dateStart.getFullYear()),

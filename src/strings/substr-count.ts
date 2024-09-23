@@ -1,10 +1,8 @@
 import { isNumber, isString } from '../general';
 
 export function substrCount(str: string, substr: string): number {
-  let string = str;
-  let substring = substr;
-  isNumber(string) && (string = String(string));
-  isNumber(substring) && (substring = String(substring));
+  const string = isNumber(str) ? String(str) : str;
+  const substring = isNumber(substr) ? String(substr) : substr;
 
   if (!isString(string) || !isString(substring) || !string || !substring) {
     return 0;

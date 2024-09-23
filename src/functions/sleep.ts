@@ -1,10 +1,7 @@
 import { isNumeric } from '../numbers';
 
 export function sleep(ms?: number): Promise<void> {
-  let milliseconds = ms ?? 0;
-  !isNumeric(ms ?? '') && (milliseconds = 0);
-
-  milliseconds = Math.floor(milliseconds);
+  const milliseconds = Math.floor(!isNumeric(ms as number) ? 0 : (ms as number));
 
   return new Promise((resolve) => {
     setTimeout(resolve, milliseconds);

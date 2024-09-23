@@ -1,6 +1,5 @@
 import { isString } from '../general';
 
-// eslint-disable-next-line complexity
 export function phpIsSerialized(str: string, strict = true): boolean {
   let string = str;
   // if it isn't a string, it isn't serialized.

@@ -1,16 +1,17 @@
 import { isNumeric } from '../numbers';
 
 export function randomString(len = 8): string {
-  let length = len;
-  !isNumeric(length) && (length = 8);
-  length = Number(length);
+  const length = !isNumeric(len) ? 8 : Number(len);
 
   if (length <= 0) {
     return '';
   }
 
   let str = Math.random().toString(36).slice(2, 12);
-  str.length <= 10 && (str = `${str}17o`.slice(0, 10));
+  if (str.length <= 10) {
+    str = `${str}17o`.slice(0, 10);
+  }
+
   if (length <= 10) {
     return str.slice(-length);
   }

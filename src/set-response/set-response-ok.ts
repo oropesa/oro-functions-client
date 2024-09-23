@@ -39,7 +39,6 @@ export function setResponseOK<T extends ObjectWithMsg>(object: T, obj?: T): SRes
 export function setResponseOK<T extends ObjectWithoutMsg>(object: T, obj?: T): SResponseOKObject<T>;
 export function setResponseOK<T extends ObjectWithMsg>(str: undefined, object: T): SResponseOKObjectSimple<T>;
 export function setResponseOK<T extends ObjectWithoutMsg>(str?: undefined, obj?: T): SResponseOKObject<T>;
-// eslint-disable-next-line @typescript-eslint/unified-signatures
 export function setResponseOK<T extends Record<string, any>>(str: string, object: T): SResponseOKObjectSimple<T>;
 //
 
@@ -57,10 +56,14 @@ export function setResponseOK<T extends Record<string, any>>(msgOrData?: string 
     msg = msg ? `${String(msgOrData)} ${msg}` : String(msgOrData);
   }
 
-  'status' in cloneData && ((cloneData as SResponseOKObject).status = true);
+  if ('status' in cloneData) {
+    (cloneData as SResponseOKObject).status = true;
+  }
 
   delete cloneData.msg;
-  msg && (cloneData = { msg, ...cloneData });
+  if (msg) {
+    cloneData = { msg, ...cloneData };
+  }
 
   return { status: true, ...cloneData };
 }

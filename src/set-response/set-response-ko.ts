@@ -178,7 +178,6 @@ export function setResponseKO<T extends Record<string, any>>(
   msg: undefined,
   error: T,
   tryAgain: boolean,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   asError?: false,
 ): SResponseKOObjectAgain<T>;
 export function setResponseKO<T extends Record<string, any>>(
@@ -223,14 +222,12 @@ export function setResponseKO<T extends ObjectWithAsError>(
   msg: string,
   error: T,
   tryAgain: boolean,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   asError?: false,
 ): SResponseErrorObjectSimpleAgain<T>;
 export function setResponseKO<T extends Record<string, any>>(
   msg: string,
   error: T,
   tryAgain: boolean,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   asError?: false,
 ): SResponseKOObjectSimpleAgain<T>;
 
@@ -282,14 +279,12 @@ export function setResponseKO<T extends Record<string, any>>(
 export function setResponseKO<T extends Record<string, any>>(
   msg: undefined,
   error: T,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   tryAgain: boolean,
   asError: true,
 ): SResponseErrorObjectAgain<T>;
 export function setResponseKO<T extends Record<string, any>>(
   error: T,
   err: undefined | T,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   tryAgain: boolean,
   asError: true,
 ): SResponseErrorObjectAgain<T>;
@@ -297,21 +292,18 @@ export function setResponseKO<T extends ObjectWithTryAgain>(
   msg: string,
   error: T,
   tryAgain: undefined,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   asError: true,
 ): SResponseErrorObjectSimpleAgain<T>;
 export function setResponseKO<T extends ObjectWithAsError>(
   msg: string,
   error: T,
   tryAgain: undefined,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   asError: true,
 ): SResponseErrorObjectSimple<T>;
 export function setResponseKO<T extends Record<string, any>>(
   msg: string,
   error: T,
   tryAgain: undefined,
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   asError: true,
 ): SResponseErrorObjectSimple<T>;
 export function setResponseKO<T extends Record<string, any>>(
@@ -324,7 +316,6 @@ export function setResponseKO<T extends Record<string, any>>(
 //
 
 // NOTE complexity 24 (limit 20)
-// eslint-disable-next-line complexity
 export function setResponseKO<T extends Record<string, any>>(
   msgOrError?: string | T,
   error?: T,
@@ -348,12 +339,16 @@ export function setResponseKO<T extends Record<string, any>>(
   }
 
   if (isObject(msgOrError) && 'asError' in msgOrError) {
-    msgOrError.asError === true && (isAsError = msgOrError.asError);
+    if (msgOrError.asError === true) {
+      isAsError = msgOrError.asError;
+    }
     delete msgOrError.asError;
   }
 
   if ('asError' in errorObj) {
-    errorObj.asError === true && (isAsError = errorObj.asError);
+    if (errorObj.asError === true) {
+      isAsError = errorObj.asError;
+    }
     delete errorObj.asError;
   }
 
@@ -368,11 +363,17 @@ export function setResponseKO<T extends Record<string, any>>(
   }
 
   delete errorObj.msg;
-  msg && (errorObj = { msg, ...errorObj });
+  if (msg) {
+    errorObj = { msg, ...errorObj };
+  }
 
   const response: SResponseKO<T> = { status: false };
-  objIsNotEmpty(errorObj) && (response.error = errorObj);
-  isBoolean(hasTryAgain) && (response.tryAgain = hasTryAgain);
+  if (objIsNotEmpty(errorObj)) {
+    response.error = errorObj;
+  }
+  if (isBoolean(hasTryAgain)) {
+    response.tryAgain = hasTryAgain;
+  }
 
   if (!isAsError) {
     return response;
@@ -381,7 +382,9 @@ export function setResponseKO<T extends Record<string, any>>(
   const responseError = new Error('error');
   responseError.name =
     response.error && 'errorName' in response.error ? String(response.error.errorName) : 'responseError';
-  response.error && response.error.msg && (responseError.message = response.error.msg);
+  if (response.error && response.error.msg) {
+    responseError.message = response.error.msg;
+  }
   (responseError as SResponseError<T>).responseError = response;
   responseError.stack = responseError.stack?.replace(responseError.message, JSON.stringify(response));
 

@@ -1,4 +1,30 @@
+## 2.3.2 / 2024-09-23
+
+- Update `urlGetCurrentByReq` fn using `hostname` req prop (instead of `get('host')`) to allow to be used in _express_ and _fastify_ `req`.
+- Apply `prettier --write` in the whole project (with `endOfLine: 'lf'`).
+- Fix eslint `@typescript-eslint/no-unused-expressions` rule in code.
+- Update `eslint` _breakpoint version_ (v8 to v9).
+- Update typescript _target_ to `ES2020`.
+- Updated libs:
+  - `oro-php-locutus` from `v2.1.1` to `v2.1.3`.
+  - `oro-regexp` from `v2.1.1` to `v2.1.3`.
+- Update _dev_ libs:
+  - `@babel/core` from `v7.24.9` to `v7.25.2`.
+  - `@babel/preset-env` from `v7.24.8` to `v7.25.4`.
+  - `@eslint/js` from `v9.7.0` to `v9.11.0`.
+  - `@types/jest` from `v29.5.1` to `v29.5.13`.
+  - `eslint` from `v8.57.0` to `v9.11.0`.
+  - `eslint-plugin-jest` from `v28.6.0` to `v28.8.3`.
+  - `eslint-plugin-unicorn` from `v54.0.0` to `v55.0.0`.
+  - `globals` from `v15.8.0` to `v15.9.0`.
+  - `husky` from `v9.0.11` to `v9.1.6`.
+  - `nodemon` from `v3.1.4` to `v3.1.7`.
+  - `tsup` from `v8.1.0` to `v8.3.0`.
+  - `typescript` from `v5.5.3` to `v5.5.4`.
+  - `typescript-eslint` from `v7.16.0` to `v8.6.0`.
+
 ## 2.3.1 / 2024-07-15
+
 - Updated libs:
   - `oro-php-locutus` from `v2.1.0` to `v2.1.1`.
   - `oro-regexp` from `v2.1.0` to `v2.1.1`.
@@ -18,7 +44,7 @@
 
 ## 2.3.0 / 2024-05-18
 
-- Updated *eslint* to flat `eslint.config.js`.
+- Updated _eslint_ to flat `eslint.config.js`.
 - Re-init `package-lock.json`.
 - Updated _prettier_ `printWidth: 120`
 - Updated libs:
