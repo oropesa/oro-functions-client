@@ -1,8 +1,7 @@
 import { isNumber, isString } from '../general';
 
 export function slugify(str: string): string {
-  let string = str;
-  isNumber(string) && (string = String(string));
+  const string = isNumber(str) ? String(str) : str;
 
   if (!isString(string) || string.length === 0) {
     return '';

@@ -13,12 +13,9 @@ export function chunkStringByCharSize(str: string, sep: string, size: number, or
     return str;
   }
 
-  let separator = sep;
-  isNully(sep) && (separator = '');
-  separator = String(separator);
+  const separator = isNully(sep) ? '' : String(sep);
 
-  let string = str;
-  string = String(string);
+  let string = String(str);
 
   const regex = new RegExp(`(.{${size}})`, 'g');
 
@@ -28,11 +25,15 @@ export function chunkStringByCharSize(str: string, sep: string, size: number, or
       .join('')
       .replace(regex, `$1${[...separator].reverse().join('')}`);
     string = [...string].reverse().join('');
-    string.slice(0, separator.length) === separator && (string = string.slice(separator.length));
+    if (string.slice(0, separator.length) === separator) {
+      string = string.slice(separator.length);
+    }
     return string;
   }
 
   string = string.replace(regex, `$1${separator}`);
-  string.slice(-separator.length) === separator && (string = string.slice(0, string.length - separator.length));
+  if (string.slice(-separator.length) === separator) {
+    string = string.slice(0, string.length - separator.length);
+  }
   return string;
 }

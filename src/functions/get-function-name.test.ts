@@ -4,7 +4,6 @@ function scopedFunction() {
   return getFunctionName();
 }
 
-// eslint-disable-next-line func-style
 const variableScopedFunction = function () {
   return getFunctionName();
 };

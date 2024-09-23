@@ -9,23 +9,15 @@ export function strPad(
   pad: string | number = ' ',
   leftRight: LeftRight = 'left',
 ): string {
-  let position: LeftRight = leftRight;
-  !['left', 'right'].includes(position) && (position = 'left');
-
-  let string = str;
-  isNully(string) && (string = '');
-  string = String(string);
-
-  let size = length;
-  (!isNumeric(size) || !size) && (size = string.length);
-  size < 0 && (size = 0);
+  const position: LeftRight = !['left', 'right'].includes(leftRight) ? 'left' : leftRight;
+  const string = isNully(str) ? '' : String(str);
+  const size = Math.max(0, !isNumeric(length) || !length ? string.length : length);
 
   if (string.length >= length) {
     return position === 'left' ? string.slice(0, length) : string.slice(-length);
   }
 
-  let substring = pad;
-  !isString(substring) && (substring = String(substring));
+  const substring = !isString(pad) ? String(pad) : pad;
 
   let padString = Array.from({ length: size + 1 }).join(substring);
   padString = padString.slice(0, size - string.length);

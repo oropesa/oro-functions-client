@@ -2,8 +2,7 @@ import { isNumber, isString } from '../general/';
 import { isNumeric } from '../numbers/';
 
 export function textTruncate(str: string, max: number | true = 120, suffix = '...'): string {
-  let string = str;
-  isNumber(string) && (string = String(string));
+  const string = isNumber(str) ? String(str) : str;
 
   if (!isString(string)) {
     return '';
@@ -23,7 +22,9 @@ export function textTruncate(str: string, max: number | true = 120, suffix = '..
   }
 
   let min = string.slice(0, maximum - postfix.length).lastIndexOf(' ');
-  min === -1 && (min = maximum - postfix.length);
+  if (min === -1) {
+    min = maximum - postfix.length;
+  }
 
   return `${string.slice(0, min)}${postfix}`;
 }

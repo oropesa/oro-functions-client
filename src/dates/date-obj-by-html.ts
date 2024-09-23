@@ -10,9 +10,15 @@ export function dateObjByHtml(html: string, options: DateObjOptions | string = {
   }
 
   let optionsObj = options;
-  isString(optionsObj) && (optionsObj = { sep: optionsObj });
-  !isObject(optionsObj) && (optionsObj = { sep: '/' });
-  !isString(optionsObj.sep) && (optionsObj.sep = '/');
+  if (isString(optionsObj)) {
+    optionsObj = { sep: optionsObj };
+  }
+  if (!isObject(optionsObj)) {
+    optionsObj = { sep: '/' };
+  }
+  if (!isString(optionsObj.sep)) {
+    optionsObj.sep = '/';
+  }
 
   if (!REGEXP_DATETIME_FN(optionsObj.sep).test(html.trim())) {
     return null;

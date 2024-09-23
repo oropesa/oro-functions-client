@@ -40,9 +40,15 @@ export function dateObjByDate(date: Date, options: DateObjOptions | string = {})
   dateObj.iso = date.toISOString();
 
   let optionsObj = options;
-  isString(optionsObj) && (optionsObj = { sep: optionsObj });
-  !isObject(optionsObj) && (optionsObj = { sep: '/' });
-  !isString(optionsObj.sep) && (optionsObj.sep = '/');
+  if (isString(optionsObj)) {
+    optionsObj = { sep: optionsObj };
+  }
+  if (!isObject(optionsObj)) {
+    optionsObj = { sep: '/' };
+  }
+  if (!isString(optionsObj.sep)) {
+    optionsObj.sep = '/';
+  }
 
   dateObj.sep = optionsObj.sep;
 

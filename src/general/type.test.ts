@@ -62,7 +62,6 @@ describe('fn: type', () => {
   });
 
   test('fn: type( var function )', () => {
-    // eslint-disable-next-line unicorn/consistent-function-scoping
     const chacho = () => {};
     expect(type(chacho)).toBe('function');
   });
@@ -80,7 +79,6 @@ describe('fn: type', () => {
   });
 
   test('fn: type( var function strict )', () => {
-    // eslint-disable-next-line unicorn/consistent-function-scoping
     const chacho = () => {};
     expect(type(chacho, true)).toBe('function');
   });

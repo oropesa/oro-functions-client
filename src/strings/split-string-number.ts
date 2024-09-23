@@ -6,8 +6,7 @@ import { isNumber, isString } from '../general';
 // splitStringNumber( 'chacho loco', ' ' ); -> [ 'chacho', 'loco' ]
 
 export function splitStringNumber(str: string, sep = '|'): string[] {
-  let string = str;
-  isNumber(string) && (string = String(string));
+  const string = isNumber(str) ? String(str) : str;
 
   if (!isString(string)) {
     return [];

@@ -9,8 +9,14 @@ export function dateObjByTimestamp(timestamp: number, options: DateObjOptions | 
   }
 
   let optionsObj = options;
-  isString(optionsObj) && (optionsObj = { sep: optionsObj });
-  !isObject(optionsObj) && (optionsObj = { sep: '/' });
-  !isString(optionsObj.sep) && (optionsObj.sep = '/');
+  if (isString(optionsObj)) {
+    optionsObj = { sep: optionsObj };
+  }
+  if (!isObject(optionsObj)) {
+    optionsObj = { sep: '/' };
+  }
+  if (!isString(optionsObj.sep)) {
+    optionsObj.sep = '/';
+  }
   return dateObjByDate(new Date(timestamp), optionsObj);
 }

@@ -7,15 +7,13 @@ import { isNumeric } from './is-numeric';
 // numberFixDecimals( '2.1478', 6, false ); -> '2.1478'
 // numberFixDecimals( '2.1478', 6, false, 5 ); -> '2.14780'
 
-// eslint-disable-next-line complexity
 export function numberFixDecimals(
   number: number | string,
   decimalLength: number | false | 'false' = 2,
   allowAllRightZeros = true,
   minRightZeros: number | boolean = true,
 ): string {
-  let string = number;
-  isNully(string) && (string = '');
+  let string = isNully(number) ? '' : number;
 
   if ((!isString(number) && !isNumber(number)) || (isString(string) && !string)) {
     return String(string);
@@ -35,11 +33,12 @@ export function numberFixDecimals(
     return string;
   }
 
-  (!isNumeric(length) || length < 0) && (length = 0);
+  if (!isNumeric(length) || length < 0) {
+    length = 0;
+  }
   string = String(Number(`${Math.round(Number(`${string}e+${length}`))}e-${length}`));
 
-  let minRight = minRightZeros;
-  !isBoolean(minRight) && (!isNumeric(minRight) || minRight < 0) && (minRight = 0);
+  const minRight = !isBoolean(minRightZeros) && (!isNumeric(minRightZeros) || minRightZeros < 0) ? 0 : minRightZeros;
 
   const parts = string.split('.');
   if (parts[1] === undefined) {
@@ -55,8 +54,13 @@ export function numberFixDecimals(
     }
   }
 
-  minRight === false && !Number(decimals) && (decimals = '');
+  if (minRight === false && !Number(decimals)) {
+    decimals = '';
+  }
 
-  decimals.length > 0 && (decimals = `.${decimals}`);
+  if (decimals.length > 0) {
+    decimals = `.${decimals}`;
+  }
+
   return `${parts[0]}${decimals}`;
 }

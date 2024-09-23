@@ -1,6 +1,6 @@
 import { isFunction } from '../general';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export function getFunctionName(fn?: string | Function): string {
   if (fn !== undefined) {
     if (isFunction(fn)) {

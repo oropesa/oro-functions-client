@@ -12,7 +12,9 @@ export function objToStringAttrJs<T extends Record<string, any>>(obj: T): string
   let str = '';
   const keys = Object.keys(obj);
   for (const key of keys) {
-    !!str && (str += ';');
+    if (str) {
+      str += ';';
+    }
     str += ` ${key}:${escAttr(obj[key])}`;
   }
   return str.length > 0 ? `${str} ` : str;

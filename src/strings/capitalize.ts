@@ -1,9 +1,7 @@
 import { isNumber, isString } from '../general';
 
 export function capitalize(str: string) {
-  let string = str;
-  isNumber(string) && (string = String(string));
-  isString(string) && (string = String(string));
+  const string = isNumber(str) ? String(str) : str;
 
   if (!isString(string)) {
     return '';
