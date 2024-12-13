@@ -25,6 +25,7 @@ describe('fn: getFunctionName', () => {
 
   const variableFunction = variableScopedFunction;
 
+  // eslint-disable-next-line unicorn/prefer-global-this
   (global as any).globalFunction = () => {
     return getFunctionName();
   };
@@ -70,6 +71,7 @@ describe('fn: getFunctionName', () => {
   });
 
   test('fn: getFunctionName( window-fn string )', async () => {
+    // eslint-disable-next-line unicorn/prefer-global-this
     (global as any).window = {
       windowsFunction: () => {},
     };
@@ -78,6 +80,7 @@ describe('fn: getFunctionName', () => {
   });
 
   test('fn: getFunctionName( window-fn string not-found )', async () => {
+    // eslint-disable-next-line unicorn/prefer-global-this
     (global as any).window = {
       windowsFunction: () => {},
     };

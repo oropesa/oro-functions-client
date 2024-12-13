@@ -1,7 +1,7 @@
 import { isNumeric } from '../numbers';
 
 export function randomString(len = 8): string {
-  const length = !isNumeric(len) ? 8 : Number(len);
+  const length = isNumeric(len) ? Number(len) : 8;
 
   if (length <= 0) {
     return '';
