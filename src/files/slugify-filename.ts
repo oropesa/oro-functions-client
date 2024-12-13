@@ -11,7 +11,7 @@ export function slugifyFilename(filenameOrPath: string): string {
 
   const filename = getFilenameByPath(filenameOrPath);
 
-  return filename.lastIndexOf('.') === -1
-    ? slugify(getFilenameWOutExtByName(filename))
-    : `${slugify(getFilenameWOutExtByName(filename))}.${getFilenameExtByName(filename)}`;
+  return filename.includes('.')
+    ? `${slugify(getFilenameWOutExtByName(filename))}.${getFilenameExtByName(filename)}`
+    : slugify(getFilenameWOutExtByName(filename));
 }

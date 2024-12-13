@@ -8,13 +8,17 @@ export function getFunctionName(fn?: string | Function): string {
     }
 
     try {
+      // eslint-disable-next-line unicorn/prefer-global-this
       if (isFunction((global as any)[fn])) {
+        // eslint-disable-next-line unicorn/prefer-global-this
         return (global as any)[fn].name;
       }
     } catch {}
 
     try {
+      // eslint-disable-next-line unicorn/prefer-global-this
       if (isFunction((window as any)[fn])) {
+        // eslint-disable-next-line unicorn/prefer-global-this
         return (window as any)[fn].name;
       }
     } catch {}

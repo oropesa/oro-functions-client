@@ -3,7 +3,7 @@ import { htmlspecialchars } from 'oro-php-locutus';
 import { isNully, isString } from '../general';
 
 export function escAttr(str: string) {
-  let string = isNully(str) ? '' : !isString(str) ? String(str) : str;
+  let string = isNully(str) ? '' : isString(str) ? str : String(str);
 
   // wp_check_invalid_utf8 / .match fails when it encounters invalid UTF8 in $string.
   if (string.length === 0 || !/^./su.test(string) || string.match(/^./su)?.length !== 1) {
