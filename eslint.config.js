@@ -29,6 +29,7 @@ const allowList = [
   'Attr',
   'attr',
   'prop',
+  'utils',
   'Params',
   'params',
   'escAttr',
