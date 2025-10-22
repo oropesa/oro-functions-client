@@ -10,6 +10,8 @@ import {
 
 const allowList = [
   'fn',
+  'dev',
+  'Dev',
   'err',
   'Ext',
   'ext',
@@ -39,7 +41,13 @@ const allowList = [
 export default [
   { ignores: DEFAULT_IGNORES },
   setEslintLanguageOptionsBrowser(),
-  setEslintPluginUnicorn({ allowList }),
+  setEslintPluginUnicorn({
+    allowList,
+    rules: {
+      'unicorn/no-array-sort': 'off',
+      'unicorn/no-array-reverse': 'off',
+    },
+  }),
   setEslintPluginJest(),
   setEslintPluginJestDom(),
   setEslintPluginPrettier(),
