@@ -89,7 +89,7 @@ describe('fn: getFunctionName', () => {
   });
 
   test('fn: getFunctionName() current', async () => {
-    expect(getFunctionName()).toBe('Promise.then.completed');
+    expect(getFunctionName()).toBe('Promise.finally.completed');
   });
 
   test('fn: getFunctionName() old-browsers', async () => {
