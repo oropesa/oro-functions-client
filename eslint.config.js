@@ -1,6 +1,7 @@
 import {
   DEFAULT_IGNORES,
-  setEslintLanguageOptionsBrowser,
+  setEslintLanguageOptionsProject,
+  setEslintLanguageOptionsRootAsNode,
   setEslintPluginJest,
   setEslintPluginJestDom,
   setEslintPluginPrettier,
@@ -28,6 +29,7 @@ const allowList = [
   'str',
   'tmp',
   'args',
+  'Args',
   'Attr',
   'attr',
   'prop',
@@ -40,7 +42,8 @@ const allowList = [
 
 export default [
   { ignores: DEFAULT_IGNORES },
-  setEslintLanguageOptionsBrowser(),
+  setEslintLanguageOptionsProject(),
+  setEslintLanguageOptionsRootAsNode(),
   setEslintPluginUnicorn({
     allowList,
     rules: {
