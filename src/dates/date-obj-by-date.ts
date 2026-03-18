@@ -36,8 +36,7 @@ export function dateObjByDate(date: Date, options: DateObjOptions | string = {})
     return null as unknown as DateObj;
   }
 
-  const dateObj: Partial<DateObj> = {};
-  dateObj.iso = date.toISOString();
+  const dateObj: Partial<DateObj> = { iso: date.toISOString() };
 
   let optionsObj = options;
   if (isString(optionsObj)) {
@@ -75,7 +74,7 @@ export function dateObjByDate(date: Date, options: DateObjOptions | string = {})
 
   dateObj.sqldate = `${dateObj.year}-${dateObj.month}-${dateObj.day}`;
   dateObj.sqldatetime = `${dateObj.sqldate} ${dateObj.times}`;
-  dateObj.sqldatetimeIso = dateObj.iso.replace('T', ' ').slice(0, 19);
+  dateObj.sqldatetimeIso = dateObj.iso!.replace('T', ' ').slice(0, 19);
 
   dateObj.fulldate = `${dateObj.date} ${dateObj.times}`;
   dateObj.fulldateStart = `${dateObj.date} 00:00:00`;
